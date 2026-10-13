@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site, whatsappHref } from '../config/site';
+import { sectors } from '../data/services';
+const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: 'İletişim', url: `${site.url}/iletisim` }];
+---
+<Base title="İletişim | Continuo ile Ücretsiz Keşif Görüşmesi" description="Continuo ile iletişime geçin: ücretsiz keşif görüşmesi planlayın, form doldurun veya e-posta gönderin." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'İletişim', href: '/iletisim' }]} />
+      <h1>İşinizi konuşalım.</h1>
+      <p class="lead">En hızlı yol 30 dakikalık ücretsiz keşif görüşmesi. Dilerseniz formu doldurun, en geç bir iş günü içinde dönelim.</p>
+      <div class="ctas"><a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Keşif görüşmesi planlayın</a>{site.whatsapp && <a class="btn btn-line" href={whatsappHref()} target="_blank" rel="noopener">WhatsApp'tan yazın</a>}</div>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container contact-grid">
+      <form class="form" id="form" action={site.formEndpoint || undefined} method="post">
+        <label>Adınız<input id="ad" name="ad" autocomplete="name" required /></label>
+        <label>E-posta<input id="eposta" name="eposta" type="email" autocomplete="email" required /></label>
+        <label>İşletmenizin adı<input id="isletme" name="isletme" autocomplete="organization" /></label>
+        <label>Sektör
+          <select id="sektor" name="sektor">
+            {sectors.map((s) => <option>{s.title === 'Tüm Sektörler' ? 'Diğer' : s.title}</option>)}
+          </select>
+        </label>
+        <label>Neyi çözmek istiyorsunuz?<textarea id="mesaj" name="mesaj" rows="5" required></textarea></label>
+        <p class="small">Lütfen sağlık bilgisi gibi özel nitelikli kişisel veri paylaşmayın. Bilgileriniz <a href="/kvkk-aydinlatma-metni" style="text-decoration:underline">KVKK Aydınlatma Metni</a> kapsamında işlenir.</p>
+        <button class="btn btn-dark" type="submit" style="justify-self:start;border:0;cursor:pointer">Gönder</button>
+        <p class="small" id="form-msg" role="status"></p>
+      </form>
+      <div class="prose">
+        <h2 style="margin-top:0">Doğrudan ulaşın</h2>
+        <p>Genel sorular: <a href={`mailto:${site.email.info}`}>{site.email.info}</a></p>
+        <p>Teklif talepleri: <a href={`mailto:${site.email.teklif}`}>{site.email.teklif}</a></p>
+        <p>Müşteri desteği: <a href={`mailto:${site.email.destek}`}>{site.email.destek}</a></p>
+        <h2>Hizmet bölgesi</h2>
+        <p>Türkiye genelinde, tamamen uzaktan çalışıyoruz.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+<script define:vars={{ endpoint: site.formEndpoint, mail: site.email.teklif }}>
+  const form = document.getElementById('form');
+  const msg = document.getElementById('form-msg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    if (!endpoint) {
+      const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+      location.href = `mailto:${mail}?subject=${encodeURIComponent('Web sitesi talebi')}&body=${encodeURIComponent(body)}`;
+      msg.textContent = `E-posta uygulamanız açılmadıysa bize ${mail} adresinden yazabilirsiniz.`;
+      return;
+    }
+    try {
+      const r = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (!r.ok) throw new Error();
+      form.reset();
+      msg.textContent = 'Teşekkürler, mesajınız bize ulaştı. En geç bir iş günü içinde dönüyoruz.';
+    } catch {
+      msg.textContent = `Mesaj gönderilemedi. Lütfen ${mail} adresine yazın.`;
+    }
+  });
+</script>

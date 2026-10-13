@@ -1,0 +1,7 @@
+---
+import { site, whatsappHref } from '../config/site';
+const href = whatsappHref();
+---
+<a class="wa-float" href={href} {...(site.whatsapp ? { target: '_blank', rel: 'noopener' } : {})} aria-label={site.whatsapp ? 'WhatsApp asistanımızla konuşun' : 'Bize yazın'}>
+  <span class="dot" aria-hidden="true"></span><span class="t">{site.whatsapp ? 'Asistanımızla konuşun' : 'Bize yazın'}</span>
+</a>

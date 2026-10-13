@@ -1,0 +1,22 @@
+---
+import Doc from '../layouts/Doc.astro';
+import { site } from '../config/site';
+---
+<Doc title="Çerez Politikası" description="Continuo web sitesinde çerez kullanımı ve tercihleriniz hakkında bilgi." updated="13.10.2026" path="/cerez-politikasi">
+  <h2>Çerez nedir?</h2>
+  <p>Çerezler, bir web sitesini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin dosyalarıdır. Sitenin çalışmasına, tercihlerinizin hatırlanmasına ve ziyaret istatistiklerinin tutulmasına yardımcı olurlar.</p>
+  <h2>Sitemizde hangi çerezler kullanılıyor?</h2>
+  <p>Sitemiz şu anda <strong>çerez kullanmamaktadır</strong>. Analitik veya pazarlama amaçlı bir izleme aracı yoktur; yazı tipleri de kendi sunucumuzdan yüklenir.</p>
+  <h2>İleride çerez kullanırsak</h2>
+  <table>
+    <thead><tr><th>Tür</th><th>Amaç</th><th>Rıza gerekir mi?</th></tr></thead>
+    <tbody>
+      <tr><td>Zorunlu çerezler</td><td>Sitenin çalışması, güvenlik, tercihlerinizin hatırlanması</td><td>Hayır</td></tr>
+      <tr><td>Analitik çerezler</td><td>Hangi sayfaların ziyaret edildiğini ölçmek</td><td>Evet</td></tr>
+      <tr><td>Pazarlama çerezleri</td><td>Reklam ölçümü</td><td>Evet</td></tr>
+    </tbody>
+  </table>
+  <p>Zorunlu olmayan çerezler, onayınız alınmadan çalıştırılmaz ve "Reddet" seçeneği "Kabul et" kadar kolay erişilebilir olur. Bu politika o tarihte güncellenir.</p>
+  <h2>İletişim</h2>
+  <p>Sorularınız için: <a href={`mailto:${site.email.info}`}>{site.email.info}</a>. Kişisel verilerinizle ilgili ayrıntılar için <a href="/kvkk-aydinlatma-metni">KVKK Aydınlatma Metni</a>'ne bakabilirsiniz.</p>
+</Doc>

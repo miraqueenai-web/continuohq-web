@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://continuohq.com/sitemap-index.xml

@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site, whatsappHref } from '../config/site';
+import { sectors, sectorUrl } from '../data/services';
+
+const needs = [
+  { k: 'Müşteri iletişimi', h: 'Mesajlara yetişemiyoruz.', p: 'WhatsApp ve Instagram mesajları 7/24, işletmenizin bilgisiyle yanıtlanır.', go: 'WhatsApp Asistanı', href: '/ai-asistanlar/whatsapp-asistani' },
+  { k: 'Randevu & rezervasyon', h: 'Takvim karışıyor.', p: 'Randevular otomatik alınır, hatırlatılır, iptaller yeniden doldurulur.', go: 'Randevu & Rezervasyon', href: '/ai-asistanlar/randevu-rezervasyon' },
+  { k: 'Satış & teklif', h: 'Teklifler geç çıkıyor.', p: 'Talep geldiği anda teklif taslağı hazır, takip hatırlatmaları otomatik.', go: 'AI Ajanları', href: '/ai-donusumu/ai-ajanlari' },
+  { k: 'Operasyon', h: 'Aynı işi her gün elle yapıyoruz.', p: 'Tekrarlayan adımlar uçtan uca otomatikleşir, ekibiniz asıl işe döner.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari', dark: true },
+  { k: 'İK & ekip', h: 'Evrak işi vaktimizi alıyor.', p: 'İşe alım, izin ve personel belgeleri tek bir akışta düzenlenir.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari' },
+  { k: 'Raporlama & veri', h: 'Rakamları toplamak günler sürüyor.', p: 'Dağınık tablolardan haftalık özetler kendiliğinden hazırlanır.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari' },
+  { k: 'Belge & bilgi', h: 'Bilgiler her yere dağılmış.', p: 'Dosyalar, e-postalar ve notlar sorulabilir tek bir bilgi bankasında toplanır.', go: 'AI Ajanları', href: '/ai-donusumu/ai-ajanlari' },
+  { k: 'Tedarik & stok', h: 'Stok takibi elle yürüyor.', p: 'Sipariş, stok ve tedarikçi yazışmaları otomatik izlenir, eksik önceden haber verilir.', go: 'Entegrasyonlar', href: '/ai-donusumu/entegrasyonlar' },
+];
+const tiles = sectors.filter((s) => s.slug !== 'tum-sektorler');
+const tileClass: Record<string, string> = { 'konaklama-turizm': 't1', 'guzellik-estetik': 't2', 'saglik-beslenme': 't3' };
+const wa = whatsappHref();
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Continuo',
+  url: site.url,
+  description: site.description,
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  serviceType: ['Yapay zeka asistanı', 'WhatsApp asistanı', 'Süreç otomasyonu', 'Yapay zeka danışmanlığı'],
+  email: site.email.info,
+};
+---
+<Base
+  title="Continuo | Yapay Zeka Ajansı: İşletmenize Özel AI Asistanlar ve Otomasyon"
+  description="Continuo, işletmelere özel yapay zeka asistanları ve otomasyonlar kuran bir yapay zeka ajansıdır. WhatsApp ve Instagram asistanları, randevu otomasyonu, operasyon ve raporlama otomasyonları."
+  jsonld={[faqLd]}
+>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Yapay Zeka Ajansı</span>
+      <h1>İşletmeniz artık <span class="grad">hiç uyumuyor.</span></h1>
+      <p class="lead">İşletmenize özel yapay zeka asistanları ve otomasyonlar. Mesajları yanıtlar, randevuları yönetir, tekrarlayan işleri üstlenir.</p>
+      <div class="ctas">
+        {site.whatsapp ? (
+          <>
+            <a class="btn btn-dark" href={wa} target="_blank" rel="noopener">Asistanımızla konuşun</a>
+            <a class="btn btn-line" href={site.bookingUrl} target="_blank" rel="noopener">Ücretsiz keşif görüşmesi</a>
+          </>
+        ) : (
+          <>
+            <a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Ücretsiz keşif görüşmesi</a>
+            <a class="btn btn-line" href="/iletisim">Bize yazın</a>
+          </>
+        )}
+      </div>
+      <div class="demo-wrap">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="phone" role="img" aria-label="Bir otelin WhatsApp asistanıyla örnek konuşma">
+          <div class="screen">
+            <div class="chat-head">
+              <span class="av" style="--mk-ink:#111"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg></span>
+              <span><b>Örnek Otel</b><small>Asistan · çevrim içi</small></span>
+            </div>
+            <div class="msgs anim">
+              <div class="m in">Merhaba, 14–16 Kasım için iki kişilik oda var mı?<span class="t">02:14</span></div>
+              <div class="m out">Merhaba! 14–16 Kasım için deniz manzaralı çift kişilik odamız müsait. Kahvaltı dahil gecelik fiyatı göndereyim mi?<span class="t">02:14</span></div>
+              <div class="m in">Evet lütfen, bir de otopark var mı?<span class="t">02:15</span></div>
+              <div class="m out">Ücretsiz otoparkımız var. Fiyat ve rezervasyon bağlantısını iletiyorum. Ödeme sırasında bir sorunuz olursa ekibimize bağlanabilirsiniz.<span class="t">02:15</span></div>
+              <div class="m handoff">Sabah 09:00'da resepsiyon ekibi konuşmayı devralabilir</div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-cap">Örnek senaryo. Gece 02:14'te gelen soru, sabahı beklemeden yanıtlanıyor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="container">
+      <p id="stmt">Müşterileriniz cevap beklemez. Ekibiniz tekrarlayan işlerde tükenmemeli. Biz her işletmeye kendi diliyle konuşan, kendi kurallarıyla çalışan <span class="gw">yapay zeka sistemleri</span> kuruyoruz.</p>
+    </div>
+  </section>
+
+  <section class="sec paper" id="ihtiyaclar">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">İhtiyacınızdan başlayın</span>
+        <h2>Sizi en çok ne yoruyor?</h2>
+        <p>Mesajlaşmadan raporlamaya, işe alımdan stoğa. Önce sorunu konuşuruz, sonra ona uygun sistemi kurarız.</p>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="track" id="track">
+        {needs.map((n) => (
+          <a class={`need${n.dark ? ' dark' : ''}`} href={n.href}>
+            <div><span class="k">{n.k}</span><h3>{n.h}</h3></div>
+            <p>{n.p}</p>
+            <span class="go">{n.go} ›</span>
+          </a>
+        ))}
+      </div>
+      <div class="slider-ctrl">
+        <button class="slider-btn" type="button" data-dir="-1" aria-label="Önceki kartlar">‹</button>
+        <button class="slider-btn" type="button" data-dir="1" aria-label="Sonraki kartlar">›</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sektorler">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Sektörler</span>
+        <h2>Sektörünüzün dilini konuşur.</h2>
+        <p>Her sektörün soruları, kuralları ve yoğun saatleri farklıdır. Asistanınız bunları bilerek kurulur.</p>
+      </div>
+      <div class="sectors">
+        {tiles.map((s) => (
+          <a class={`tile ${tileClass[s.slug]} reveal`} href={sectorUrl(s)} style={s.image ? `background-image:url(${s.image})` : undefined}>
+            <div><h3>{s.title}</h3><p>{s.lead}</p></div>
+            <span class="go">Keşfedin ›</span>
+          </a>
+        ))}
+        <a class="tile t4 reveal" href="/sektorler/tum-sektorler">
+          <div><span class="plus" aria-hidden="true">+</span><h3>Sektörünüz listede yok mu?</h3><p>Süreçlerinizi anlatın, size özel kurgulayalım. Her işletmenin otomatikleşebilecek bir işi vardır.</p></div>
+          <span class="go">Bize anlatın →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec paper" id="surec">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Nasıl çalışırız</span>
+        <h2>Dört adımda canlıda.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="n">1. Keşif</span><h3>Dinliyoruz</h3><p>30 dakikalık ücretsiz görüşmede işinizi ve sizi en çok yoran noktaları konuşuyoruz.</p></div>
+        <div class="step reveal"><span class="n">2. Kurgu</span><h3>Tasarlıyoruz</h3><p>Hangi işin otomatikleşeceğini, nerede insana devredileceğini birlikte netleştiriyoruz.</p></div>
+        <div class="step reveal"><span class="n">3. Kurulum</span><h3>Kuruyoruz</h3><p>Asistanı işletmenizin bilgisiyle eğitip mevcut kanallarınıza bağlıyoruz.</p></div>
+        <div class="step reveal"><span class="n">4. Ölçüm</span><h3>İyileştiriyoruz</h3><p>Kurulum öncesi ve sonrasını kıyaslıyor, sistemi her ay geliştiriyoruz.</p></div>
+      </div>
+      <p style="margin-top:28px"><a class="chip" href="/nasil-calisiriz">Süreci ayrıntılı inceleyin ›</a></p>
+    </div>
+  </section>
+
+  <section class="sec principle">
+    <div class="container reveal">
+      <span class="eyebrow">İlkemiz</span>
+      <p class="big">Her asistanda <span class="grad">insana devir</span> vardır.</p>
+      <p class="sub">Yapay zeka işin hızlı kısmını üstlenir. Hassas, karmaşık ya da duygusal bir konu açıldığında konuşma ekibinize geçer. Müşteriniz hiçbir zaman çıkmaza girmez.</p>
+    </div>
+  </section>
+
+  {site.whatsapp
+    ? <CtaBand title="Ürünümüzü konuşarak deneyin." text="WhatsApp asistanımız da bizim kurduğumuz bir sistem. Sorularınızı ona sorun ya da 30 dakikalık ücretsiz keşif görüşmesi planlayın." />
+    : <CtaBand />}
+</Base>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stmt = document.getElementById('stmt');
+  if (stmt) {
+    const walk = (node: Node) => {
+      [...node.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          (n.textContent || '').split(/(\s+)/).forEach((part) => {
+            if (!part || /^\s+$/.test(part)) { frag.append(part); return; }
+            const s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.append(s);
+          });
+          n.replaceWith(frag);
+        } else walk(n);
+      });
+    };
+    walk(stmt);
+    const words = [...stmt.querySelectorAll<HTMLElement>('.w')];
+    const paint = () => {
+      if (reduce) return;
+      const r = stmt.getBoundingClientRect();
+      const start = innerHeight * 0.85, end = innerHeight * 0.3;
+      const p = Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height * 0.6)));
+      const lit = p * words.length;
+      words.forEach((w, i) => { w.style.opacity = i < lit ? '1' : '0.22'; });
+    };
+    addEventListener('scroll', paint, { passive: true });
+    addEventListener('resize', paint);
+    paint();
+  }
+  const track = document.getElementById('track');
+  document.querySelectorAll<HTMLButtonElement>('.slider-btn').forEach((b) => b.addEventListener('click', () => {
+    if (!track) return;
+    track.scrollBy({ left: Number(b.dataset.dir) * Math.min(track.clientWidth * 0.8, 720), behavior: reduce ? 'auto' : 'smooth' });
+  }));
+</script>

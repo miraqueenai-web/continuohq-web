@@ -1,0 +1,42 @@
+---
+import { site } from '../config/site';
+import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/services';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-cols">
+      <div>
+        <a class="logo" href="/" aria-label="Continuo ana sayfa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
+        <p style="margin:14px 0 0;max-width:34ch">{site.tagline}. İşletmenize özel yapay zeka asistanları ve otomasyonlar.</p>
+        <p style="margin:10px 0 0"><a href={`mailto:${site.email.info}`}>{site.email.info}</a></p>
+      </div>
+      <div>
+        <h4><a href="/ai-asistanlar">{groups['ai-asistanlar'].title}</a></h4>
+        <ul>{services.filter((s) => s.group === 'ai-asistanlar').map((s) => <li><a href={serviceUrl(s)}>{s.title}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4><a href="/ai-donusumu">{groups['ai-donusumu'].title}</a></h4>
+        <ul>{services.filter((s) => s.group === 'ai-donusumu').map((s) => <li><a href={serviceUrl(s)}>{s.title}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4><a href="/sektorler">Sektörler</a></h4>
+        <ul>{sectors.map((s) => <li><a href={sectorUrl(s)}>{s.title}</a></li>)}</ul>
+        <h4 style="margin-top:22px">Kurumsal</h4>
+        <ul>
+          <li><a href="/nasil-calisiriz">Nasıl Çalışırız</a></li>
+          <li><a href="/hakkimizda">Hakkımızda</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/iletisim">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© {year} Continuo</span>
+      <nav aria-label="Hukuki">
+        <a href="/kvkk-aydinlatma-metni">KVKK Aydınlatma Metni</a>
+        <a href="/cerez-politikasi">Çerez Politikası</a>
+      </nav>
+    </div>
+  </div>
+</footer>

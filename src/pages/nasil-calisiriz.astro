@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config/site';
+const steps = [
+  { n: '1. Keşif', h: 'Dinliyoruz', p: '30 dakikalık ücretsiz görüşmede işinizi, müşterilerinizin en sık sorduklarını ve ekibinizi en çok yoran işleri konuşuyoruz. Hangi işin otomatikleşmeye uygun olduğunu ilk görüşmede açıkça söylüyoruz.' },
+  { n: '2. Kurgu', h: 'Tasarlıyoruz', p: 'Asistanın neyi yanıtlayacağını, hangi durumda konuşmayı ekibinize devredeceğini, hangi sistemlere bağlanacağını birlikte yazıyoruz. Kapsam, süre ve ücret bu aşamada netleşiyor.' },
+  { n: '3. Kurulum', h: 'Kuruyoruz', p: 'Asistanı işletmenizin bilgisiyle eğitiyor, WhatsApp, Instagram, web sitesi veya kullandığınız yazılımlara bağlıyoruz. Yayına almadan önce gerçek senaryolarla birlikte test ediyoruz.' },
+  { n: '4. Ölçüm', h: 'İyileştiriyoruz', p: 'Kurulum öncesindeki durumunuzu ölçüp sonrasıyla kıyaslıyoruz: yanıt süresi, randevuya dönüşüm, kazanılan zaman. Konuşmaları düzenli inceleyip sistemi her ay geliştiriyoruz.' },
+];
+const faqs = [
+  { q: 'Kurulum ne kadar sürer?', a: 'Kapsama göre değişir. Tek kanallı bir mesajlaşma asistanı genellikle birkaç hafta içinde yayına alınabilir; çok adımlı otomasyonlar daha uzun sürebilir. Net süreyi kurgu aşamasında veririz.' },
+  { q: 'Ücretlendirme nasıl yapılıyor?', a: 'Genellikle tek seferlik bir kurulum ücreti ve sistemin bakımı, iyileştirilmesi ve altyapı giderleri için aylık bir hizmet bedeli olarak çalışırız. Teklifi kapsamınıza göre keşif görüşmesinden sonra hazırlarız.' },
+  { q: 'Sonuçları nasıl ölçüyorsunuz?', a: 'Kurulumdan önce mevcut durumunuzu, örneğin yanıt süresini ve randevuya dönüşen mesaj oranını kaydeder, kurulumdan sonra aynı ölçütlerle kıyaslarız. Rakam vaat etmek yerine sizin verinizle ölçeriz.' },
+  { q: 'Asistan yetersiz kalırsa ne olur?', a: 'Her asistanda insana devir vardır. Asistanın yanıtlayamadığı ya da hassas olan her konu ekibinize geçer; bu konuşmalardan öğrenerek sistemi geliştiririz.' },
+];
+const ld = [{ '@context': 'https://schema.org', '@type': 'HowTo', name: 'Continuo ile yapay zeka asistanı kurulum süreci', step: steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.h, text: s.p })) },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
+---
+<Base title="Nasıl Çalışırız | Yapay Zeka Asistanı Kurulum Süreci" description="Keşif, kurgu, kurulum ve ölçüm: Continuo ile yapay zeka asistanı ve otomasyon kurulum süreci adım adım. Ücretlendirme modeli ve sık sorulan sorular." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Nasıl Çalışırız', href: '/nasil-calisiriz' }]} />
+      <h1>Dört adımda canlıda.</h1>
+      <p class="lead">Önce dinleriz, sonra kurarız. Her adımda ne olacağını baştan bilirsiniz.</p>
+      <div class="answer"><strong>Kısaca</strong>Continuo ile çalışma dört adımdan oluşur: ücretsiz keşif görüşmesi, birlikte kurgu, kurulum ve test, ardından düzenli ölçüm ve iyileştirme. Sonuçları kurulum öncesindeki durumunuzla kıyaslayarak ölçeriz.</div>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container">
+      <div class="grid-2">{steps.map((s) => <div class="card"><span class="k">{s.n}</span><h3>{s.h}</h3><p>{s.p}</p></div>)}</div>
+      <p style="margin-top:28px" class="links-list"><a class="chip" href="/ai-asistanlar">AI Asistanlar ›</a><a class="chip" href="/ai-donusumu">AI Dönüşümü ›</a><a class="chip" href={site.bookingUrl} target="_blank" rel="noopener">Keşif görüşmesi planlayın ›</a></p>
+    </div>
+  </section>
+  <Faq faqs={faqs} />
+  <CtaBand />
+</Base>

@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CtaBand from './CtaBand.astro';
+import { site } from '../config/site';
+import { groups, services, serviceUrl, sectors, sectorUrl } from '../data/services';
+export interface Props { group: 'ai-asistanlar' | 'ai-donusumu' }
+const { group } = Astro.props;
+const g = groups[group];
+const list = services.filter((s) => s.group === group);
+const other = group === 'ai-asistanlar' ? 'ai-donusumu' : 'ai-asistanlar';
+const isAi = group === 'ai-donusumu';
+const url = `${site.url}/${group}`;
+const ld = [
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: site.url },
+    { '@type': 'ListItem', position: 2, name: g.title, item: url } ] },
+  { '@context': 'https://schema.org', '@type': 'ItemList', name: g.title, itemListElement: list.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.title, url: `${site.url}${serviceUrl(s)}` })) },
+];
+---
+<Base title={g.seoTitle} description={g.description} jsonld={ld}>
+  <section class={`page-hero${isAi ? ' ai-glow' : ''}`}>
+    {isAi && <div class="glow" aria-hidden="true"></div>}
+    <div class="container">
+      <Breadcrumbs items={[{ name: g.title, href: `/${group}` }]} />
+      <h1>{isAi ? <>İşinizi <span class="grad-ai">yapay zekayla</span> yeniden kurgulayın.</> : g.title}</h1>
+      <p class="lead">{g.lead}</p>
+      <div class="answer"><strong>Kısaca</strong>{g.answer}</div>
+      <div class="ctas">
+        <a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Ücretsiz keşif görüşmesi</a>
+      </div>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container">
+      <div class="sec-head"><span class="eyebrow">{g.menuNote}</span><h2>{isAi ? 'Neler yapıyoruz?' : 'Hangi asistan size uygun?'}</h2></div>
+      <div class="grid-3">
+        {list.map((s) => (
+          <a class="card" href={serviceUrl(s)}>
+            <span class="k">{s.short}</span>
+            <h3>{s.title}</h3>
+            <p>{s.lead}</p>
+            <span class="go">İnceleyin ›</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="container">
+      <div class="sec-head"><span class="eyebrow">Sektörler</span><h2>Sektörünüze göre başlayın</h2></div>
+      <div class="links-list">
+        {sectors.map((s) => <a class="chip" href={sectorUrl(s)}>{s.title} ›</a>)}
+        <a class="chip" href={`/${other}`}>{groups[other].title} ›</a>
+      </div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

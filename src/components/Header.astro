@@ -1,0 +1,129 @@
+---
+import { site } from '../config/site';
+import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/services';
+
+const menus = [
+  {
+    id: 'asistan', title: groups['ai-asistanlar'].title, href: '/ai-asistanlar',
+    items: services.filter((s) => s.group === 'ai-asistanlar').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
+    feat: site.whatsapp
+      ? { ey: 'Canlı deneyin', title: 'Asistanımızla şimdi konuşun', text: 'Ürünümüzü sohbet ederek tanıyın. Yanıtlar saniyeler içinde.', btn: 'Konuşmayı başlat', href: `https://wa.me/${site.whatsapp}` }
+      : { ey: '30 dakika, ücretsiz', title: 'Size uygun asistanı bulalım', text: 'Mesaj trafiğinizi konuşalım, hangi asistanın işinize yarayacağını birlikte belirleyelim.', btn: 'Görüşme planla', href: site.bookingUrl },
+  },
+  {
+    id: 'donusum', title: groups['ai-donusumu'].title, href: '/ai-donusumu',
+    items: services.filter((s) => s.group === 'ai-donusumu').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
+    feat: { ey: '30 dakika, ücretsiz', title: 'Keşif görüşmesi', text: 'İşinizi dinleyelim, otomatikleşebilecek adımları birlikte çıkaralım.', btn: 'Görüşme planla', href: site.bookingUrl },
+  },
+  {
+    id: 'sektor', title: 'Sektörler', href: '/sektorler',
+    items: sectors.map((s) => ({ title: s.title, note: s.menuNote, href: sectorUrl(s) })),
+    feat: { ey: 'Sektörünüz yok mu?', title: 'Süreçlerinizi anlatın', text: 'Her işletmenin otomatikleşebilecek bir işi vardır.', btn: 'Bize anlatın', href: site.bookingUrl },
+  },
+];
+const plain = [
+  { title: 'Nasıl Çalışırız', href: '/nasil-calisiriz' },
+  { title: 'Blog', href: '/blog' },
+  { title: 'Hakkımızda', href: '/hakkimizda' },
+];
+const ext = (h: string) => h.startsWith('http');
+---
+<header class="nav" id="nav">
+  <div class="bar">
+    <a class="logo" href="/" aria-label="Continuo ana sayfa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
+    <ul class="nav-links" id="links">
+      <span class="hl" aria-hidden="true"></span>
+      {menus.map((m) => <li><button type="button" class="nav-top" aria-expanded="false" aria-controls={`dd-${m.id}`} data-menu={m.id}>{m.title}</button></li>)}
+      {plain.map((p) => <li><a href={p.href}>{p.title}</a></li>)}
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-dark btn-sm" href={site.bookingUrl} target="_blank" rel="noopener">Keşif Görüşmesi</a>
+      <button type="button" class="burger" aria-expanded="false" aria-controls="sheet" aria-label="Menüyü aç"><span></span><span></span></button>
+    </div>
+    {menus.map((m) => (
+      <div class="dd" id={`dd-${m.id}`} role="region" aria-label={m.title} hidden>
+        <ul class="dd-list">
+          {m.items.map((i) => <li><a href={i.href} class="dd-item"><span class="dd-txt"><b>{i.title}</b><small>{i.note}</small></span></a></li>)}
+          <li><a href={m.href} class="dd-item"><span class="dd-txt"><b>Tümünü görün</b><small>{m.title} ana sayfası</small></span></a></li>
+        </ul>
+        <div class="dd-feat"><span class="dd-ey">{m.feat.ey}</span><b>{m.feat.title}</b><p>{m.feat.text}</p><a class="dd-btn" href={m.feat.href} {...(ext(m.feat.href) ? { target: '_blank', rel: 'noopener' } : {})}>{m.feat.btn} →</a></div>
+      </div>
+    ))}
+  </div>
+</header>
+<div class="sh-back" id="shback" hidden></div>
+<div class="sheet" id="sheet" hidden>
+  <span class="sh-handle" aria-hidden="true"></span>
+  <ul class="sh-list">
+    {menus.map((m) => (
+      <li class="sh-group">
+        <button type="button" class="sh-top" aria-expanded="false">{m.title}<span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <ul class="sh-sub" hidden>
+          {m.items.map((i) => <li><a href={i.href}>{i.title}</a></li>)}
+          <li><a href={m.href}>Tümünü görün</a></li>
+        </ul>
+      </li>
+    ))}
+    {plain.map((p) => <li><a class="sh-plain" href={p.href}>{p.title}</a></li>)}
+  </ul>
+  <a class="btn btn-dark sh-cta" href={site.bookingUrl} target="_blank" rel="noopener">Ücretsiz keşif görüşmesi</a>
+</div>
+
+<script>
+  const nav = document.getElementById('nav')!;
+  const bar = nav.querySelector('.bar') as HTMLElement;
+  const links = document.getElementById('links')!;
+  const hl = links.querySelector('.hl') as HTMLElement;
+  const dds = () => document.querySelectorAll<HTMLElement>('.dd');
+  const tops = () => document.querySelectorAll<HTMLButtonElement>('.nav-top');
+  let openId: string | null = null;
+  let closeT: number | undefined;
+  function moveHl(el: HTMLElement | null) {
+    if (!el) { hl.style.opacity = '0'; return; }
+    const lr = links.getBoundingClientRect(), r = el.getBoundingClientRect();
+    hl.style.width = r.width + 'px'; hl.style.transform = `translateX(${r.left - lr.left}px)`; hl.style.opacity = '1';
+  }
+  function placeDd(dd: HTMLElement, btn: HTMLElement) {
+    const br = bar.getBoundingClientRect(), r = btn.getBoundingClientRect(), w = dd.offsetWidth;
+    let left = r.left + r.width / 2 - w / 2 - br.left;
+    left = Math.max(0, Math.min(left, br.width - w));
+    dd.style.left = left + 'px';
+  }
+  function hideAll() {
+    dds().forEach((d) => { d.hidden = true; d.classList.remove('open'); });
+    tops().forEach((b) => b.setAttribute('aria-expanded', 'false'));
+    openId = null;
+  }
+  function openMenu(id: string, btn: HTMLElement) {
+    clearTimeout(closeT);
+    if (openId === id) return;
+    dds().forEach((d) => { const on = d.id === 'dd-' + id; d.hidden = !on; d.classList.toggle('open', on); if (on) placeDd(d, btn); });
+    tops().forEach((b) => b.setAttribute('aria-expanded', String(b.dataset.menu === id)));
+    openId = id;
+  }
+  function closeMenu() { hideAll(); moveHl(null); }
+  links.querySelectorAll<HTMLElement>('.nav-top, li > a').forEach((el) => el.addEventListener('mouseenter', () => {
+    moveHl(el);
+    if (el.dataset.menu) openMenu(el.dataset.menu, el); else closeT = window.setTimeout(hideAll, 100);
+  }));
+  tops().forEach((b) => b.addEventListener('click', () => { if (openId === b.dataset.menu) closeMenu(); else { moveHl(b); openMenu(b.dataset.menu!, b); } }));
+  nav.addEventListener('mouseleave', () => { closeT = window.setTimeout(closeMenu, 200); });
+  nav.addEventListener('mouseenter', () => clearTimeout(closeT));
+  document.addEventListener('click', (e) => { if (openId && !nav.contains(e.target as Node)) closeMenu(); });
+
+  const burger = document.querySelector('.burger') as HTMLButtonElement;
+  const sheet = document.getElementById('sheet')!;
+  const shback = document.getElementById('shback')!;
+  function setSheet(on: boolean) {
+    sheet.hidden = !on; shback.hidden = !on; sheet.classList.toggle('open', on);
+    burger.setAttribute('aria-expanded', String(on)); burger.setAttribute('aria-label', on ? 'Menüyü kapat' : 'Menüyü aç');
+    document.body.style.overflow = on ? 'hidden' : '';
+  }
+  burger.addEventListener('click', () => setSheet(sheet.hidden));
+  shback.addEventListener('click', () => setSheet(false));
+  document.querySelectorAll<HTMLButtonElement>('.sh-top').forEach((b) => b.addEventListener('click', () => {
+    const sub = b.nextElementSibling as HTMLElement; const on = sub.hidden; sub.hidden = !on; b.setAttribute('aria-expanded', String(on));
+  }));
+  sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setSheet(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMenu(); setSheet(false); } });
+</script>

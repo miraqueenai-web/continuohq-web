@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../config/site';
+const ld = [{ '@context': 'https://schema.org', '@type': 'Person', '@id': `${site.url}/yazar/neslisah-gokkaya#person`, name: site.founder, jobTitle: 'Kurucu', worksFor: { '@id': `${site.url}/#organization` }, url: `${site.url}/yazar/neslisah-gokkaya`, knowsAbout: ['Yapay zeka asistanları', 'İş süreçleri otomasyonu', 'WhatsApp Business', 'Dijital pazarlama'], ...(site.social.length ? { sameAs: site.social } : {}) }];
+---
+<Base title={`${site.founder} | Continuo Kurucusu`} description={`${site.founder}, Continuo'nun kurucusu. İşletmeler için yapay zeka asistanları, otomasyon ve dijital dönüşüm üzerine yazıyor.`} jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Blog', href: '/blog' }, { name: site.founder, href: '/yazar/neslisah-gokkaya' }]} />
+      <h1>{site.founder}</h1>
+      <p class="lead">Continuo kurucusu. İşletmeler için yapay zeka asistanları, otomasyon ve dijital dönüşüm üzerine çalışıyor ve yazıyor.</p>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container prose">
+      <p>Yazılarımızda kullandığımız her rakamın birincil kaynağını bağlantısıyla veriyoruz. Kaynak politikamız: araştırma kurumlarının raporları, resmî ve düzenleyici kaynaklar, Türkiye verisi ve sektör kaynakları.</p>
+      <p><a href="/blog">Tüm yazılar ›</a></p>
+    </div>
+  </section>
+</Base>

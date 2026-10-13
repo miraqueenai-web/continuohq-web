@@ -1,0 +1,22 @@
+---
+import { site, whatsappHref } from '../config/site';
+export interface Props { title?: string; text?: string }
+const {
+  title = 'İşinizi dinleyelim, birlikte kurgulayalım.',
+  text = '30 dakikalık ücretsiz keşif görüşmesinde süreçlerinizi konuşur, yapay zekanın size en çok nerede değer katacağını birlikte belirleriz.',
+} = Astro.props;
+const wa = whatsappHref();
+---
+<section class="sec">
+  <div class="container">
+    <div class="cta-band">
+      <div class="glow" aria-hidden="true"></div>
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href={site.bookingUrl} target="_blank" rel="noopener">Keşif görüşmesi planlayın</a>
+        <a class="btn btn-line" href={wa} {...(wa.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{site.whatsapp ? 'WhatsApp\'tan yazın' : 'Bize yazın'}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+---
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+export interface Props { frontmatter?: { title: string; description: string; updated?: string; path: string } ; title?: string; description?: string; updated?: string; path?: string }
+const fm = Astro.props.frontmatter ?? (Astro.props as any);
+---
+<Base title={fm.title} description={fm.description}>
+  <section class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <Breadcrumbs items={[{ name: fm.title, href: fm.path }]} />
+      <h1 style="max-width:20ch">{fm.title}</h1>
+      {fm.updated && <p class="lead" style="font-size:15px">Son güncelleme: {fm.updated}</p>}
+    </div>
+  </section>
+  <section class="sec" style="padding-top:20px">
+    <div class="container"><article class="prose"><slot /></article></div>
+  </section>
+</Base>

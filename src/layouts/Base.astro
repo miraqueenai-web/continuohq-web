@@ -1,0 +1,92 @@
+---
+import '@fontsource/albert-sans/latin-ext-400.css';
+import '@fontsource/albert-sans/latin-400.css';
+import '@fontsource/inter/latin-ext-400.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-ext-500.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-ext-600.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter-tight/latin-ext-600.css';
+import '@fontsource/inter-tight/latin-600.css';
+import '@fontsource/inter-tight/latin-ext-700.css';
+import '@fontsource/inter-tight/latin-700.css';
+import '../styles/global.css';
+import LogoSymbol from '../components/LogoSymbol.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { site } from '../config/site';
+
+export interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  image?: string;
+  noindex?: boolean;
+  jsonld?: Record<string, unknown>[];
+}
+const { title, description, type = 'website', image = '/og.png', noindex = false, jsonld = [] } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/', site.url).href;
+const fullTitle = title.includes('Continuo') ? title : `${title} | Continuo`;
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}/logo.png`,
+  email: site.email.info,
+  description: site.description,
+  areaServed: site.areaServed,
+  founder: { '@type': 'Person', name: site.founder },
+  ...(site.social.length ? { sameAs: site.social } : {}),
+};
+const web = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, url: site.url, name: site.name, inLanguage: 'tr-TR', publisher: { '@id': `${site.url}/#organization` } };
+const graphs = [org, web, ...jsonld];
+---
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <meta property="og:type" content={type} />
+  <meta property="og:site_name" content="Continuo" />
+  <meta property="og:locale" content={site.locale} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL(image, site.url).href} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  {graphs.map((g) => <script type="application/ld+json" set:html={JSON.stringify(g)} />)}
+</head>
+<body>
+  <LogoSymbol />
+  <a class="skip" href="#icerik">İçeriğe geç</a>
+  <Header />
+  <main id="icerik">
+    <slot />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+  <script>
+    // Kaydırma girişleri: yalnızca ekranın altında kalanlar yumuşakça yükselir
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('js');
+    const reveals = [...document.querySelectorAll<HTMLElement>('.reveal')];
+    if (!reduce && 'IntersectionObserver' in window) {
+      reveals.forEach((el) => { if (el.getBoundingClientRect().top > innerHeight) el.classList.add('below'); });
+      const io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { en.target.classList.remove('below'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -10% 0px' });
+      reveals.forEach((el) => io.observe(el));
+    }
+  </script>
+</body>
+</html>

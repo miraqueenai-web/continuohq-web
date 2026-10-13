@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config/site';
+const ld = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Hakkımızda', url: `${site.url}/hakkimizda`, about: { '@id': `${site.url}/#organization` } }];
+---
+<Base title="Hakkımızda | Continuo Yapay Zeka Ajansı" description="Continuo, işletmelerin müşteri iletişimini ve tekrarlayan işlerini yapay zekayla kolaylaştırmak için kuruldu. İlkelerimiz ve çalışma anlayışımız." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Hakkımızda', href: '/hakkimizda' }]} />
+      <h1>Yapay zekayı işletmenin diline çeviriyoruz.</h1>
+      <p class="lead">Continuo, işletmelerin müşteri iletişimini ve tekrarlayan işlerini yapay zekayla kolaylaştırmak için kuruldu.</p>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container">
+      <div class="prose">
+        <h2>Neden Continuo?</h2>
+        <p>Continuo, İtalyancada "sürekli" demektir. İşletmenizin müşterilerine gece gündüz, kesintisiz cevap verebilmesi; ekibinizin ise tekrarlayan işlerde tükenmeden asıl işine odaklanabilmesi için çalışıyoruz.</p>
+        <p>Yapay zeka her gün daha güçlü hale geliyor, ama çoğu işletme için nereden başlanacağı belirsiz. Biz bu belirsizliği ortadan kaldırıyoruz: işinizi dinliyor, yapay zekanın gerçekten fayda sağlayacağı yeri buluyor ve sistemi sizin kurallarınızla kuruyoruz.</p>
+        <h2>İlkelerimiz</h2>
+        <ul>
+          <li><strong>Her asistanda insana devir vardır.</strong> Hassas ya da karmaşık konular her zaman ekibinize geçer.</li>
+          <li><strong>Rakam vaat etmeyiz, ölçeriz.</strong> Sonuçları kurulum öncesindeki durumunuzla kıyaslarız.</li>
+          <li><strong>Veriniz sizindir.</strong> Kurulumları KVKK'ya uygun kurgular, yalnızca gerekli veriyi işleriz.</li>
+          <li><strong>İşletmenize özel.</strong> Genel bir sohbet botu değil, sizin bilginizle konuşan bir asistan kurarız.</li>
+        </ul>
+        <h2>Kurucu</h2>
+        <p>Continuo, <a href="/yazar/neslisah-gokkaya">{site.founder}</a> tarafından kuruldu. Blogumuzda yapay zeka ve otomasyonla ilgili güncel gelişmeleri, kaynaklarıyla birlikte paylaşıyoruz.</p>
+      </div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>
