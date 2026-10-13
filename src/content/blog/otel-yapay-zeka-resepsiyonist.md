@@ -69,7 +69,7 @@ Bir yapay zeka resepsiyonist kurmadan önce şu sorulara yanıt verin:
 
 Konuşma tabanlı yapay zekanın turizmdeki yerini inceleyen 2026 tarihli hakemli bir derleme, sohbet botlarının, sanal asistanların ve büyük dil modeli tabanlı ajanların gezginlerin müşteri yolculuğunu nasıl şekillendirdiğine odaklanan çalışmaların hızla arttığını ortaya koyuyor ([Cogent Business & Management](https://www.tandfonline.com/doi/full/10.1080/23311975.2026.2613599)).
 
-Türkiye'de de işletmelerin yapay zeka kullanımı hızla artıyor. TÜİK verilerine göre yapay zeka kullanan girişimlerin oranı 2025'te yüzde 7,5 iken 2026'da yüzde 14'e çıktı; kullanım amaçları arasında ilk sırada pazarlama ve satış geliyor ([TÜİK verilerini aktaran Karar haberi](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)).
+Türkiye'de de işletmelerin yapay zeka kullanımı hızla artıyor. TÜİK verilerine göre yapay zeka kullanan girişimlerin oranı 2025'te yüzde 7,5 iken 2026'da yüzde 14'e çıktı; kullanım amaçları arasında ilk sırada pazarlama ve satış geliyor ([TÜİK](https://veriportali.tuik.gov.tr/tr/press/62066)).
 
 ## Sonuç
 
@@ -80,4 +80,4 @@ Otelinize nasıl kurulacağını [Konaklama & Turizm](/sektorler/konaklama-turiz
 ## Kaynaklar
 
 - "Conversational AI in hospitality and tourism: a bibliometric–systematic review", Cogent Business & Management, 2026: [tandfonline.com](https://www.tandfonline.com/doi/full/10.1080/23311975.2026.2613599)
-- TÜİK, Yapay Zeka Kullanım İstatistikleri 2026 (aktaran: Karar): [karar.com](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)
+- TÜİK, Girişimlerde Bilişim Teknolojileri Kullanım Araştırması 2026: [veriportali.tuik.gov.tr](https://veriportali.tuik.gov.tr/tr/press/62066)

@@ -20,11 +20,11 @@ Yapay zeka her işe yarar gibi görünür, bu yüzden nereden başlanacağı bel
 
 ## Rakamlar ne diyor?
 
-**Türkiye'de kullanım hızla artıyor, ama küçükler geride.** TÜİK verilerine göre 10 ve üzeri çalışanı olan girişimler arasında yapay zeka kullananların oranı 2021'de yüzde 2,7 idi. Bu oran 2025'te yüzde 7,5'e, 2026'da yüzde 14'e çıktı. Ancak büyüklüğe göre fark çok belirgin: 10–49 çalışanlı girişimlerde oran yüzde 12,8 iken 250 ve üzeri çalışanlı girişimlerde yüzde 37,1 ([TÜİK verilerini aktaran Karar haberi](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)).
+**Türkiye'de kullanım hızla artıyor, ama küçükler geride.** TÜİK verilerine göre 10 ve üzeri çalışanı olan girişimler arasında yapay zeka kullananların oranı 2021'de yüzde 2,7 idi. Bu oran 2025'te yüzde 7,5'e, 2026'da yüzde 14'e çıktı. Ancak büyüklüğe göre fark çok belirgin: 10–49 çalışanlı girişimlerde oran yüzde 12,8 iken 250 ve üzeri çalışanlı girişimlerde yüzde 37,1 ([TÜİK, Bilişim Teknolojileri Kullanım Araştırması 2026](https://veriportali.tuik.gov.tr/tr/press/62066); önceki yılların karşılaştırması için bkz. [Karar](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)).
 
 **En yaygın kullanım amacı pazarlama ve satış.** Aynı veriye göre yapay zeka kullanan girişimlerin yarısından fazlası (yüzde 51) onu pazarlama veya satış için kullanıyor.
 
-**Kullanmayanların en büyük engeli bilgi eksikliği.** Yapay zeka kullanmayan girişimlerin büyük çoğunluğu (yüzde 72,3) bunun nedeni olarak uzmanlık eksikliğini gösteriyor (TÜİK 2026 verileri; değerlendirme için bkz. [Prof. Dr. Mahmut Özer, Milliyet](https://www.milliyet.com.tr/yazarlar/prof-dr-mahmut-ozer/tuik-yapay-zeka-2026-yili-istatistikleri-ne-soyluyor-7672996)).
+**Kullanmayanların en büyük engeli bilgi eksikliği.** Yapay zeka kullanmayan girişimlerin büyük çoğunluğu (yüzde 72,3) bunun nedeni olarak uzmanlık eksikliğini gösteriyor ([TÜİK bülteni](https://veriportali.tuik.gov.tr/tr/press/62066); değerlendirme için bkz. [Prof. Dr. Mahmut Özer, Milliyet](https://www.milliyet.com.tr/yazarlar/prof-dr-mahmut-ozer/tuik-yapay-zeka-2026-yili-istatistikleri-ne-soyluyor-7672996)).
 
 **Dünyada da benimseme hızlı, ölçeklendirme yavaş.** McKinsey'in küresel anketine göre 2025'te kuruluşların yüzde 88'i en az bir iş alanında yapay zekayı düzenli olarak kullanıyordu; bir yıl önce bu oran yüzde 78'di. Ancak çoğu kuruluş hâlâ deneme ve pilot aşamasındaydı; yalnızca yaklaşık üçte biri yapay zeka programlarını şirket geneline yaymaya başlamıştı ([McKinsey, The State of AI](https://www.mckinsey.com/capabilities/operations/our-insights/the-state-of-ai)).
 
@@ -70,6 +70,7 @@ Nereden başlayacağınızı birlikte belirlemek isterseniz [Dönüşüm Danış
 
 ## Kaynaklar
 
-- TÜİK, Yapay Zeka Kullanım İstatistikleri 2026 (aktaran: Karar): [karar.com](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)
+- TÜİK, Girişimlerde Bilişim Teknolojileri Kullanım Araştırması 2026: [veriportali.tuik.gov.tr](https://veriportali.tuik.gov.tr/tr/press/62066)
+- Karar, "TÜİK: Yapay zeka kullanımı bir yılda yaklaşık iki katına çıktı": [karar.com](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)
 - Prof. Dr. Mahmut Özer, "TÜİK Yapay Zekâ 2026 Yılı İstatistikleri Ne Söylüyor?", Milliyet: [milliyet.com.tr](https://www.milliyet.com.tr/yazarlar/prof-dr-mahmut-ozer/tuik-yapay-zeka-2026-yili-istatistikleri-ne-soyluyor-7672996)
 - McKinsey, "The state of AI in 2025: Agents, innovation, and transformation": [mckinsey.com](https://www.mckinsey.com/capabilities/operations/our-insights/the-state-of-ai)
