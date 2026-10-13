@@ -351,7 +351,8 @@ export const sectors: Sector[] = [
     faqs: [
       { q: 'Otel yönetim sistemimle (PMS) entegre olabilir mi?', a: 'API sunan otel yönetim ve rezervasyon sistemleriyle entegre edilebilir. Kullandığınız sistemi keşif görüşmesinde kontrol ederiz.' },
       { q: 'Hangi dillerde yanıt verebilir?', a: 'Türkçe, İngilizce, Almanca, Rusça ve Arapça başta olmak üzere misafirin yazdığı dilde yanıt verebilir.' },
-      { q: 'Özel talepler ne olur?', a: 'Oda değişikliği, şikâyet veya özel istek gibi konular resepsiyon ekibinize anında devredilir.' },
+      { q: 'Asistan rezervasyon ve ödeme alabilir mi?', a: 'Otel yönetim sisteminize, kanal yöneticinize veya rezervasyon motorunuza bağlandığında evet: müsaitliği canlı kontrol eder, rezervasyonu doğrudan oluşturur, güvenli ödeme bağlantısıyla tahsilat yapar ve ekibinize bildirim gönderir. Kapsam, kullandığınız sistemlere göre belirlenir.' },
+      { q: 'Özel talepler ne olur?', a: 'Asistan oda değişikliği ve özel istekleri alır, müsaitliği kontrol eder ve talebi ilgili bilgilerle birlikte ekibinize iletir. Şikâyetlerde ilk yanıtı verip konuşmayı resepsiyona devreder.' },
     ],
   },
   {

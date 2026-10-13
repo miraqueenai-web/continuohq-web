@@ -36,7 +36,8 @@ const ld = [
     <div class="container">
       <article class="prose"><Content /></article>
       {d.faqs?.length ? (
-        <div class="prose"><h2>Sık sorulan sorular</h2>{d.faqs.map((f) => <><h3>{f.q}</h3><p>{f.a}</p></>)}</div>
+        <div style="margin-top:48px"><h2 style="font:700 clamp(24px,3vw,32px)/1.2 var(--head);letter-spacing:-.025em;margin:0 0 8px">Sık sorulan sorular</h2>
+          <div class="faq">{d.faqs.map((f, i) => <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div>
       ) : null}
       <div class="author" style="margin-top:40px"><span class="av" aria-hidden="true">NG</span><div><b><a href="/yazar/neslisah-gokkaya">{site.founder}</a></b><span>Continuo kurucusu. İşletmeler için yapay zeka asistanları ve otomasyon üzerine yazıyor.</span></div></div>
       {related.length > 0 && (

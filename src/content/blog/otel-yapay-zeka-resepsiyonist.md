@@ -7,11 +7,13 @@ date: 2026-10-14
 draft: true
 faqs:
   - q: "Yapay zeka resepsiyonist resepsiyon ekibinin yerini alır mı?"
-    a: "Hayır. Tekrarlayan soruları ve mesai dışı mesajları üstlenir; misafirle yüz yüze ilgilenmek, şikâyetleri çözmek ve özel talepleri karşılamak ekibinizde kalır."
+    a: "Hayır. Tekrarlayan soruları, mesai dışı mesajları ve entegre kurulumda rezervasyon ile ödeme adımlarını üstlenir. Misafirle yüz yüze ilgilenmek, acil durumlar ve ekibin onayını gerektiren kararlar ekibinizde kalır."
   - q: "Hangi dillerde yanıt verebilir?"
     a: "Misafirin yazdığı dilde yanıt verecek şekilde kurulabilir. Türkiye'deki oteller için en sık ihtiyaç duyulan diller Türkçe, İngilizce, Almanca, Rusça ve Arapçadır."
   - q: "Otel yönetim sistemime bağlanabilir mi?"
-    a: "Bağlantı noktası (API) sunan otel yönetim ve rezervasyon sistemlerine bağlanabilir. Böylece müsaitlik ve fiyat bilgisi güncel kalır."
+    a: "Bağlantı noktası (API) sunan otel yönetim sistemlerine, kanal yöneticilerine ve rezervasyon motorlarına bağlanabilir. Bu durumda asistan müsaitliği canlı kontrol eder, rezervasyonu doğrudan oluşturur ve ödemeyi güvenli bağlantıyla alabilir."
+  - q: "Asistan ödeme alabilir mi?"
+    a: "Entegre kurulumda, otelinizin kullandığı ödeme altyapısı üzerinden misafire güvenli bir ödeme bağlantısı gönderebilir. Kart bilgileri sohbet içinde istenmez ve saklanmaz."
 ---
 
 ## Kısa cevap: tekrarlayan soruları üstlenen, misafiri bekletmeyen bir asistan
@@ -32,17 +34,26 @@ Bir örnek üzerinden gidelim. Gece 02:14'te bir misafir WhatsApp'tan yazıyor: 
 
 Misafir, rakip otelin sabah dönmesini beklemek yerine gece yanıtını almış olur.
 
-## Asistan neleri yapmalı, neleri yapmamalı?
+## Asistan ne kadarını üstlenebilir?
 
-| Asistanın üstlenmesi gerekenler | Ekibinizde kalması gerekenler |
-|---|---|
-| Müsaitlik, fiyat ve oda tipleri | Şikâyetler ve memnuniyetsizlikler |
-| Check-in, check-out, otopark, kahvaltı soruları | İndirim ve özel fiyat pazarlığı |
-| Transfer ve ulaşım bilgisi | Oda değişikliği ve özel talepler |
-| Rezervasyona yönlendirme | Ödeme sorunları |
-| Konaklama öncesi hatırlatma mesajları | Acil durumlar |
+Yapay zeka resepsiyonistin kapsamı, otelinizin kullandığı sistemlere bağlı olarak iki düzeyde kurgulanabilir.
 
-Bu ayrım önemli, çünkü sonuçlar her kurulumda aynı çıkmıyor. Bir otel yazılımı sağlayıcısının yayımladığı vaka çalışmasına göre, bir otel grubunun denediği iki sohbet botu platformu misafir sorularının yalnızca yüzde 6'sını doğru yanıtlayabilmiş ([chatlyn, şirket verisi](https://chatlyn.com/en/blog/ai-tools-for-hotels/)). Bu rakam bir satıcının kendi değerlendirmesi olduğu için genellenemez, ama iyi bir uyarıdır: Asistanın başarısı kullanılan araçtan çok, otelin bilgisiyle ne kadar iyi eğitildiğine ve neyi ekibe devredeceğinin ne kadar net tanımlandığına bağlıdır.
+**Yanıt düzeyi.** Asistan otelinizin bilgisiyle eğitilir; soruları yanıtlar, misafiri rezervasyon adımına yönlendirir ve talepleri ekibinize iletir. Herhangi bir sisteme bağlanmadan, kısa sürede devreye alınabilir.
+
+**Entegre düzey.** Asistan otel yönetim sisteminize, kanal yöneticinize veya rezervasyon motorunuza bağlanır. Bu durumda müsaitliği ve fiyatı canlı olarak kontrol eder, rezervasyonu doğrudan oluşturur, güvenli ödeme bağlantısı göndererek ödemeyi alır, ekibinize anlık bildirim iletir ve mesaj trafiğini, dönüşümü ve gelen talepleri raporlar. Yani bir sohbet asistanının ötesinde, rezervasyon sürecinin bir parçası olarak çalışır.
+
+Hangi düzeyin uygun olduğu; otelinizin kullandığı sistemlere, mesaj aldığınız kanal sayısına ve hedeflerinize göre belirlenir. Kurulumun kapsamı ve maliyeti de bu tercihe göre şekillenir.
+
+| İş | Yanıt düzeyi | Entegre düzey |
+|---|---|---|
+| Müsaitlik, fiyat ve oda tipleri | Tanımlı bilgiyle yanıt | Canlı kontrol |
+| Rezervasyon | Rezervasyon adımına yönlendirme | Doğrudan oluşturma |
+| Ödeme | Ödeme sayfasına yönlendirme | Güvenli ödeme bağlantısıyla tahsilat |
+| Oda değişikliği ve özel talepler | Talebi alıp ekibe iletme | Müsaitliği kontrol edip talep kaydı oluşturma |
+| Şikâyetler | İlk yanıt, bilgi toplama, ekibe aktarma | Aynısı, talep sisteminize kayıtla birlikte |
+| Raporlama | Konuşma özetleri | Mesaj, dönüşüm ve gelir raporları |
+
+Her iki düzeyde de bazı konular her zaman ekibinizin kontrolünde kalır: acil durumlar anında telefona yönlendirilir, tanımlı fiyat politikasının dışındaki indirimler ve hassas şikâyetlerin çözümü ekibinizin onayıyla ilerler. Asistan bu durumlarda konuşmayı ilgili bilgilerle birlikte ekibinize devreder, böylece misafir bilgisini tekrar anlatmak zorunda kalmaz.
 
 ## Doğru kurulum için 5 soru
 
@@ -62,12 +73,11 @@ Türkiye'de de işletmelerin yapay zeka kullanımı hızla artıyor. TÜİK veri
 
 ## Sonuç
 
-Yapay zeka resepsiyonist, resepsiyon ekibinizin yerini almaz; onu tekrarlayan sorulardan ve gece mesajlarından kurtarır. Doğru kurgulandığında misafiriniz beklemez, ekibiniz de zamanını misafirle yüz yüze ilgilenmeye ayırır.
+Yapay zeka resepsiyonist, resepsiyon ekibinizin yerini almaz; onu tekrarlayan sorulardan ve gece mesajlarından kurtarır. Sistemlerinize bağlandığında ise rezervasyondan ödemeye kadar sürecin bir parçası haline gelir. Doğru kurgulandığında misafiriniz beklemez, ekibiniz de zamanını misafirle yüz yüze ilgilenmeye ayırır.
 
 Otelinize nasıl kurulacağını [Konaklama & Turizm](/sektorler/konaklama-turizm) sayfamızda anlattık. Mesaj kanalı olarak WhatsApp'ı düşünüyorsanız [WhatsApp Asistanı](/ai-asistanlar/whatsapp-asistani), rezervasyon akışı için [Randevu & Rezervasyon](/ai-asistanlar/randevu-rezervasyon) sayfalarına göz atabilirsiniz.
 
 ## Kaynaklar
 
 - "Conversational AI in hospitality and tourism: a bibliometric–systematic review", Cogent Business & Management, 2026: [tandfonline.com](https://www.tandfonline.com/doi/full/10.1080/23311975.2026.2613599)
-- chatlyn, "Best AI for hotels in 2026" (şirket verisi, vaka çalışması): [chatlyn.com](https://chatlyn.com/en/blog/ai-tools-for-hotels/)
 - TÜİK, Yapay Zeka Kullanım İstatistikleri 2026 (aktaran: Karar): [karar.com](https://www.karar.com/guncel-haberler/tuik-yapay-zeka-kullanimi-bir-yilda-yaklasik-iki-katina-cikti-2075729)

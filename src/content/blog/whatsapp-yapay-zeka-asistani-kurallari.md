@@ -37,7 +37,7 @@ Bunun pratik sonucu şu oldu: OpenAI, Perplexity ve Microsoft gibi şirketler, W
 
 ## Bir işletme asistanını kurallara uygun kurmak için 4 ilke
 
-**1. Asistanı işletmenizin konularıyla sınırlayın.** Asistan; hizmetleriniz, fiyatlarınız, çalışma saatleriniz ve randevu süreçleriniz hakkında konuşmalı. Hava durumu, ödev yardımı ya da genel sohbet gibi konular kapsam dışında kalmalı.
+**1. Asistanın kapsamını işletmenizin hizmetleriyle tanımlayın.** Asistan; hizmetleriniz, fiyat politikanız, çalışma saatleriniz ve randevu süreçleriniz gibi işletmenizle doğrudan ilgili konularda yanıt vermeli. Bu kapsamın dışında kalan taleplerde kibarca konuya geri dönmeli ya da müşteriyi ekibinize yönlendirmelidir. Kapsamı net tanımlanmış bir asistan hem kurallara uygundur hem de müşteriye daha tutarlı bir deneyim sunar.
 
 **2. Resmi altyapıyı kullanın.** Asistanın WhatsApp Business platformu üzerinden, Meta'nın onaylı altyapısıyla çalışması gerekir. Kişisel WhatsApp hesabını otomatik yazılımlarla çalıştırmak hem kurallara aykırıdır hem de numaranın kapatılmasına yol açabilir.
 
