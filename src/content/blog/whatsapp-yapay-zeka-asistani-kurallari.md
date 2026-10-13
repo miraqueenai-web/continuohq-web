@@ -1,10 +1,10 @@
 ---
 title: "WhatsApp'ta yapay zeka asistanı: 2026'da işletmeler için neye izin var, neye yok?"
-seoTitle: "WhatsApp Yapay Zeka Asistanı Kuralları 2026: İşletmeler İçin Rehber"
-description: "Meta, 15 Ocak 2026'dan itibaren WhatsApp'ta genel amaçlı yapay zeka sohbet botlarını kısıtladı. İşletmelerin müşteri hizmeti asistanları bu kısıtlamadan etkileniyor mu? Kısa ve net bir rehber."
+seoTitle: "WhatsApp Yapay Zeka Asistanı Kuralları 2026"
+description: "Meta, 15 Ocak 2026'dan itibaren WhatsApp'ta genel amaçlı yapay zeka botlarını kısıtladı. İşletmelerin müşteri hizmeti asistanları bundan etkileniyor mu?"
 answer: "İşletmeler WhatsApp'ta yapay zeka asistanı kullanmaya devam edebilir. Meta'nın 15 Ocak 2026'da yürürlüğe giren kuralı, ChatGPT gibi genel amaçlı yapay zeka asistanlarının WhatsApp üzerinden dağıtılmasını kısıtlıyor. Bir işletmenin kendi müşterilerine destek veren, randevu alan veya sipariş takibi yapan asistanı bu kısıtlamanın dışında."
 date: 2026-10-14
-draft: true
+draft: false
 faqs:
   - q: "İşletmem WhatsApp'ta yapay zeka asistanı kullanabilir mi?"
     a: "Evet. Meta'nın kısıtlaması, yapay zekanın ürünün kendisi olduğu genel amaçlı asistanları hedefliyor. Müşterilerinize destek veren, randevu alan veya sipariş bilgisi veren işletmeye özel asistanlar bu kısıtlamanın dışında."

@@ -1,10 +1,10 @@
 ---
 title: "Küçük işletmeler yapay zekaya nereden başlamalı? Rakamlar ne diyor, gerçekte ne işe yarıyor?"
-seoTitle: "Küçük İşletmeler Yapay Zekaya Nereden Başlamalı? 2026 Verileri ve Pratik Rehber"
-description: "Türkiye'de yapay zeka kullanan işletmelerin oranı bir yılda neredeyse ikiye katlandı. Küçük bir işletme nereden başlamalı? TÜİK ve McKinsey verileriyle, uygulanabilir bir başlangıç rehberi."
+seoTitle: "Küçük İşletmeler Yapay Zekaya Nereden Başlamalı?"
+description: "Türkiye'de yapay zeka kullanan işletmelerin oranı bir yılda neredeyse ikiye katlandı. TÜİK ve McKinsey verileriyle küçük işletmeler için başlangıç rehberi."
 answer: "Küçük işletmeler yapay zekaya en çok zaman alan ve en sık tekrarlanan işten başlamalı. Çoğu işletme için bu, müşteri mesajlarını yanıtlamak, randevu yönetmek veya rapor hazırlamaktır. Tek bir süreç seçin, kurulum öncesi durumu ölçün, küçük bir pilotla başlayın ve sonuçları gördükten sonra genişletin."
 date: 2026-10-14
-draft: true
+draft: false
 faqs:
   - q: "Yapay zekaya başlamak için teknik bilgi gerekir mi?"
     a: "Hayır. İşinizi, müşterilerinizin sorularını ve sizi en çok yoran işleri bilmeniz yeterli. Teknik kurulumu bir uzmanla birlikte yapabilirsiniz."

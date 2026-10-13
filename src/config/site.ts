@@ -18,8 +18,9 @@ export const site = {
   whatsapp: '' as string,
   // Tebligat adresi gelince yazılır (KVKK metninde kullanılır).
   address: '' as string,
-  // Form gönderim adresi (ör. Formspree uç noktası). Boşken form, e-posta ile yazmaya yönlendirir.
-  formEndpoint: '' as string,
+  // Netlify Forms: form "/" adresine gönderilir, bildirim e-postası Netlify panelinden ayarlanır.
+  // Boş bırakılırsa form, ziyaretçinin e-posta uygulamasını açar.
+  formEndpoint: '/' as string,
   areaServed: 'TR',
   social: [] as string[], // LinkedIn, Instagram profilleri açılınca eklenir
 };

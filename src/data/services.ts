@@ -48,7 +48,7 @@ export const groups = {
   'ai-donusumu': {
     title: 'AI Dönüşümü',
     menuNote: 'İşletmenize özel kapsamlı çözümler',
-    seoTitle: 'AI Dönüşümü | İşletmeler İçin Yapay Zeka Otomasyonu ve Danışmanlık',
+    seoTitle: 'AI Dönüşümü: Yapay Zeka Otomasyonu ve Danışmanlık',
     description:
       'Operasyon, İK, raporlama, belge ve stok süreçleri için işletmenize özel yapay zeka otomasyonları, AI ajanları ve entegrasyonlar. Önce dinleriz, sonra kurarız.',
     answer:
@@ -214,7 +214,7 @@ export const services: Service[] = [
     group: 'ai-donusumu',
     title: 'Süreç Otomasyonları',
     short: 'Operasyon, İK, raporlama, stok',
-    seoTitle: 'Süreç Otomasyonu | Operasyon, İK, Raporlama ve Stok için Yapay Zeka',
+    seoTitle: 'Süreç Otomasyonu: Operasyon, İK, Raporlama ve Stok',
     description:
       'Tekrarlayan iş süreçlerini otomatikleştirin: operasyon, insan kaynakları, raporlama, belge yönetimi, tedarik ve stok takibi için işletmenize özel otomasyonlar.',
     answer:
@@ -274,7 +274,7 @@ export const services: Service[] = [
     group: 'ai-donusumu',
     title: 'Entegrasyonlar',
     short: 'CRM, muhasebe, rezervasyon sistemleri',
-    seoTitle: 'Yapay Zeka Entegrasyonları | CRM, Muhasebe ve Rezervasyon Sistemleri',
+    seoTitle: 'Yapay Zeka Entegrasyonları: CRM, Muhasebe, Rezervasyon',
     description:
       'Yapay zeka asistanlarınızı ve otomasyonlarınızı CRM, muhasebe, rezervasyon ve otel yönetim sistemlerinize bağlıyoruz.',
     answer:
@@ -303,7 +303,7 @@ export const services: Service[] = [
     group: 'ai-donusumu',
     title: 'Web Sitesi & Dijital Altyapı',
     short: 'SEO ve GEO uyumlu siteler',
-    seoTitle: 'Web Sitesi ve Dijital Altyapı | SEO ve GEO Uyumlu Kurumsal Siteler',
+    seoTitle: 'SEO ve GEO Uyumlu Kurumsal Web Sitesi ve Altyapı',
     description:
       'Hızlı, mobil uyumlu, Google ve yapay zeka arama motorları için optimize edilmiş (SEO ve GEO) kurumsal web siteleri ve dijital altyapı.',
     answer:
@@ -360,7 +360,7 @@ export const sectors: Sector[] = [
     title: 'Güzellik & Estetik',
     short: 'Güzellik merkezleri ve salonlar',
     menuNote: 'Merkezler ve salonlar',
-    seoTitle: 'Güzellik Merkezleri için Yapay Zeka Asistanı | Randevu ve DM Yanıtı',
+    seoTitle: 'Güzellik Merkezleri için Yapay Zeka Asistanı',
     description:
       'Güzellik merkezleri ve salonlar için yapay zeka asistanı: Instagram ve WhatsApp mesajlarına anında yanıt, otomatik randevu, hatırlatma ve boş saatlerin doldurulması.',
     answer:
@@ -384,7 +384,7 @@ export const sectors: Sector[] = [
     title: 'Sağlık & Beslenme',
     short: 'Diyetisyenler ve danışmanlık merkezleri',
     menuNote: 'Diyetisyenler ve danışmanlık',
-    seoTitle: 'Diyetisyenler için Yapay Zeka Asistanı | Randevu ve Danışan Takibi',
+    seoTitle: 'Diyetisyenler için Yapay Zeka Asistanı ve Randevu',
     description:
       'Diyetisyenler ve sağlık danışmanlık merkezleri için yapay zeka asistanı: danışan randevuları, ön bilgilendirme ve takip mesajları. KVKK\'ya uygun kurgu.',
     answer:
@@ -408,7 +408,7 @@ export const sectors: Sector[] = [
     title: 'Tüm Sektörler',
     short: 'Listede yoksa size özel kurgularız',
     menuNote: 'Size özel kurgulayalım',
-    seoTitle: 'Her Sektör için Yapay Zeka Otomasyonu | İşletmenize Özel Çözümler',
+    seoTitle: 'Her Sektör için Yapay Zeka Otomasyonu',
     description:
       'Sektörünüz listede yok mu? Her işletmenin otomatikleşebilecek bir işi vardır. Süreçlerinizi anlatın, size özel yapay zeka asistanı ve otomasyon kurgulayalım.',
     answer:
