@@ -24,7 +24,7 @@ Yani bir otelin rezervasyon sorularını yanıtlayan, bir güzellik merkezinin r
 
 ## Kural tam olarak neyi kısıtlıyor?
 
-Kısıtlamanın merkezinde **yapay zekanın ürünün kendisi olup olmadığı** sorusu var. Haberlere yansıyan ifadeye göre kural, yapay zekanın sunulan hizmetin "yan veya yardımcı değil, birincil işlevi" olduğu durumları kapsıyor ([PPC Land](https://ppc.land/whatsapp-bars-ai-chatbots-as-meta-solidifies-messaging-monopoly/)).
+Kısıtlamanın merkezinde **yapay zekanın ürünün kendisi olup olmadığı** sorusu var. WhatsApp Business Çözüm Koşulları'nın "Yapay Zeka Sağlayıcıları" başlıklı 4.7. maddesi; büyük dil modelleri, üretken yapay zeka platformları ve genel amaçlı yapay zeka asistanları gibi teknolojilerin sağlayıcılarının, bu teknolojiler "kullanımın arızi veya yan değil, esas amacı" olduğunda WhatsApp Business Platformu'nu kullanmasını yasaklıyor. Neyin bu kapsama girdiğine Meta'nın kendi takdiriyle karar verdiği de maddede belirtiliyor ([WhatsApp Business Çözüm Koşulları](https://www.whatsapp.com/legal/business-solution-terms)).
 
 Bunun pratik sonucu şu oldu: OpenAI, Perplexity ve Microsoft gibi şirketler, WhatsApp üzerinden sundukları genel sohbet asistanlarının çalışmayı durduracağını duyurdu ([TechCrunch](https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform)).
 
@@ -35,7 +35,7 @@ Bunun pratik sonucu şu oldu: OpenAI, Perplexity ve Microsoft gibi şirketler, W
 | E-ticaret sitesinin sipariş durumu bildiren asistanı | Hayır |
 | Her konuda sohbet eden, ChatGPT benzeri genel bir asistan | Evet |
 
-## Bir işletme asistanını kurallara uygun kurmak için 4 ilke
+## Bir işletme asistanını kurallara uygun kurmak için 5 ilke
 
 **1. Asistanın kapsamını işletmenizin hizmetleriyle tanımlayın.** Asistan; hizmetleriniz, fiyat politikanız, çalışma saatleriniz ve randevu süreçleriniz gibi işletmenizle doğrudan ilgili konularda yanıt vermeli. Bu kapsamın dışında kalan taleplerde kibarca konuya geri dönmeli ya da müşteriyi ekibinize yönlendirmelidir. Kapsamı net tanımlanmış bir asistan hem kurallara uygundur hem de müşteriye daha tutarlı bir deneyim sunar.
 
@@ -43,7 +43,9 @@ Bunun pratik sonucu şu oldu: OpenAI, Perplexity ve Microsoft gibi şirketler, W
 
 **3. İnsana devir yolunu açık tutun.** Asistanın çözemediği, hassas ya da şikâyet içeren konuşmalar ekibinizden birine aktarılmalı. Bu hem müşteri memnuniyeti hem de asistanın yanlış bilgi vermesini önlemek için önemli.
 
-**4. Kişisel verileri KVKK'ya uygun işleyin.** Müşterilerinizi asistanla yazıştıkları ve verilerinin nasıl işlendiği konusunda bilgilendirin. Sağlık gibi özel nitelikli veriler söz konusuysa ek önlemler gerekir. Kendi uygulamamızı [KVKK Aydınlatma Metni](/kvkk-aydinlatma-metni) sayfamızda bulabilirsiniz.
+**4. Konuşma verilerini yalnızca kendi asistanınız için kullanın.** Aynı madde, WhatsApp üzerinden gelen verilerin genel yapay zeka modellerini eğitmek veya geliştirmek için kullanılmasına izin vermiyor. İşletmenin kendi kullanımına yönelik bir modelde ince ayar yapmak ise mümkün. Yani müşterilerinizle yaptığınız yazışmalar sizin asistanınızı iyileştirmek için kullanılabilir, başka amaçlarla kullanılamaz.
+
+**5. Kişisel verileri KVKK'ya uygun işleyin.** Müşterilerinizi asistanla yazıştıkları ve verilerinin nasıl işlendiği konusunda bilgilendirin. Sağlık gibi özel nitelikli veriler söz konusuysa ek önlemler gerekir. Kendi uygulamamızı [KVKK Aydınlatma Metni](/kvkk-aydinlatma-metni) sayfamızda bulabilirsiniz.
 
 ## Peki işletmeniz için ne anlama geliyor?
 
@@ -56,5 +58,4 @@ Nasıl kurduğumuzu [WhatsApp Asistanı](/ai-asistanlar/whatsapp-asistani) sayfa
 ## Kaynaklar
 
 - TechCrunch, "WhatsApp changes its terms to bar general-purpose chatbots from its platform", 18 Ekim 2025: [techcrunch.com](https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform)
-- PPC Land, "WhatsApp bars AI chatbots as Meta solidifies messaging monopoly": [ppc.land](https://ppc.land/whatsapp-bars-ai-chatbots-as-meta-solidifies-messaging-monopoly/)
-- Meta, WhatsApp Business Solution Terms (güncel kullanım koşulları): [whatsapp.com/legal](https://www.whatsapp.com/legal/business-solution-terms)
+- Meta, WhatsApp Business Çözüm Koşulları, Madde 4.7 "Yapay Zeka Sağlayıcıları": [whatsapp.com/legal](https://www.whatsapp.com/legal/business-solution-terms)
