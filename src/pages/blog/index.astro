@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { getCollection } from 'astro:content';
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = (await getCollection('blog', ({ data }) => import.meta.env.SHOW_DRAFTS === '1' || !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <Base title="Blog | Yapay Zeka Asistanları ve Otomasyon Üzerine" description="İşletmeler için yapay zeka asistanları, WhatsApp otomasyonu ve süreç otomasyonu üzerine kaynaklı, güncel yazılar." noindex={posts.length === 0}>
   <section class="page-hero">
