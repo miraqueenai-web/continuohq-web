@@ -118,10 +118,23 @@ a { color: inherit; text-decoration: none; }
 .sh-top[aria-expanded="true"] span svg { transform: rotate(45deg); }
 .sh-sub { display: grid; gap: 4px; padding: 0 0 14px; }
 .sh-sub a { display: block; padding: 8px 0; font-size: 17px; color: var(--ink-2); transition: transform .3s cubic-bezier(.2,.8,.2,1), color .25s; }
-.sh-sub a:active { transform: translateX(4px); color: var(--ink); }
+.sh-sub a:active, .sh-top:active, .sh-plain:active { transform: translateX(4px); color: var(--ink); }
 .sh-sub .dd-ico { width: 34px; height: 34px; border-radius: 10px; }
 .sh-cta { justify-content: center; }
 body:has(.sheet:not([hidden])) .ctrl { display: none; }
+/* Fareyle gezinirken yazı hareketleri */
+.nav-links > li > a, .nav-top { transition: color .2s, transform .3s cubic-bezier(.2,.8,.2,1); }
+.nav-links > li > a:hover, .nav-top:hover { transform: translateY(-1px); }
+.sh-top, .sh-plain, .sh-sub a { transition: transform .3s cubic-bezier(.2,.8,.2,1), color .25s; }
+.sh-top:hover, .sh-plain:hover, .sh-sub a:hover { transform: translateX(4px); color: var(--ink); }
+.go { display: inline-block; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+.need:hover .go, .tile:hover .go { transform: translateX(6px); }
+.dd-btn { transition: letter-spacing .3s, border-color .25s; }
+.dd-btn:hover { letter-spacing: .02em; border-color: var(--ink); }
+.mm-quick a, footer a { transition: color .2s; }
+footer a:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .nav-links > li > a, .nav-top, .sh-top, .sh-plain, .sh-sub a, .go, .dd-btn { transition: none; transform: none !important; } }
+
 @media (max-width: 980px) { .nav-links { display: none; } .burger { display: block; } .dd { display: none !important; } .bar { padding-left: 18px; } }
 @media (max-width: 420px) { .nav-right .btn-sm { display: none; } }
 @media (prefers-reduced-motion: reduce) { .dd.open, .sheet.open { animation: none; } .hl, .dd-txt b, .dd-txt b::after, .sh-sub a { transition: none; } }
