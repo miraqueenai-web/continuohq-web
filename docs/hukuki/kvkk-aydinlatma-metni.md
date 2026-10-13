@@ -10,7 +10,6 @@ Son güncelleme: [GG.AA.YYYY]
 
 Bu metin, Continuo markasının sahibi **Esma Nur Gökkaya Yolat** ("Continuo") tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında veri sorumlusu sıfatıyla hazırlanmıştır.
 
-<!-- Şirket kurulunca: veri sorumlusu ticari ünvan olur; MERSİS / Vergi No ve KEP eklenir. -->
 - Adres: [TEBLİGAT ADRESİ]
 - E-posta: info@continuohq.com
 - Web sitesi: https://continuohq.com
@@ -88,8 +87,7 @@ Bize başvurarak şu haklarınızı kullanabilirsiniz:
 
 Başvurunuzu, Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ'e uygun olarak:
 
-- **[ADRES]** adresine yazılı olarak,
-- Kayıtlı elektronik posta (KEP) adresimiz **[KEP ADRESİ]** üzerinden,
+- **[TEBLİGAT ADRESİ]** adresine yazılı olarak,
 - Ya da sistemimizde kayıtlı e-posta adresinizden **info@continuohq.com** adresine
 
 iletebilirsiniz. Başvurunuz en geç **30 gün** içinde ücretsiz olarak sonuçlandırılır. İşlemin ayrıca bir maliyet gerektirmesi halinde Kurul'un belirlediği tarifedeki ücret alınabilir.
@@ -98,7 +96,7 @@ iletebilirsiniz. Başvurunuz en geç **30 gün** içinde ücretsiz olarak sonuç
 
 ## Avukata kontrol notları (yayından önce silinecek)
 
-1. **Ünvan:** Şirket türü (şahıs / limited / anonim) ve ünvan netleşmeli.
+1. **Veri sorumlusu:** Metin, markanın sahibi gerçek kişi adına hazırlanmıştır.
 2. **VERBİS kaydı:** Yıllık çalışan sayısı ve mali bilanço eşiğine göre VERBİS kayıt yükümlülüğü değerlendirilmeli.
 3. **Yurt dışı aktarım:** Hizmet sağlayıcı listesi kesinleşince her biri için standart sözleşme ve bildirim durumu kontrol edilmeli.
 4. **Müşteri adına işlenen veriler:** Müşteri işletmeler (otel, güzellik merkezi, diyetisyen) için kurulan asistanlarda Continuo **veri işleyen**, müşteri işletme **veri sorumlusu** konumunda. Bu metin yalnızca Continuo'nun kendi web sitesi ve satış süreçleri içindir. Müşteriler için ayrı bir **veri işleme sözleşmesi** şablonu ve müşterinin kendi aydınlatma metni gerekir.
