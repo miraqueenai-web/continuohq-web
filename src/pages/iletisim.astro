@@ -18,9 +18,10 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
     <div class="container contact-grid">
       <form class="form" id="form" name="iletisim" method="post" data-netlify="true" netlify-honeypot="web">
         <input type="hidden" name="form-name" value="iletisim" />
+        <input type="hidden" name="subject" data-remove-prefix value="Yeni talep: continuohq.com iletişim formu" />
         <p hidden><label>Bu alanı boş bırakın<input name="web" /></label></p>
         <label>Adınız<input id="ad" name="ad" autocomplete="name" required /></label>
-        <label>E-posta<input id="eposta" name="eposta" type="email" autocomplete="email" required /></label>
+        <label>E-posta<input id="eposta" name="email" type="email" autocomplete="email" required /></label>
         <label>İşletmenizin adı<input id="isletme" name="isletme" autocomplete="organization" /></label>
         <label>Sektör
           <select id="sektor" name="sektor">
