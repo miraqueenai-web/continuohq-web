@@ -129,7 +129,7 @@ export const guides: Record<string, Guide> = {
         title: 'İşin ne kadarı otomatikleşebilir?',
         intro: `McKinsey'in 2023 tarihli raporuna göre, üretken yapay zeka ve diğer teknolojiler bugün çalışanların zamanının yüzde 60 ila 70'ini alan iş faaliyetlerini otomatikleştirme potansiyeline sahip. Önceki tahmin yaklaşık yüzde 50 idi.`,
         paras: [
-          `Bu rakam teknik bir potansiyeldir; her işletmede bu kadarının otomatikleşeceği anlamına gelmez. Aynı rapora göre üretken yapay zekanın yaratabileceği değerin yaklaşık dörtte üçü dört alanda toplanıyor: müşteri operasyonları, pazarlama ve satış, yazılım geliştirme ve Ar-Ge.`,
+          `Bu bir teknik potansiyel; gerçek oran işletmeden işletmeye değişir. Aynı rapora göre üretken yapay zekanın yaratabileceği değerin yaklaşık dörtte üçü dört alanda toplanıyor: müşteri operasyonları, pazarlama ve satış, yazılım geliştirme ve Ar-Ge.`,
           `Türkiye'de ise TÜİK'in 2026 verilerine göre yapay zeka kullanan girişimlerin yüzde 51'i onu pazarlama ve satış için, yüzde 43,4'ü üretim ve hizmet süreçleri için kullanıyor. Ayrıntılar için ${a('/ai-donusumu', 'AI Dönüşümü rehberimize')} göz atabilirsiniz.`,
         ],
       },
@@ -296,7 +296,7 @@ export const guides: Record<string, Guide> = {
         intro: `SEO, sitenizin Google gibi arama motorlarında üst sıralarda görünmesini; GEO (Generative Engine Optimization) ise ChatGPT, Gemini veya Google'ın yapay zeka yanıtlarında kaynak olarak gösterilmesini hedefler.`,
         paras: [
           `Google'ın site sahipleri için yayımladığı "AI features and your website" belgesine göre, AI Overviews ve AI Mode gibi yapay zeka özelliklerinde görünmek için ek bir teknik gereklilik yok. Sayfanın Google tarafından dizine eklenmiş ve arama sonucunda snippet ile gösterilmeye uygun olması gerekiyor; temel SEO uygulamaları burada da geçerli.`,
-          `Bu yüzden GEO için kestirme bir yol vaat etmiyoruz. Yaptığımız şey, yapay zekanın kolayca anlayıp alıntılayabileceği içerik kurmaktır: her sayfanın başında soruya net bir kısa cevap, kaynağı belirtilmiş rakamlar, yazar bilgisi ve tutarlı site içi bağlantılar.`,
+          `GEO için yaptığımız şey, yapay zekanın kolayca anlayıp alıntılayabileceği içerik kurmaktır: her sayfanın başında soruya net bir kısa cevap, kaynağı belirtilmiş rakamlar, yazar bilgisi ve tutarlı site içi bağlantılar.`,
         ],
       },
       {

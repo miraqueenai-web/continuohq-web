@@ -20,7 +20,7 @@ export const site = {
   // Numara gelince "905xxxxxxxxx" biçiminde yazılır; boşken WhatsApp butonları iletişim sayfasına gider.
   whatsapp: '' as string,
   // Tebligat adresi gelince yazılır (KVKK metninde kullanılır).
-  address: '' as string,
+  address: 'Esentepe Mah. Orman Sok. Royal Garden No: 12C/7 Safranbolu/Karabük' as string,
   // Netlify Forms: form "/" adresine gönderilir, bildirim e-postası Netlify panelinden ayarlanır.
   // Boş bırakılırsa form, ziyaretçinin e-posta uygulamasını açar.
   formEndpoint: '/' as string,
