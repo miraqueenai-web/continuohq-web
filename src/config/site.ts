@@ -16,7 +16,7 @@ export const site = {
   bookingUrl: 'https://calendar.app.google/hxessB9rqXqeKSjz9', // Google Takvim randevu sayfası (yedek bağlantı)
   bookingPage: '/randevu', // Sitedeki randevu sayfası; tüm "görüşme planla" butonları buraya gider
   // Google Takvim > Randevu programı > Paylaş > Web sitesine yerleştir > "Satır içi randevu sayfası" kodundaki iframe src adresi
-  bookingEmbed: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ONhWvlPcdScEKZOaN6Dtl0cC6GCUSXia1uQbkhJrNbxmNyES6p4YoVEVTGfnzMzTVd-ZCDDy-?gv=true' as string,
+  bookingEmbed: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ONhWvlPcdScEKZOaN6Dtl0cC6GCUSXia1uQbkhJrNbxmNyES6p4YoVEVTGfnzMzTVd-ZCDDy-?gv=true&hl=tr' as string,
   // Numara gelince "905xxxxxxxxx" biçiminde yazılır; boşken WhatsApp butonları iletişim sayfasına gider.
   whatsapp: '' as string,
   // Tebligat adresi gelince yazılır (KVKK metninde kullanılır).
