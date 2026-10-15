@@ -30,9 +30,16 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
         </label>
         <label>Neyi çözmek istiyorsunuz?<textarea id="mesaj" name="mesaj" rows="5" required></textarea></label>
         <p class="small">Lütfen sağlık bilgisi gibi özel nitelikli kişisel veri paylaşmayın. Bilgileriniz <a href="/kvkk-aydinlatma-metni" style="text-decoration:underline">KVKK Aydınlatma Metni</a> kapsamında işlenir.</p>
-        <button class="btn btn-dark" type="submit" style="justify-self:start;border:0;cursor:pointer">Gönder</button>
-        <p class="small" id="form-msg" role="status"></p>
+        <button class="btn btn-dark" id="form-btn" type="submit" style="justify-self:start;border:0;cursor:pointer">Gönder</button>
+        <p class="form-err" id="form-err" role="alert" hidden></p>
       </form>
+      <div class="form-done" id="form-done" tabindex="-1" hidden>
+        <span class="form-done-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <h2>Mesajınız bize ulaştı.</h2>
+        <p>Teşekkürler <span id="form-name"></span>. En geç bir iş günü içinde <b id="form-mail"></b> adresinize dönüyoruz.</p>
+        <p class="small">Beklemek istemezseniz hemen bir keşif görüşmesi de planlayabilirsiniz.</p>
+        <div class="ctas"><a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Görüşme planlayın</a><button class="btn btn-line" id="form-again" type="button" style="cursor:pointer">Yeni mesaj gönderin</button></div>
+      </div>
       <div class="prose">
         <h2 style="margin-top:0">Doğrudan ulaşın</h2>
         <p>Genel sorular: <a href={`mailto:${site.email.info}`}>{site.email.info}</a></p>
@@ -46,23 +53,42 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
 </Base>
 <script define:vars={{ endpoint: site.formEndpoint, mail: site.email.teklif }}>
   const form = document.getElementById('form');
-  const msg = document.getElementById('form-msg');
+  const btn = document.getElementById('form-btn');
+  const err = document.getElementById('form-err');
+  const done = document.getElementById('form-done');
+  const showError = (text) => { err.textContent = text; err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    err.hidden = true;
     const data = new FormData(form);
     if (!endpoint) {
       const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
       location.href = `mailto:${mail}?subject=${encodeURIComponent('Web sitesi talebi')}&body=${encodeURIComponent(body)}`;
-      msg.textContent = `E-posta uygulamanız açılmadıysa bize ${mail} adresinden yazabilirsiniz.`;
+      showError(`E-posta uygulamanız açılmadıysa bize ${mail} adresinden yazabilirsiniz.`);
       return;
     }
+    btn.disabled = true;
+    btn.textContent = 'Gönderiliyor…';
     try {
       const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
       if (!r.ok) throw new Error();
+      document.getElementById('form-name').textContent = String(data.get('ad') || '').trim().split(' ')[0];
+      document.getElementById('form-mail').textContent = String(data.get('email') || '');
       form.reset();
-      msg.textContent = 'Teşekkürler, mesajınız bize ulaştı. En geç bir iş günü içinde dönüyoruz.';
+      form.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      done.focus({ preventScroll: true });
     } catch {
-      msg.textContent = `Mesaj gönderilemedi. Lütfen ${mail} adresine yazın.`;
+      showError(`Mesajınız gönderilemedi. Lütfen tekrar deneyin ya da doğrudan ${mail} adresine yazın.`);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Gönder';
     }
+  });
+  document.getElementById('form-again').addEventListener('click', () => {
+    done.hidden = true;
+    form.hidden = false;
+    document.getElementById('ad').focus();
   });
 </script>
