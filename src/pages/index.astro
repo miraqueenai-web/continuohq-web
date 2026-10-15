@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBand from '../components/CtaBand.astro';
-import DemoChat from '../components/DemoChat.astro';
 import { site, whatsappHref } from '../config/site';
 import { sectors, sectorUrl } from '../data/services';
 
@@ -59,7 +58,7 @@ const faqLd = {
   <section class="hero">
     <div class="container">
       <span class="eyebrow">Yapay Zeka Ajansı</span>
-      <h1>İşletmeniz artık <span class="grad">hiç uyumuyor.</span></h1>
+      <h1>Yapay zekayı <span class="grad">işinizin bir parçası yapın.</span></h1>
       <p class="lead">İşletmenize özel <span class="grad gold-word">yapay zeka</span> asistanları ve otomasyonlar. Mesajları yanıtlar, randevuları yönetir, tekrarlayan işleri üstlenir.</p>
       <div class="ctas">
         {site.whatsapp ? (
@@ -97,8 +96,6 @@ const faqLd = {
       <p id="stmt">Müşterileriniz cevap beklemez. Ekibiniz tekrarlayan işlerde tükenmemeli. Biz her işletmeye kendi diliyle konuşan, kendi kurallarıyla çalışan <span class="gw">yapay zeka sistemleri</span> kuruyoruz.</p>
     </div>
   </section>
-
-  <DemoChat />
 
   <section class="sec paper" id="ihtiyaclar">
     <div class="container">

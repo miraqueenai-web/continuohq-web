@@ -1,9 +1,11 @@
 // Yapay zeka arama motorları için sitenin özet haritası (llmstxt.org biçimi).
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 import { site } from '../config/site';
 import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/services';
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   const line = (title: string, path: string, note: string) => `- [${title}](${site.url}${path}): ${note}`;
   const body = [
     `# Continuo`,
@@ -23,10 +25,15 @@ export const GET: APIRoute = () => {
     `## Sektörler`,
     ...sectors.map((s) => line(s.title, sectorUrl(s), s.answer)),
     ``,
+    `## Blog`,
+    ...posts.map((p) => line(p.data.title, `/blog/${p.id}`, p.data.answer ?? p.data.description)),
+    ``,
     `## Kurumsal`,
-    line('Nasıl Çalışırız', '/nasil-calisiriz', 'Keşif, kurgu, kurulum ve ölçüm adımlarından oluşan çalışma süreci ve ücretlendirme modeli.'),
+    line('Nasıl Çalışırız', '/nasil-calisiriz', 'Keşif, kurgu, kurulum ve ölçüm aşamalarından oluşan çalışma yöntemi ve ücretlendirme modeli.'),
+    line('Randevu', '/randevu', '30 dakikalık ücretsiz, çevrim içi keşif görüşmesi planlama sayfası.'),
     line('Hakkımızda', '/hakkimizda', 'Continuo\'nun kuruluş amacı ve ilkeleri.'),
-    line('İletişim', '/iletisim', 'Ücretsiz keşif görüşmesi ve iletişim kanalları.'),
+    line('İletişim', '/iletisim', 'İletişim formu ve e-posta adresleri.'),
+    line(site.founder, '/yazar/neslisah-gokkaya', 'Continuo kurucusu; sitedeki rehber ve blog yazılarının yazarı.'),
     line('KVKK Aydınlatma Metni', '/kvkk-aydinlatma-metni', 'Kişisel verilerin işlenmesine ilişkin aydınlatma metni.'),
     ``,
   ].join('\n');

@@ -8,7 +8,7 @@ const menus = [
     items: services.filter((s) => s.group === 'ai-asistanlar').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
     feat: site.whatsapp
       ? { ey: 'Canlı deneyin', title: 'Asistanımızla şimdi konuşun', text: 'Ürünümüzü sohbet ederek tanıyın. Yanıtlar saniyeler içinde.', btn: 'Konuşmayı başlat', href: `https://wa.me/${site.whatsapp}` }
-      : { ey: 'Etkileşimli örnek', title: 'Bir asistanı deneyin', text: 'Otel, güzellik merkezi veya diyetisyen asistanına soru sorun; yanıtlarını ve ekibe devrini görün.', btn: 'Hemen deneyin', href: '/#deneyin' },
+      : { ey: '30 dakika, ücretsiz', title: 'Size uygun asistanı bulalım', text: 'Mesaj trafiğinizi konuşalım, hangi asistanın işinize yarayacağını birlikte belirleyelim.', btn: 'Görüşme planla', href: site.bookingPage },
   },
   {
     id: 'donusum', title: groups['ai-donusumu'].title, href: '/ai-donusumu', guide: 'AI dönüşümü nedir?', guideNote: 'Kapsamlı rehber ve tüm hizmetler',
