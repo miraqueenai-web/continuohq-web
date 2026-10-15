@@ -1,10 +1,10 @@
 ---
 import Base from './Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-export interface Props { frontmatter?: { title: string; description: string; updated?: string; path: string } ; title?: string; description?: string; updated?: string; path?: string }
+export interface Props { frontmatter?: { title: string; description: string; updated?: string; path: string } ; title?: string; description?: string; updated?: string; path?: string; noindex?: boolean }
 const fm = Astro.props.frontmatter ?? (Astro.props as any);
 ---
-<Base title={fm.title} description={fm.description}>
+<Base title={fm.title} description={fm.description} noindex={Astro.props.noindex}>
   <section class="page-hero" style="padding-bottom:20px">
     <div class="container">
       <Breadcrumbs items={[{ name: fm.title, href: fm.path }]} />

@@ -34,7 +34,6 @@ export const GET: APIRoute = async () => {
     line('Hakkımızda', '/hakkimizda', 'Continuo\'nun kuruluş amacı ve ilkeleri.'),
     line('İletişim', '/iletisim', 'İletişim formu ve e-posta adresleri.'),
     line(site.founder, '/yazar/neslisah-gokkaya', 'Continuo kurucusu; sitedeki rehber ve blog yazılarının yazarı.'),
-    line('KVKK Aydınlatma Metni', '/kvkk-aydinlatma-metni', 'Kişisel verilerin işlenmesine ilişkin aydınlatma metni.'),
     ``,
   ].join('\n');
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
