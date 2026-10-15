@@ -14,7 +14,7 @@ const wa = whatsappHref();
       <h2>{title}</h2>
       <p>{text}</p>
       <div class="ctas">
-        <a class="btn btn-gold" href={site.bookingUrl} target="_blank" rel="noopener">Keşif görüşmesi planlayın</a>
+        <a class="btn btn-gold" href={site.bookingPage}>Keşif görüşmesi planlayın</a>
         <a class="btn btn-line" href={wa} {...(wa.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{site.whatsapp ? 'WhatsApp\'tan yazın' : 'Bize yazın'}</a>
       </div>
     </div>

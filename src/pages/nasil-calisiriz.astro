@@ -31,7 +31,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'HowTo', name: 'Continu
   <section class="sec paper">
     <div class="container">
       <div class="grid-2">{steps.map((s) => <div class="card"><span class="k">{s.n}</span><h3>{s.h}</h3><p>{s.p}</p></div>)}</div>
-      <p style="margin-top:28px" class="links-list"><a class="chip" href="/ai-asistanlar">AI Asistanlar ›</a><a class="chip" href="/ai-donusumu">AI Dönüşümü ›</a><a class="chip" href={site.bookingUrl} target="_blank" rel="noopener">Keşif görüşmesi planlayın ›</a></p>
+      <p style="margin-top:28px" class="links-list"><a class="chip" href="/ai-asistanlar">AI Asistanlar ›</a><a class="chip" href="/ai-donusumu">AI Dönüşümü ›</a><a class="chip" href={site.bookingPage}>Keşif görüşmesi planlayın ›</a></p>
     </div>
   </section>
   <Faq faqs={faqs} />

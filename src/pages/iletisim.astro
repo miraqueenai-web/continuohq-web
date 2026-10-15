@@ -11,7 +11,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
       <Breadcrumbs items={[{ name: 'İletişim', href: '/iletisim' }]} />
       <h1>İşinizi konuşalım.</h1>
       <p class="lead">En hızlı yol 30 dakikalık ücretsiz keşif görüşmesi. Dilerseniz formu doldurun, en geç bir iş günü içinde dönelim.</p>
-      <div class="ctas"><a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Keşif görüşmesi planlayın</a>{site.whatsapp && <a class="btn btn-line" href={whatsappHref()} target="_blank" rel="noopener">WhatsApp'tan yazın</a>}</div>
+      <div class="ctas"><a class="btn btn-dark" href={site.bookingPage}>Keşif görüşmesi planlayın</a>{site.whatsapp && <a class="btn btn-line" href={whatsappHref()} target="_blank" rel="noopener">WhatsApp'tan yazın</a>}</div>
     </div>
   </section>
   <section class="sec paper">
@@ -38,7 +38,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
         <h2>Mesajınız bize ulaştı.</h2>
         <p>Teşekkürler <span id="form-name"></span>. En geç bir iş günü içinde <b id="form-mail"></b> adresinize dönüyoruz.</p>
         <p class="small">Beklemek istemezseniz hemen bir keşif görüşmesi de planlayabilirsiniz.</p>
-        <div class="ctas"><a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Görüşme planlayın</a><button class="btn btn-line" id="form-again" type="button" style="cursor:pointer">Yeni mesaj gönderin</button></div>
+        <div class="ctas"><a class="btn btn-dark" href={site.bookingPage}>Görüşme planlayın</a><button class="btn btn-line" id="form-again" type="button" style="cursor:pointer">Yeni mesaj gönderin</button></div>
       </div>
       <div class="prose">
         <h2 style="margin-top:0">Doğrudan ulaşın</h2>

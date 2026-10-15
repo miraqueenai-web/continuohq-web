@@ -13,7 +13,10 @@ export const site = {
     teklif: 'teklif@continuohq.com',
     destek: 'destek@continuohq.com',
   },
-  bookingUrl: 'https://calendar.app.google/hxessB9rqXqeKSjz9',
+  bookingUrl: 'https://calendar.app.google/hxessB9rqXqeKSjz9', // Google Takvim randevu sayfası (yedek bağlantı)
+  bookingPage: '/randevu', // Sitedeki randevu sayfası; tüm "görüşme planla" butonları buraya gider
+  // Google Takvim > Randevu programı > Paylaş > Web sitesine yerleştir > "Satır içi randevu sayfası" kodundaki iframe src adresi
+  bookingEmbed: '' as string,
   // Numara gelince "905xxxxxxxxx" biçiminde yazılır; boşken WhatsApp butonları iletişim sayfasına gider.
   whatsapp: '' as string,
   // Tebligat adresi gelince yazılır (KVKK metninde kullanılır).

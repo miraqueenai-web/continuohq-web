@@ -8,17 +8,17 @@ const menus = [
     items: services.filter((s) => s.group === 'ai-asistanlar').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
     feat: site.whatsapp
       ? { ey: 'Canlı deneyin', title: 'Asistanımızla şimdi konuşun', text: 'Ürünümüzü sohbet ederek tanıyın. Yanıtlar saniyeler içinde.', btn: 'Konuşmayı başlat', href: `https://wa.me/${site.whatsapp}` }
-      : { ey: '30 dakika, ücretsiz', title: 'Size uygun asistanı bulalım', text: 'Mesaj trafiğinizi konuşalım, hangi asistanın işinize yarayacağını birlikte belirleyelim.', btn: 'Görüşme planla', href: site.bookingUrl },
+      : { ey: 'Etkileşimli örnek', title: 'Bir asistanı deneyin', text: 'Otel, güzellik merkezi veya diyetisyen asistanına soru sorun; yanıtlarını ve ekibe devrini görün.', btn: 'Hemen deneyin', href: '/#deneyin' },
   },
   {
     id: 'donusum', title: groups['ai-donusumu'].title, href: '/ai-donusumu', guide: 'AI dönüşümü nedir?', guideNote: 'Kapsamlı rehber ve tüm hizmetler',
     items: services.filter((s) => s.group === 'ai-donusumu').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
-    feat: { ey: '30 dakika, ücretsiz', title: 'Keşif görüşmesi', text: 'İşinizi dinleyelim, otomatikleşebilecek adımları birlikte çıkaralım.', btn: 'Görüşme planla', href: site.bookingUrl },
+    feat: { ey: '30 dakika, ücretsiz', title: 'Keşif görüşmesi', text: 'İşinizi dinleyelim, otomatikleşebilecek adımları birlikte çıkaralım.', btn: 'Görüşme planla', href: site.bookingPage },
   },
   {
     id: 'sektor', title: 'Sektörler', href: '/sektorler',
     items: sectors.map((s) => ({ title: s.title, note: s.menuNote, href: sectorUrl(s) })),
-    feat: { ey: 'Sektörünüz yok mu?', title: 'Süreçlerinizi anlatın', text: 'Her işletmenin otomatikleşebilecek bir işi vardır.', btn: 'Bize anlatın', href: site.bookingUrl },
+    feat: { ey: 'Sektörünüz yok mu?', title: 'Süreçlerinizi anlatın', text: 'Her işletmenin otomatikleşebilecek bir işi vardır.', btn: 'Bize anlatın', href: site.bookingPage },
   },
 ];
 const plain = [
@@ -37,7 +37,7 @@ const ext = (h: string) => h.startsWith('http');
       {plain.map((p) => <li><a href={p.href}>{p.title}</a></li>)}
     </ul>
     <div class="nav-right">
-      <a class="btn btn-dark btn-sm" href={site.bookingUrl} target="_blank" rel="noopener">Keşif Görüşmesi</a>
+      <a class="btn btn-dark btn-sm" href={site.bookingPage}>Keşif Görüşmesi</a>
       <button type="button" class="burger" aria-expanded="false" aria-controls="sheet" aria-label="Menüyü aç"><span></span><span></span></button>
     </div>
     {menus.map((m) => (
@@ -66,7 +66,7 @@ const ext = (h: string) => h.startsWith('http');
     ))}
     {plain.map((p) => <li><a class="sh-plain" href={p.href}>{p.title}</a></li>)}
   </ul>
-  <a class="btn btn-dark sh-cta" href={site.bookingUrl} target="_blank" rel="noopener">Ücretsiz keşif görüşmesi</a>
+  <a class="btn btn-dark sh-cta" href={site.bookingPage}>Ücretsiz keşif görüşmesi</a>
 </div>
 
 <script>

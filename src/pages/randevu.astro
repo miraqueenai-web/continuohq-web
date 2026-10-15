@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../config/site';
+const ld = [
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: site.url },
+    { '@type': 'ListItem', position: 2, name: 'Randevu', item: `${site.url}/randevu` } ] },
+];
+const embed = site.bookingEmbed;
+---
+<Base title="Ücretsiz Keşif Görüşmesi Planlayın | Continuo" description="Continuo ile 30 dakikalık ücretsiz keşif görüşmesi planlayın. Size uygun gün ve saati seçin, davetiniz e-postanıza gelsin." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Randevu', href: '/randevu' }]} />
+      <h1>Ücretsiz keşif görüşmesi planlayın.</h1>
+      <p class="lead">30 dakikalık çevrim içi görüşmede işinizi dinler, yapay zekanın size en çok nerede değer katacağını birlikte belirleriz. Size uygun gün ve saati seçin; davetiniz e-postanıza gelsin.</p>
+    </div>
+  </section>
+
+  <section class="sec paper booking">
+    <div class="container booking-grid">
+      <div class="booking-info">
+        <h2>Görüşmede neler olacak?</h2>
+        <ol class="booking-steps">
+          <li><b>İşinizi dinleriz.</b> Hangi kanallardan mesaj aldığınızı, sizi en çok hangi işlerin yorduğunu konuşuruz.</li>
+          <li><b>Fırsatları belirleriz.</b> Bir asistanın veya otomasyonun en çok değer katacağı noktaları birlikte çıkarırız.</li>
+          <li><b>Sonraki adımı netleştiririz.</b> Size uygun bir çözüm varsa kapsamını ve yol haritasını yazılı olarak iletiriz.</li>
+        </ol>
+        <div class="booking-facts">
+          <div><span>Süre</span><b>30 dakika</b></div>
+          <div><span>Ücret</span><b>Ücretsiz</b></div>
+          <div><span>Yer</span><b>Çevrim içi</b></div>
+        </div>
+        <p class="small">Görüşme bir satış sunumu değildir; yapay zekanın işinize uygun olmadığını düşünürsek bunu da açıkça söyleriz. Görüşmeden önce yazmak isterseniz <a href="/iletisim">iletişim formunu</a> kullanabilirsiniz.</p>
+      </div>
+      <div class="booking-panel">
+        {embed ? (
+          <iframe src={embed} title="Continuo randevu takvimi" loading="lazy" class="booking-frame"></iframe>
+        ) : (
+          <div class="booking-fallback">
+            <span class="form-done-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+            <h2>Size uygun saati seçin</h2>
+            <p>Takvimimiz Google Takvim üzerinden çalışır. Açılan sayfada uygun gün ve saati seçin; görüşme bağlantısı ve davet e-postanıza gönderilir.</p>
+            <a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Takvimi açın</a>
+          </div>
+        )}
+        <p class="booking-note">Randevunuz Google Takvim altyapısıyla oluşturulur. Paylaştığınız bilgiler <a href="/kvkk-aydinlatma-metni">KVKK Aydınlatma Metni</a> kapsamında işlenir.</p>
+      </div>
+    </div>
+  </section>
+</Base>
