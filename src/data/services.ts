@@ -37,20 +37,22 @@ export type Sector = {
 export const groups = {
   'ai-asistanlar': {
     title: 'AI Asistanlar',
+    guideTitle: 'AI asistan nedir? İşletmeler için kapsamlı rehber',
     menuNote: 'Hazır, hızlı kurulan asistanlar',
-    seoTitle: 'AI Asistanlar | WhatsApp, Instagram ve Web Sitesi Asistanları',
+    seoTitle: 'AI Asistan Nedir? İşletmeler İçin Rehber | Continuo',
     description:
-      'İşletmenize özel yapay zeka asistanları: WhatsApp, Instagram DM ve web sitesi asistanı, randevu ve rezervasyon yönetimi. 7/24 yanıt, gerektiğinde ekibinize devir.',
+      'AI asistan nedir, klasik chatbottan farkı ne, WhatsApp ve Instagram kuralları neler? İşletmeler için güncel kaynaklarla kapsamlı rehber ve hizmetlerimiz.',
     answer:
       'AI asistan, işletmenizin bilgisiyle eğitilmiş ve müşterilerinize WhatsApp, Instagram veya web sitenizde 7/24 yanıt veren bir yapay zeka sistemidir. Sık sorulan soruları cevaplar, randevu alır, bilgi toplar; hassas ya da karmaşık bir konu açıldığında konuşmayı ekibinize devreder.',
     lead: 'Müşterileriniz cevap beklemez. Asistanınız işletmenizin bilgisiyle konuşur, kurallarınızla çalışır ve gerektiğinde konuşmayı ekibinize devreder.',
   },
   'ai-donusumu': {
     title: 'AI Dönüşümü',
+    guideTitle: 'AI dönüşümü nedir? KOBİ\'ler için kapsamlı rehber',
     menuNote: 'İşletmenize özel kapsamlı çözümler',
-    seoTitle: 'AI Dönüşümü: Yapay Zeka Otomasyonu ve Danışmanlık',
+    seoTitle: 'AI Dönüşümü Nedir? KOBİ Rehberi | Continuo',
     description:
-      'Operasyon, İK, raporlama, belge ve stok süreçleri için işletmenize özel yapay zeka otomasyonları, AI ajanları ve entegrasyonlar. Önce dinleriz, sonra kurarız.',
+      'AI dönüşümü nedir, nereden başlanır, iş akışı ile AI ajanı arasındaki fark ne? TÜİK, McKinsey ve Gartner verileriyle KOBİ\'ler için kapsamlı rehber.',
     answer:
       'AI dönüşümü, işletmenin tekrarlayan ve zaman alan süreçlerini yapay zeka ve otomasyonla yeniden kurgulamaktır. Hangi işin otomatikleşeceğini birlikte belirler, mevcut araçlarınıza bağlı sistemler kurar ve sonuçları kurulum öncesiyle kıyaslayarak ölçeriz.',
     lead: 'Mesajlaşmanın ötesinde: operasyon, insan kaynakları, raporlama, belge ve stok. Önce işinizi dinleriz, sonra size özel sistemi kurarız.',

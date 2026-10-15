@@ -17,6 +17,28 @@ const needs = [
 const tiles = sectors.filter((s) => s.slug !== 'tum-sektorler');
 const tileClass: Record<string, string> = { 'konaklama-turizm': 't1', 'guzellik-estetik': 't2', 'saglik-beslenme': 't3' };
 const wa = whatsappHref();
+// Telefon demosu: ekranda kaldıkça sırayla oynayan örnek konuşmalar
+const scenes = [
+  { name: 'Örnek Otel', cap: "Örnek senaryo · Otel. Gece 02:14'te gelen soru, sabahı beklemeden yanıtlanıyor.", msgs: [
+    { k: 'in', x: 'Merhaba, 14–16 Kasım için iki kişilik oda var mı?', t: '02:14' },
+    { k: 'out', x: 'Merhaba! 14–16 Kasım için deniz manzaralı çift kişilik odamız müsait. Kahvaltı dahil gecelik fiyatı göndereyim mi?', t: '02:14' },
+    { k: 'in', x: 'Evet lütfen, bir de otopark var mı?', t: '02:15' },
+    { k: 'out', x: 'Ücretsiz otoparkımız var. Fiyat ve rezervasyon bağlantısını iletiyorum.', t: '02:15' },
+    { k: 'handoff', x: "Sabah 09:00'da resepsiyon ekibi konuşmayı devralabilir" } ] },
+  { name: 'Örnek Güzellik Merkezi', cap: 'Örnek senaryo · Güzellik merkezi. Mesai sonrası gelen randevu talebi takvime işleniyor.', msgs: [
+    { k: 'in', x: 'Merhaba, cumartesi cilt bakımı için yer var mı?', t: '23:42' },
+    { k: 'out', x: 'Merhaba! Cumartesi 11:00 ve 15:30 boş. Hangisini ayırayım?', t: '23:42' },
+    { k: 'in', x: '15:30 olsun.', t: '23:43' },
+    { k: 'out', x: 'Cumartesi 15:30 için randevunuzu oluşturdum. Bir gün önce hatırlatma göndereceğim.', t: '23:43' },
+    { k: 'handoff', x: 'Randevu takvime eklendi · ekip bilgilendirildi' } ] },
+  { name: 'Örnek Beslenme Danışmanlığı', cap: 'Örnek senaryo · Diyetisyen. Sağlıkla ilgili sorular her zaman uzmana yönlendiriliyor.', msgs: [
+    { k: 'in', x: 'Merhaba, online görüşme yapıyor musunuz?', t: '21:08' },
+    { k: 'out', x: 'Merhaba! Evet, online görüşmelerimiz var. Uygun saatleri ve ücret bilgisini iletiyorum.', t: '21:08' },
+    { k: 'in', x: 'Glutensiz beslenmem gerekiyor, buna göre liste hazırlanır mı?', t: '21:09' },
+    { k: 'out', x: 'Bu konuyu diyetisyenimiz görüşmede sizinle birlikte değerlendirir. İsterseniz ilk görüşmenizi planlayalım.', t: '21:09' },
+    { k: 'handoff', x: 'Sağlıkla ilgili soru diyetisyene iletildi' } ] },
+];
+const first = scenes[0];
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -37,7 +59,7 @@ const faqLd = {
     <div class="container">
       <span class="eyebrow">Yapay Zeka Ajansı</span>
       <h1>İşletmeniz artık <span class="grad">hiç uyumuyor.</span></h1>
-      <p class="lead">İşletmenize özel yapay zeka asistanları ve otomasyonlar. Mesajları yanıtlar, randevuları yönetir, tekrarlayan işleri üstlenir.</p>
+      <p class="lead">İşletmenize özel <span class="grad gold-word">yapay zeka</span> asistanları ve otomasyonlar. Mesajları yanıtlar, randevuları yönetir, tekrarlayan işleri üstlenir.</p>
       <div class="ctas">
         {site.whatsapp ? (
           <>
@@ -53,22 +75,18 @@ const faqLd = {
       </div>
       <div class="demo-wrap">
         <div class="glow" aria-hidden="true"></div>
-        <div class="phone" role="img" aria-label="Bir otelin WhatsApp asistanıyla örnek konuşma">
+        <div class="phone" role="img" aria-label="Örnek bir işletmenin WhatsApp asistanıyla yapılan konuşma">
           <div class="screen">
             <div class="chat-head">
               <span class="av" style="--mk-ink:#111"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg></span>
-              <span><b>Örnek Otel</b><small>Asistan · çevrim içi</small></span>
+              <span><b id="demo-name">{first.name}</b><small>Asistan · çevrim içi</small></span>
             </div>
-            <div class="msgs anim">
-              <div class="m in">Merhaba, 14–16 Kasım için iki kişilik oda var mı?<span class="t">02:14</span></div>
-              <div class="m out">Merhaba! 14–16 Kasım için deniz manzaralı çift kişilik odamız müsait. Kahvaltı dahil gecelik fiyatı göndereyim mi?<span class="t">02:14</span></div>
-              <div class="m in">Evet lütfen, bir de otopark var mı?<span class="t">02:15</span></div>
-              <div class="m out">Ücretsiz otoparkımız var. Fiyat ve rezervasyon bağlantısını iletiyorum. Ödeme sırasında bir sorunuz olursa ekibimize bağlanabilirsiniz.<span class="t">02:15</span></div>
-              <div class="m handoff">Sabah 09:00'da resepsiyon ekibi konuşmayı devralabilir</div>
+            <div class="msgs anim" id="demo" data-scenes={JSON.stringify(scenes)}>
+              {first.msgs.map((m) => <div class={`m ${m.k}`}>{m.x}{m.t && <span class="t">{m.t}</span>}</div>)}
             </div>
           </div>
         </div>
-        <p class="demo-cap">Örnek senaryo. Gece 02:14'te gelen soru, sabahı beklemeden yanıtlanıyor.</p>
+        <p class="demo-cap" id="demo-cap">{first.cap}</p>
       </div>
     </div>
   </section>
@@ -184,6 +202,55 @@ const faqLd = {
     addEventListener('scroll', paint, { passive: true });
     addEventListener('resize', paint);
     paint();
+  }
+  // Telefon demosu: bölüm görünür oldukça konuşmalar sırayla ve tekrar tekrar akar
+  const demo = document.getElementById('demo');
+  const demoName = document.getElementById('demo-name');
+  const demoCap = document.getElementById('demo-cap');
+  if (demo && demoName && demoCap && !reduce && 'IntersectionObserver' in window) {
+    type Msg = { k: string; x: string; t?: string };
+    const scenes: { name: string; cap: string; msgs: Msg[] }[] = JSON.parse(demo.dataset.scenes || '[]');
+    let idx = 0, run = 0, visible = false, timer = 0;
+    const wait = (ms: number) => new Promise<void>((r) => { timer = window.setTimeout(r, ms); });
+    const bubble = (m: Msg) => {
+      const el = document.createElement('div');
+      el.className = `m ${m.k}`;
+      el.textContent = m.x;
+      if (m.t) { const t = document.createElement('span'); t.className = 't'; t.textContent = m.t; el.append(t); }
+      return el;
+    };
+    const play = async () => {
+      const my = ++run;
+      const alive = () => visible && my === run;
+      while (alive()) {
+        const sc = scenes[idx];
+        demo.classList.add('fading');
+        await wait(400); if (!alive()) return;
+        demo.replaceChildren();
+        demoName.textContent = sc.name;
+        demoCap.textContent = sc.cap;
+        demo.classList.remove('fading');
+        await wait(500);
+        for (const m of sc.msgs) {
+          if (!alive()) return;
+          if (m.k === 'out') {
+            const typing = document.createElement('div');
+            typing.className = 'm out typing';
+            typing.innerHTML = '<i></i><i></i><i></i>';
+            demo.append(typing);
+            await wait(1100); typing.remove(); if (!alive()) return;
+          }
+          demo.append(bubble(m));
+          await wait(m.k === 'in' ? 1300 : 1500);
+        }
+        await wait(3200);
+        idx = (idx + 1) % scenes.length;
+      }
+    };
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible) play(); else { run++; clearTimeout(timer); }
+    }, { threshold: 0.4 }).observe(demo);
   }
   const track = document.getElementById('track');
   document.querySelectorAll<HTMLButtonElement>('.slider-btn').forEach((b) => b.addEventListener('click', () => {

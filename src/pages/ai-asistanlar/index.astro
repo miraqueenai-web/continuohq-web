@@ -1,4 +1,160 @@
 ---
 import GroupPage from '../../components/GroupPage.astro';
+
+const toc = [
+  { id: 'nedir', title: 'AI asistan nedir?' },
+  { id: 'nasil-calisir', title: 'Nasıl çalışır?' },
+  { id: 'neden-simdi', title: 'Neden şimdi?' },
+  { id: 'kanal-kurallari', title: 'WhatsApp ve Instagram kuralları' },
+  { id: 'sinirlar', title: 'Neyi yapar, neyi yapmaz?' },
+  { id: 'kontrol-listesi', title: 'Kurulum kontrol listesi' },
+];
+
+const faqs = [
+  { q: 'AI asistan ile chatbot aynı şey mi?', a: 'Hayır. Klasik chatbot önceden yazılmış soru ve cevaplarla çalışır; soru farklı sorulduğunda takılır. AI asistan soruyu nasıl sorulduğundan bağımsız olarak anlar, işletmenizin bilgisiyle yanıt üretir ve gerektiğinde takvim, rezervasyon gibi sistemlere bağlanarak işlem yapar.' },
+  { q: 'Asistan yanlış bilgi verirse ne olur?', a: 'Sorumluluk işletmeye aittir; 2024\'te Kanada\'da bir havayolu şirketi, sohbet botunun verdiği hatalı bilgiden sorumlu tutuldu. Bu yüzden asistanı yalnızca onaylı bilgi bankanızla çalışacak şekilde kurar, emin olmadığı konularda konuşmayı ekibinize devretmesini sağlarız.' },
+  { q: 'WhatsApp\'ta yapay zeka asistanı kullanmak serbest mi?', a: 'Evet. Meta\'nın 15 Ocak 2026\'dan itibaren tüm kullanıcılar için geçerli olan kuralı, ChatGPT gibi genel amaçlı asistanların WhatsApp üzerinden dağıtılmasını yasaklıyor. Müşteri desteği, randevu ve sipariş takibi gibi işletmeye özel asistanlar serbest.' },
+  { q: 'Müşterilerime asistanla konuştuklarını söylemeli miyim?', a: 'Öneririz. Salesforce\'un tüketici araştırmasında katılımcıların yüzde 72\'si yapay zekayla mı konuştuğunu bilmenin önemli olduğunu söylüyor. Açık olmak güven kazandırır ve KVKK kapsamındaki aydınlatma yükümlülüğünüzle de uyumludur.' },
+  { q: 'Kurulum ne kadar sürer?', a: 'Tek kanallı, bilgi bankasıyla çalışan bir asistan genellikle birkaç hafta içinde devreye alınır. Rezervasyon, ödeme veya CRM entegrasyonu eklendikçe süre uzar. Süreyi keşif görüşmesinde, kullandığınız sistemlere bakarak netleştiririz.' },
+  { q: 'Ekibimin yerini alır mı?', a: 'Hayır, amacımız bu değil. Gartner, yapay zeka nedeniyle müşteri hizmetleri kadrosunu azaltan şirketlerin yarısının 2027\'ye kadar benzer görevler için yeniden işe alım yapacağını öngörüyor. Asistan tekrarlayan soruları ve mesai dışını üstlenir; ekibiniz insan dokunuşu gereken işlere odaklanır.' },
+];
+
+const sources = [
+  { title: 'Anthropic, "Building effective agents" (Aralık 2024)', url: 'https://www.anthropic.com/research/building-effective-agents' },
+  { title: 'IBM, "Types of chatbots"', url: 'https://www.ibm.com/blog/chatbot-types' },
+  { title: 'Salesforce, "AI Agent vs. Chatbot"', url: 'https://www.salesforce.com/eu/agentforce/ai-agent-vs-chatbot/' },
+  { title: 'Sam Altman, "Reflections" (6 Ocak 2025)', url: 'https://blog.samaltman.com/reflections' },
+  { title: 'TechCrunch, Meta\'nın iş yapay zekası haftada 10 milyon konuşmaya ulaştı (30 Nisan 2026)', url: 'https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week' },
+  { title: 'Gartner, ajan yapay zekanın 2029\'a kadar yaygın müşteri hizmeti sorunlarının %80\'ini çözeceği öngörüsü (5 Mart 2025)', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290' },
+  { title: 'Gartner, müşterilerin %64\'ü müşteri hizmetlerinde yapay zeka kullanılmamasını tercih ediyor (9 Temmuz 2024)', url: 'https://www.gartner.com/en/newsroom/press-releases/2024-07-09-gartner-survey-finds-64-percent-of-customers-would-prefer-that-companies-didnt-use-ai-for-customer-service' },
+  { title: 'Gartner, kadro azaltan şirketlerin yarısı 2027\'ye kadar yeniden işe alacak öngörüsü (3 Şubat 2026)', url: 'https://www.gartner.com/en/newsroom/press-releases/2026-02-03-gartner-predicts-half-of-companies-that-cut-customer-service-staff-due-to-ai-will-rehire-by-2027' },
+  { title: 'Salesforce, State of the AI Connected Customer', url: 'https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/' },
+  { title: 'Meta, WhatsApp Business Platform fiyatlandırması', url: 'https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing' },
+  { title: 'Meta, WhatsApp Business Çözüm Koşulları', url: 'https://www.whatsapp.com/legal/business-solution-terms' },
+  { title: 'Meta, Messenger Platform Send API (Instagram mesajlaşma ve HUMAN_AGENT etiketi)', url: 'https://developers.facebook.com/docs/messenger-platform/reference/send-api' },
+  { title: 'CX Today, Air Canada sohbet botu kararı (Moffatt v. Air Canada, 2024)', url: 'https://www.cxtoday.com/conversational-ai/court-orders-air-canada-to-pay-out-for-chatbots-bad-advice/' },
+  { title: 'KVKK, Üretken Yapay Zekâ ve Kişisel Verilerin Korunması Rehberi (Kasım 2025), haber ve özet', url: 'https://www.alomaliye.com/2025/11/24/sorularla-uretken-yapay-zeka-ve-kisisel-verilerin-korunmasi-rehberi/' },
+];
 ---
-<GroupPage group="ai-asistanlar" />
+<GroupPage group="ai-asistanlar" toc={toc} faqs={faqs} sources={sources} updated="2026-10-15">
+
+  <section class="gsec" id="nedir">
+    <div class="container">
+      <span class="eyebrow">Temel kavram</span>
+      <h2>AI asistan nedir, klasik chatbottan farkı ne?</h2>
+      <p class="intro">AI asistan, büyük dil modeli üzerine kurulan ve işletmenizin bilgisiyle çalışan bir yazılımdır. Müşterinizin sorusunu nasıl sorduğundan bağımsız olarak anlar, kendi bilgi bankanızdan yanıt üretir ve gerektiğinde takvim, rezervasyon veya sipariş sistemine bağlanarak işlem yapar.</p>
+      <div class="prose">
+        <p>Klasik chatbotlar ise önceden yazılmış senaryolarla çalışır. IBM'in tanımıyla kural tabanlı bir chatbot "yalnızca önceden tanımlanmış soruları ve cevap seçeneklerini destekler." Müşteri soruyu biraz farklı sorduğunda bot takılır ve müşteri menüler arasında kaybolur.</p>
+        <p>Bir adım ötesinde <b>AI ajanları</b> vardır. Anthropic'in ayrımına göre iş akışlarında model ve araçlar önceden çizilmiş adımları izler; ajanlarda ise model hangi adımı atacağına ve hangi aracı kullanacağına kendisi karar verir. İşletmelerdeki asistanların çoğunda en doğru yapı, kontrollü bir iş akışı ve onun içinde dar kapsamlı ajan yetenekleridir.</p>
+      </div>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Klasik chatbot</th><th scope="col">AI asistan</th><th scope="col">AI ajanı</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Nasıl çalışır?</th><td>Önceden yazılmış soru ve cevap ağacı</td><td>Dil modeli ve işletmenin bilgi bankası</td><td>Dil modeli, araçlar ve hedef</td></tr>
+            <tr><th scope="row">Farklı sorulan soru</th><td>Çoğunlukla anlamaz</td><td>Anlar, gerekirse netleştirici soru sorar</td><td>Anlar ve çözüm için adım planlar</td></tr>
+            <tr><th scope="row">İşlem yapabilir mi?</th><td>Sınırlı, sabit butonlarla</td><td>Tanımlı entegrasyonlarla (randevu, rezervasyon)</td><td>Birden fazla sistemde ardışık işlem</td></tr>
+            <tr><th scope="row">Uygun olduğu iş</th><td>Çok basit menüler</td><td>Müşteri iletişimi ve randevu</td><td>Çok adımlı operasyon işleri</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="nasil-calisir">
+    <div class="container">
+      <span class="eyebrow">Altyapı</span>
+      <h2>Bir AI asistan hangi parçalardan oluşur?</h2>
+      <p class="intro">Müşterinin gördüğü tek şey sohbet penceresidir. Arka planda ise birlikte çalışan altı parça vardır. Asistanın kalitesini model kadar bu parçaların doğru kurulması belirler.</p>
+      <div class="steps-g">
+        <div><h3>Kanal</h3><p>Müşterinin yazdığı yer: WhatsApp Business Platformu, Instagram mesajları veya web sitenizdeki sohbet penceresi. Her kanalın kendi resmi altyapısı ve kuralları vardır.</p></div>
+        <div><h3>Bilgi bankası</h3><p>Hizmetleriniz, fiyat politikanız, çalışma saatleriniz, sık sorulan sorular. Asistan yanıtlarını buradan üretir; bilgi bankasında olmayan konuda tahmin yürütmez.</p></div>
+        <div><h3>Kurallar ve sınırlar</h3><p>Asistanın hangi konularda konuşacağı, hangi üslupla yazacağı ve neyi asla yapmayacağı. Örneğin sağlık tavsiyesi vermemek ya da tanımlı fiyat dışında indirim önermemek.</p></div>
+        <div><h3>İnsana devir</h3><p>Şikâyet, hassas konu veya asistanın emin olmadığı her durumda konuşma, o ana kadarki özetiyle ekibinize geçer. Müşteri derdini tekrar anlatmak zorunda kalmaz.</p></div>
+        <div><h3>Entegrasyonlar</h3><p>Takvim, rezervasyon motoru, otel yönetim sistemi veya CRM. Bağlantı kurulduğunda asistan bilgi vermenin ötesine geçer: müsaitliği kontrol eder, randevuyu oluşturur.</p></div>
+        <div><h3>Ölçüm</h3><p>Ortalama yanıt süresi, kaçırılan mesaj sayısı, randevuya veya satışa dönen konuşma oranı. Kurulumdan önce ölçülür, sonra aynı ölçütlerle kıyaslanır.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec" id="neden-simdi">
+    <div class="container">
+      <span class="eyebrow">Güncel tablo</span>
+      <h2>Neden şimdi? Büyük teknoloji şirketleri ne söylüyor?</h2>
+      <p class="intro">İşletme mesajlaşmasında yapay zeka artık deneme aşamasının ötesinde. Mesajlaşma platformlarının sahibi şirketler de bu dönüşümü açıkça hedefliyor.</p>
+      <div class="facts">
+        <div class="fact"><b>10 milyon</b><p>Meta'nın işletmelere sunduğu yapay zekanın Mart 2026 sonunda haftada aracılık ettiği konuşma sayısı. 2026 başında bu sayı 1 milyon civarındaydı.</p><small>Meta, 2026 1. çeyrek sonuçları · <a href="https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week" target="_blank" rel="noopener">TechCrunch</a></small></div>
+        <div class="fact"><b>%80</b><p>Gartner'ın öngörüsüne göre 2029'a kadar yaygın müşteri hizmeti sorunlarının insan müdahalesi olmadan yapay zeka ajanlarıyla çözülecek oranı. Bu bir tahmindir, ölçülmüş bir sonuç değildir.</p><small>Gartner, Mart 2025 · <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank" rel="noopener">basın bülteni</a></small></div>
+        <div class="fact"><b>%72</b><p>Yapay zekayla mı konuştuğunu bilmenin önemli olduğunu söyleyen tüketicilerin oranı. Şeffaflık güvenin ön koşulu.</p><small>Salesforce, State of the AI Connected Customer · <a href="https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/" target="_blank" rel="noopener">rapor</a></small></div>
+      </div>
+      <div class="quotes">
+        <figure class="quote"><blockquote>"2025'te ilk yapay zeka ajanlarının 'iş gücüne katıldığını' ve şirketlerin üretimini somut biçimde değiştirdiğini görebiliriz."</blockquote><figcaption><b>Sam Altman, OpenAI CEO'su</b>"Reflections" yazısı, 6 Ocak 2025 · <a href="https://blog.samaltman.com/reflections" target="_blank" rel="noopener">kaynak</a></figcaption></figure>
+        <figure class="quote"><blockquote>"Birçok açıdan, her şirketin BT departmanı gelecekte yapay zeka ajanlarının İK departmanı olacak."</blockquote><figcaption><b>Jensen Huang, NVIDIA CEO'su</b>CES 2025 açılış konuşması · <a href="https://fortune.com/2025/01/09/nvidia-ceo-jensen-huangt-take-over-hr-ai-agents" target="_blank" rel="noopener">Fortune</a></figcaption></figure>
+        <figure class="quote"><blockquote>Meta'nın mesajlaşma uygulamalarındaki işletme yapay zekaları şu an çoğu işletme için ücretsiz; şirket bu alandan gelir elde etmeyi daha sonraki bir aşamada planlıyor.</blockquote><figcaption><b>Mark Zuckerberg, Meta CEO'su</b>2026 1. çeyrek sonuç toplantısından aktarım · <a href="https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week" target="_blank" rel="noopener">TechCrunch</a></figcaption></figure>
+      </div>
+      <p class="note">Alıntılar özgün İngilizce metinlerden çevrilmiştir. Zuckerberg'in açıklaması doğrudan alıntı değil, haberden aktarımdır.</p>
+      <div class="callout"><b>Madalyonun öbür yüzü</b><p>Gartner'ın 2024 araştırmasında müşterilerin yüzde 64'ü şirketlerin müşteri hizmetlerinde yapay zeka kullanmamasını tercih ettiğini söyledi; en büyük endişe bir insana ulaşmanın zorlaşmasıydı. Bu yüzden kurduğumuz her asistanda insana devir yolu baştan tasarlanır.</p></div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="kanal-kurallari">
+    <div class="container">
+      <span class="eyebrow">Platform kuralları</span>
+      <h2>WhatsApp ve Instagram'da bilmeniz gereken kurallar</h2>
+      <p class="intro">Asistan, Meta'nın resmi altyapısı üzerinden ve platform kurallarına uygun çalışmalıdır. Kişisel WhatsApp hesabını otomasyon yazılımlarıyla çalıştırmak kurallara aykırıdır ve numaranın kapatılmasına yol açabilir.</p>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col">Kural</th><th scope="col">Ne anlama geliyor?</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">WhatsApp 24 saat penceresi</th><td>Müşteri size yazdığında 24 saatlik müşteri hizmeti penceresi açılır ve her yeni mesajla yenilenir. Bu pencere içinde serbest metinle yanıt verebilirsiniz; pencere dışında yalnızca onaylı şablon mesaj gönderilebilir.</td></tr>
+            <tr><th scope="row">WhatsApp mesaj başına fiyatlandırma</th><td>1 Temmuz 2025'ten beri ücretlendirme konuşma başına değil, teslim edilen şablon mesaj başına yapılıyor. Açık pencere içindeki serbest metin yanıtlar ücretsiz. Ücretler ülkeye ve mesaj kategorisine göre değişiyor.</td></tr>
+            <tr><th scope="row">Genel amaçlı yapay zeka yasağı</th><td>15 Ocak 2026'dan itibaren ChatGPT gibi genel amaçlı asistanlar WhatsApp Business Platformu'nda dağıtılamıyor. İşletmeye özel müşteri desteği, randevu ve sipariş asistanları serbest. Ayrıntılar <a href="/blog/whatsapp-yapay-zeka-asistani-kurallari">blog yazımızda</a>.</td></tr>
+            <tr><th scope="row">Instagram 24 saat penceresi</th><td>Instagram'da da müşterinin son mesajından sonra 24 saat içinde yanıt verilmelidir.</td></tr>
+            <tr><th scope="row">Instagram insan temsilci etiketi</th><td>HUMAN_AGENT etiketi yanıt süresini 7 güne uzatır, ancak yalnızca bir insanın elle yazdığı yanıtlar için geçerlidir. Otomatik mesajlar bu etiketle gönderilemez.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Kaynak: Meta geliştirici belgeleri ve WhatsApp Business Çözüm Koşulları. Platform kuralları değişebilir; kurulum öncesinde güncel hâlini kontrol ederiz.</p>
+    </div>
+  </section>
+
+  <section class="gsec" id="sinirlar">
+    <div class="container">
+      <span class="eyebrow">Gerçekçi beklenti</span>
+      <h2>Asistan neyi üstlenir, neyi ekibinize bırakır?</h2>
+      <p class="intro">İyi bir asistanın değeri, ne yaptığı kadar neyi yapmadığıyla da ölçülür. 2024'te Kanada'da bir havayolu şirketi, sohbet botunun uydurduğu bir iade politikasından sorumlu tutuldu; mahkeme, botun "ayrı bir tüzel kişi" olduğu savunmasını kabul etmedi. Asistanın söylediği her şey işletmenin sözüdür.</p>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col">Asistanın üstlenebileceği işler</th><th scope="col">Ekibinizde kalması gereken işler</th></tr></thead>
+          <tbody>
+            <tr><td>Fiyat, müsaitlik, çalışma saatleri gibi sık sorular</td><td>Tanımlı politika dışındaki indirim ve pazarlıklar</td></tr>
+            <tr><td>Randevu ve rezervasyon alma, hatırlatma gönderme</td><td>Şikâyetlerin çözümü ve telafi kararları</td></tr>
+            <tr><td>Talep bilgilerini toplama ve doğru kişiye iletme</td><td>Sağlık, hukuk ve finans gibi uzmanlık gerektiren tavsiyeler</td></tr>
+            <tr><td>Mesai dışında gelen mesajlara ilk yanıt</td><td>Acil durumlar (asistan bunları anında telefona yönlendirir)</td></tr>
+            <tr><td>Konuşma özetleri ve haftalık raporlar</td><td>Onay gerektiren her türlü son karar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="kontrol-listesi">
+    <div class="container">
+      <span class="eyebrow">Uygulama</span>
+      <h2>Doğru kurulum için kontrol listesi</h2>
+      <p class="intro">Kendi işletmeniz için bir asistan değerlendirirken, bizimle ya da başka bir ekiple çalışın, bu maddeleri sorun.</p>
+      <ul class="checklist">
+        <li><b>Kapsam yazılı mı?</b> Asistanın hangi konularda konuşacağı ve hangi konularda konuşmayı devredeceği baştan belirlenmeli.</li>
+        <li><b>Bilgi bankası onaylı mı?</b> Yanıtlar yalnızca sizin onayladığınız bilgilerden üretilmeli; asistan bilmediği konuda tahmin yürütmemeli.</li>
+        <li><b>İnsana devir tetikleyicileri tanımlı mı?</b> Şikâyet, hassas konu, tekrarlayan anlaşılmama ve geri alınamaz işlemler öncesi devir.</li>
+        <li><b>Müşteri bilgilendiriliyor mu?</b> Asistanla konuştuğunu bilmek isteyen müşteriye açıkça söylenmeli.</li>
+        <li><b>Resmi altyapı kullanılıyor mu?</b> WhatsApp Business Platformu ve Instagram'ın resmi API'si; kişisel hesap otomasyonu değil.</li>
+        <li><b>KVKK uyumu sağlandı mı?</b> Aydınlatma metni, veri saklama süreleri ve özel nitelikli veriler için ek önlemler. Kişisel Verileri Koruma Kurumu, Kasım 2025'te üretken yapay zeka ve kişisel veriler üzerine bir rehber yayımladı.</li>
+        <li><b>Başarı ölçütü belirlendi mi?</b> Yanıt süresi, kaçırılan mesaj ve dönüşüm oranı kurulumdan önce kaydedilmeli.</li>
+        <li><b>Düzenli iyileştirme var mı?</b> Konuşmalar düzenli incelenmeli, bilgi bankası ve kurallar güncellenmeli.</li>
+      </ul>
+      <div class="callout"><b>Nereden başlamalı?</b><p>Son birkaç ayın mesajlarına bakın ve en sık gelen 20 soruyu listeleyin. Asistanın bilgi bankası buradan başlar. Sektörünüze özel örnekler için <a href="/sektorler" style="text-decoration:underline">Sektörler</a> sayfamıza, adım adım kurulum için <a href="/nasil-calisiriz" style="text-decoration:underline">Nasıl Çalışırız</a> sayfamıza göz atabilirsiniz.</p></div>
+    </div>
+  </section>
+
+</GroupPage>

@@ -3,7 +3,7 @@ title: "Otelinize gece gelen mesajlar: yapay zeka resepsiyonist nasıl çalış�
 seoTitle: "Oteller için Yapay Zeka Resepsiyonist Rehberi"
 description: "Gece gelen rezervasyon soruları, tekrarlayan misafir talepleri ve dil engeli. Yapay zeka resepsiyonistin otelinizde nasıl çalıştığını ve neleri üstlenebileceğini anlatıyoruz."
 answer: "Yapay zeka resepsiyonist, otelinize WhatsApp, Instagram veya web sitesinden gelen soruları gece gündüz ve misafirin kendi dilinde yanıtlayan bir asistandır. Oda müsaitliği, fiyat, check-in saati, otopark ve transfer gibi tekrarlayan soruları cevaplar, rezervasyona yönlendirir; şikâyet ve özel talepleri resepsiyon ekibine devreder."
-date: 2026-10-14
+date: 2026-10-09
 draft: false
 faqs:
   - q: "Yapay zeka resepsiyonist resepsiyon ekibinin yerini alır mı?"

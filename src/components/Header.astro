@@ -4,14 +4,14 @@ import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/servic
 
 const menus = [
   {
-    id: 'asistan', title: groups['ai-asistanlar'].title, href: '/ai-asistanlar',
+    id: 'asistan', title: groups['ai-asistanlar'].title, href: '/ai-asistanlar', guide: 'AI asistan nedir?', guideNote: 'Kapsamlı rehber ve tüm asistanlar',
     items: services.filter((s) => s.group === 'ai-asistanlar').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
     feat: site.whatsapp
       ? { ey: 'Canlı deneyin', title: 'Asistanımızla şimdi konuşun', text: 'Ürünümüzü sohbet ederek tanıyın. Yanıtlar saniyeler içinde.', btn: 'Konuşmayı başlat', href: `https://wa.me/${site.whatsapp}` }
       : { ey: '30 dakika, ücretsiz', title: 'Size uygun asistanı bulalım', text: 'Mesaj trafiğinizi konuşalım, hangi asistanın işinize yarayacağını birlikte belirleyelim.', btn: 'Görüşme planla', href: site.bookingUrl },
   },
   {
-    id: 'donusum', title: groups['ai-donusumu'].title, href: '/ai-donusumu',
+    id: 'donusum', title: groups['ai-donusumu'].title, href: '/ai-donusumu', guide: 'AI dönüşümü nedir?', guideNote: 'Kapsamlı rehber ve tüm hizmetler',
     items: services.filter((s) => s.group === 'ai-donusumu').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
     feat: { ey: '30 dakika, ücretsiz', title: 'Keşif görüşmesi', text: 'İşinizi dinleyelim, otomatikleşebilecek adımları birlikte çıkaralım.', btn: 'Görüşme planla', href: site.bookingUrl },
   },
@@ -44,7 +44,7 @@ const ext = (h: string) => h.startsWith('http');
       <div class="dd" id={`dd-${m.id}`} role="region" aria-label={m.title} hidden>
         <ul class="dd-list">
           {m.items.map((i) => <li><a href={i.href} class="dd-item"><span class="dd-txt"><b>{i.title}</b><small>{i.note}</small></span></a></li>)}
-          <li><a href={m.href} class="dd-item"><span class="dd-txt"><b>Tümünü görün</b><small>{m.title} ana sayfası</small></span></a></li>
+          <li><a href={m.href} class="dd-item"><span class="dd-txt"><b>{m.guide ?? 'Tümünü görün'}</b><small>{m.guideNote ?? `${m.title} ana sayfası`}</small></span></a></li>
         </ul>
         <div class="dd-feat"><span class="dd-ey">{m.feat.ey}</span><b>{m.feat.title}</b><p>{m.feat.text}</p><a class="dd-btn" href={m.feat.href} {...(ext(m.feat.href) ? { target: '_blank', rel: 'noopener' } : {})}>{m.feat.btn} →</a></div>
       </div>
@@ -60,7 +60,7 @@ const ext = (h: string) => h.startsWith('http');
         <button type="button" class="sh-top" aria-expanded="false">{m.title}<span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <ul class="sh-sub" hidden>
           {m.items.map((i) => <li><a href={i.href}>{i.title}</a></li>)}
-          <li><a href={m.href}>Tümünü görün</a></li>
+          <li><a href={m.href}>{m.guide ?? 'Tümünü görün'}</a></li>
         </ul>
       </li>
     ))}

@@ -3,7 +3,7 @@ title: "Küçük işletmeler yapay zekaya nereden başlamalı? Rakamlar ne diyor
 seoTitle: "Küçük İşletmeler Yapay Zekaya Nereden Başlamalı?"
 description: "Türkiye'de yapay zeka kullanan işletmelerin oranı bir yılda neredeyse ikiye katlandı. TÜİK ve McKinsey verileriyle küçük işletmeler için başlangıç rehberi."
 answer: "Küçük işletmeler yapay zekaya en çok zaman alan ve en sık tekrarlanan işten başlamalı. Çoğu işletme için bu, müşteri mesajlarını yanıtlamak, randevu yönetmek veya rapor hazırlamaktır. Tek bir süreç seçin, kurulum öncesi durumu ölçün, küçük bir pilotla başlayın ve sonuçları gördükten sonra genişletin."
-date: 2026-10-14
+date: 2026-10-06
 draft: false
 faqs:
   - q: "Yapay zekaya başlamak için teknik bilgi gerekir mi?"
@@ -24,7 +24,7 @@ Yapay zeka her işe yarar gibi görünür, bu yüzden nereden başlanacağı bel
 
 **En yaygın kullanım amacı pazarlama ve satış.** Aynı veriye göre yapay zeka kullanan girişimlerin yarısından fazlası (yüzde 51) onu pazarlama veya satış için kullanıyor.
 
-**Kullanmayanların en büyük engeli bilgi eksikliği.** Yapay zeka kullanmayan girişimlerin büyük çoğunluğu (yüzde 72,3) bunun nedeni olarak uzmanlık eksikliğini gösteriyor ([TÜİK bülteni](https://veriportali.tuik.gov.tr/tr/press/62066); değerlendirme için bkz. [Prof. Dr. Mahmut Özer, Milliyet](https://www.milliyet.com.tr/yazarlar/prof-dr-mahmut-ozer/tuik-yapay-zeka-2026-yili-istatistikleri-ne-soyluyor-7672996)).
+**Kullanmayanların en büyük engeli bilgi eksikliği.** Yapay zeka kullanmayı düşünüp henüz kullanmayan girişimlerin büyük çoğunluğu (yüzde 72,3) engel olarak uzmanlık eksikliğini gösteriyor ([TÜİK bülteni](https://veriportali.tuik.gov.tr/tr/press/62066); değerlendirme için bkz. [Prof. Dr. Mahmut Özer, Milliyet](https://www.milliyet.com.tr/yazarlar/prof-dr-mahmut-ozer/tuik-yapay-zeka-2026-yili-istatistikleri-ne-soyluyor-7672996)).
 
 **Dünyada da benimseme hızlı, ölçeklendirme yavaş.** McKinsey'in küresel anketine göre 2025'te kuruluşların yüzde 88'i en az bir iş alanında yapay zekayı düzenli olarak kullanıyordu; bir yıl önce bu oran yüzde 78'di. Ancak çoğu kuruluş hâlâ deneme ve pilot aşamasındaydı; yalnızca yaklaşık üçte biri yapay zeka programlarını şirket geneline yaymaya başlamıştı ([McKinsey, The State of AI](https://www.mckinsey.com/capabilities/operations/our-insights/the-state-of-ai)).
 
@@ -64,7 +64,7 @@ Bu tablonun küçük işletmeler için anlamı şu: Yapay zekayı denemek artık
 
 ## Sonuç
 
-TÜİK verileri, Türkiye'de yapay zeka kullanmayan işletmelerin en büyük engelinin uzmanlık eksikliği olduğunu gösteriyor. İyi haber şu: Başlamak için uzman olmanız gerekmiyor. İşinizi en iyi siz biliyorsunuz; doğru süreci seçmek, ölçmek ve küçük başlamak yeterli.
+TÜİK verileri, Türkiye'de yapay zekayı kullanmayı düşünüp henüz kullanmayan işletmelerin en büyük engelinin uzmanlık eksikliği olduğunu gösteriyor. İyi haber şu: Başlamak için uzman olmanız gerekmiyor. İşinizi en iyi siz biliyorsunuz; doğru süreci seçmek, ölçmek ve küçük başlamak yeterli.
 
 Nereden başlayacağınızı birlikte belirlemek isterseniz [Dönüşüm Danışmanlığı](/ai-donusumu/donusum-danismanligi) sayfamıza göz atabilirsiniz. Tekrarlayan işleri otomatikleştirmek için [Süreç Otomasyonları](/ai-donusumu/surec-otomasyonlari), sektörünüze özel örnekler için [Tüm Sektörler](/sektorler/tum-sektorler) sayfamız size fikir verebilir.
 
