@@ -55,21 +55,21 @@ const ld = [
   ))}
   <section class="sec paper">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Ne kazandırır?</span><h2>{s.title} ile neler değişir?</h2></div>
+      <div class="sec-head"><span class="eyebrow">Ne değişir?</span><h2>{s.title} size ne kazandırır?</h2></div>
       <div class="grid-3">{s.benefits.map((b) => <div class="card"><h3>{b.title}</h3><p>{b.text}</p></div>)}</div>
     </div>
   </section>
   <section class="sec">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Nasıl kuruyoruz?</span><h2>Dört aşamalı kurulum süreci</h2></div>
+      <div class="sec-head"><span class="eyebrow">Nasıl kuruyoruz?</span><h2>{s.group === 'ai-donusumu' && s.slug === 'donusum-danismanligi' ? 'Çalışma adımları' : 'Kurulum adımları'}</h2></div>
       <div class="steps">{s.steps.map((st, i) => <div class="step"><span class="n">{i + 1}. adım</span><h3>{st.title}</h3><p>{st.text}</p></div>)}</div>
     </div>
   </section>
   <section class="sec paper">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Kimler için?</span><h2>Bu hizmeti kullanan sektörler</h2></div>
+      <div class="sec-head"><span class="eyebrow">Kimler için?</span><h2>Uygun olduğu sektörler</h2></div>
       <div class="links-list">{secs.map((x) => x && <a class="chip" href={sectorUrl(x)}>{x.title} ›</a>)}</div>
-      <div class="sec-head" style="margin-top:56px;margin-bottom:24px"><span class="eyebrow">İlgili hizmetler</span><h2>Birlikte iyi çalışır</h2></div>
+      <div class="sec-head" style="margin-top:56px;margin-bottom:24px"><span class="eyebrow">İlgili hizmetler</span><h2>Bununla birlikte kullanılabilecekler</h2></div>
       <div class="grid-2">{related.map((r) => <a class="card" href={serviceUrl(r)}><span class="k">{r.short}</span><h3>{r.title}</h3><p>{r.lead}</p><span class="go">İnceleyin ›</span></a>)}</div>
     </div>
   </section>

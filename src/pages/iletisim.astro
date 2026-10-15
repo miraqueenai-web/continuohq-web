@@ -10,7 +10,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
     <div class="container">
       <Breadcrumbs items={[{ name: 'İletişim', href: '/iletisim' }]} />
       <h1>İşinizi konuşalım.</h1>
-      <p class="lead">En hızlı yol 30 dakikalık ücretsiz keşif görüşmesi. Dilerseniz formu doldurun, en geç bir iş günü içinde dönelim.</p>
+      <p class="lead">En hızlı yol 30 dakikalık ücretsiz keşif görüşmesi. Dilerseniz formu doldurun, genellikle bir iş günü içinde dönüyoruz.</p>
       <div class="ctas"><a class="btn btn-dark" href={site.bookingPage}>Keşif görüşmesi planlayın</a>{site.whatsapp && <a class="btn btn-line" href={whatsappHref()} target="_blank" rel="noopener">WhatsApp'tan yazın</a>}</div>
     </div>
   </section>
@@ -36,7 +36,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
       <div class="form-done" id="form-done" tabindex="-1" hidden>
         <span class="form-done-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
         <h2>Mesajınız bize ulaştı.</h2>
-        <p>Teşekkürler <span id="form-name"></span>. En geç bir iş günü içinde <b id="form-mail"></b> adresinize dönüyoruz.</p>
+        <p>Teşekkürler<span id="form-name"></span>. Genellikle bir iş günü içinde <b id="form-mail"></b> adresinize dönüyoruz.</p>
         <p class="small">Beklemek istemezseniz hemen bir keşif görüşmesi de planlayabilirsiniz.</p>
         <div class="ctas"><a class="btn btn-dark" href={site.bookingPage}>Görüşme planlayın</a><button class="btn btn-line" id="form-again" type="button" style="cursor:pointer">Yeni mesaj gönderin</button></div>
       </div>
@@ -44,7 +44,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: '�
         <h2 style="margin-top:0">Doğrudan ulaşın</h2>
         <p>Genel sorular: <a href={`mailto:${site.email.info}`}>{site.email.info}</a></p>
         <p>Teklif talepleri: <a href={`mailto:${site.email.teklif}`}>{site.email.teklif}</a></p>
-        <p>Müşteri desteği: <a href={`mailto:${site.email.destek}`}>{site.email.destek}</a></p>
+        <p>Destek talepleri: <a href={`mailto:${site.email.destek}`}>{site.email.destek}</a></p>
         <h2>Hizmet bölgesi</h2>
         <p>Türkiye genelinde, tamamen uzaktan çalışıyoruz.</p>
       </div>

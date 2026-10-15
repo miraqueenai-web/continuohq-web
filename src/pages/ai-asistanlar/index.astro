@@ -11,10 +11,10 @@ const toc = [
 ];
 
 const faqs = [
-  { q: 'AI asistan ile chatbot aynı şey mi?', a: 'Hayır. Klasik chatbot önceden yazılmış soru ve cevaplarla çalışır; soru farklı sorulduğunda takılır. AI asistan soruyu nasıl sorulduğundan bağımsız olarak anlar, işletmenizin bilgisiyle yanıt üretir ve gerektiğinde takvim, rezervasyon gibi sistemlere bağlanarak işlem yapar.' },
+  { q: 'AI asistan ile chatbot aynı şey mi?', a: 'Hayır. Klasik chatbot önceden yazılmış soru ve cevaplarla çalışır; soru farklı sorulduğunda takılır. AI asistan, soru nasıl sorulursa sorulsun anlar, işletmenizin bilgisiyle yanıt üretir ve gerektiğinde takvim, rezervasyon gibi sistemlere bağlanarak işlem yapar.' },
   { q: 'Asistan yanlış bilgi verirse ne olur?', a: 'Sorumluluk işletmeye aittir; 2024\'te Kanada\'da bir havayolu şirketi, sohbet botunun verdiği hatalı bilgiden sorumlu tutuldu. Bu yüzden asistanı yalnızca onaylı bilgi bankanızla çalışacak şekilde kurar, emin olmadığı konularda konuşmayı ekibinize devretmesini sağlarız.' },
-  { q: 'WhatsApp\'ta yapay zeka asistanı kullanmak serbest mi?', a: 'Evet. Meta\'nın 15 Ocak 2026\'dan itibaren tüm kullanıcılar için geçerli olan kuralı, ChatGPT gibi genel amaçlı asistanların WhatsApp üzerinden dağıtılmasını yasaklıyor. Müşteri desteği, randevu ve sipariş takibi gibi işletmeye özel asistanlar serbest.' },
-  { q: 'Müşterilerime asistanla konuştuklarını söylemeli miyim?', a: 'Öneririz. Salesforce\'un tüketici araştırmasında katılımcıların yüzde 72\'si yapay zekayla mı konuştuğunu bilmenin önemli olduğunu söylüyor. Açık olmak güven kazandırır ve KVKK kapsamındaki aydınlatma yükümlülüğünüzle de uyumludur.' },
+  { q: 'WhatsApp\'ta yapay zeka asistanı kullanmak serbest mi?', a: 'Evet. Meta\'nın 15 Ocak 2026\'dan itibaren Türkiye dahil kullanıcılar için geçerli olan kuralı, ChatGPT gibi genel amaçlı asistanların WhatsApp üzerinden dağıtılmasını yasaklıyor. Müşteri desteği, randevu ve sipariş takibi gibi işletmeye özel asistanlar serbest.' },
+  { q: 'Müşterilerime asistanla konuştuklarını söylemeli miyim?', a: 'Öneririz. Salesforce\'un tüketici araştırmasında katılımcıların yüzde 72\'si yapay zekayla konuşup konuşmadığını bilmenin önemli olduğunu söylüyor. Açık olmak güven kazandırır ve KVKK kapsamındaki aydınlatma yükümlülüğünüzle de uyumludur.' },
   { q: 'Kurulum ne kadar sürer?', a: 'Süre; kanal sayısına, bilgi bankasının hazırlığına ve rezervasyon, ödeme veya CRM gibi entegrasyonlara göre değişir. Kullandığınız sistemleri inceledikten sonra kurulum planını ve süresini size yazılı olarak iletiriz.' },
   { q: 'Ekibimin yerini alır mı?', a: 'Hayır, amacımız bu değil. Gartner, yapay zeka nedeniyle müşteri hizmetleri kadrosunu azaltan şirketlerin yarısının 2027\'ye kadar benzer görevler için yeniden işe alım yapacağını öngörüyor. Asistan tekrarlayan soruları ve mesai dışını üstlenir; ekibiniz insan dokunuşu gereken işlere odaklanır.' },
 ];
@@ -42,7 +42,7 @@ const sources = [
     <div class="container">
       <span class="eyebrow">Temel kavram</span>
       <h2>AI asistan nedir, klasik chatbottan farkı ne?</h2>
-      <p class="intro">AI asistan, büyük dil modeli üzerine kurulan ve işletmenizin bilgisiyle çalışan bir yazılımdır. Müşterinizin sorusunu nasıl sorduğundan bağımsız olarak anlar, kendi bilgi bankanızdan yanıt üretir ve gerektiğinde takvim, rezervasyon veya sipariş sistemine bağlanarak işlem yapar.</p>
+      <p class="intro">AI asistan, büyük dil modeli üzerine kurulan ve işletmenizin bilgisiyle çalışan bir yazılımdır. Müşteriniz soruyu nasıl sorarsa sorsun anlar, kendi bilgi bankanızdan yanıt üretir ve gerektiğinde takvim, rezervasyon veya sipariş sistemine bağlanarak işlem yapar.</p>
       <div class="prose">
         <p>Klasik chatbotlar ise önceden yazılmış senaryolarla çalışır. IBM'in tanımıyla kural tabanlı bir chatbot "yalnızca önceden tanımlanmış soruları ve cevap seçeneklerini destekler." Müşteri soruyu biraz farklı sorduğunda bot takılır ve müşteri menüler arasında kaybolur.</p>
         <p>Bir adım ötesinde <b>AI ajanları</b> vardır. Anthropic'in ayrımına göre iş akışlarında model ve araçlar önceden çizilmiş adımları izler; ajanlarda ise model hangi adımı atacağına ve hangi aracı kullanacağına kendisi karar verir. İşletmelerdeki asistanların çoğunda en doğru yapı, kontrollü bir iş akışı ve onun içinde dar kapsamlı ajan yetenekleridir.</p>
@@ -65,7 +65,7 @@ const sources = [
     <div class="container">
       <span class="eyebrow">Altyapı</span>
       <h2>Bir AI asistan hangi parçalardan oluşur?</h2>
-      <p class="intro">Müşterinin gördüğü tek şey sohbet penceresidir. Arka planda ise birlikte çalışan altı parça vardır. Asistanın kalitesini model kadar bu parçaların doğru kurulması belirler.</p>
+      <p class="intro">Müşterinin gördüğü tek şey sohbet penceresidir. Arka planda ise birlikte çalışan altı parça vardır. Asistanın ne kadar iyi çalışacağı, modelden çok bu parçaların iyi kurulmasına bağlıdır.</p>
       <div class="steps-g">
         <div><h3>Kanal</h3><p>Müşterinin yazdığı yer: WhatsApp Business Platformu, Instagram mesajları veya web sitenizdeki sohbet penceresi. Her kanalın kendi resmi altyapısı ve kuralları vardır.</p></div>
         <div><h3>Bilgi bankası</h3><p>Hizmetleriniz, fiyat politikanız, çalışma saatleriniz, sık sorulan sorular. Asistan yanıtlarını buradan üretir; bilgi bankasında olmayan konuda tahmin yürütmez.</p></div>
@@ -81,11 +81,11 @@ const sources = [
     <div class="container">
       <span class="eyebrow">Güncel tablo</span>
       <h2>Neden şimdi? Büyük teknoloji şirketleri ne söylüyor?</h2>
-      <p class="intro">İşletme mesajlaşmasında yapay zeka artık deneme aşamasının ötesinde. Mesajlaşma platformlarının sahibi şirketler de bu dönüşümü açıkça hedefliyor.</p>
+      <p class="intro">İşletmeler mesajlaşmada yapay zekayı denemenin ötesine geçti. Mesajlaşma platformlarının sahibi şirketler de bu dönüşümü açıkça hedefliyor.</p>
       <div class="facts">
         <div class="fact"><b>10 milyon</b><p>Meta'nın işletmelere sunduğu yapay zekanın Mart 2026 sonunda haftada aracılık ettiği konuşma sayısı. 2026 başında bu sayı 1 milyon civarındaydı.</p><small>Meta, 2026 1. çeyrek sonuçları · <a href="https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week" target="_blank" rel="noopener">TechCrunch</a></small></div>
         <div class="fact"><b>%80</b><p>Gartner'ın öngörüsüne göre 2029'a kadar yaygın müşteri hizmeti sorunlarının insan müdahalesi olmadan yapay zeka ajanlarıyla çözülecek oranı. Bu bir tahmindir, ölçülmüş bir sonuç değildir.</p><small>Gartner, Mart 2025 · <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank" rel="noopener">basın bülteni</a></small></div>
-        <div class="fact"><b>%72</b><p>Yapay zekayla mı konuştuğunu bilmenin önemli olduğunu söyleyen tüketicilerin oranı. Şeffaflık güvenin ön koşulu.</p><small>Salesforce, State of the AI Connected Customer · <a href="https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/" target="_blank" rel="noopener">rapor</a></small></div>
+        <div class="fact"><b>%72</b><p>Yapay zekayla konuşup konuşmadığını bilmenin önemli olduğunu söyleyen tüketicilerin oranı. Açık olmak güven verir.</p><small>Salesforce, State of the AI Connected Customer · <a href="https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/" target="_blank" rel="noopener">rapor</a></small></div>
       </div>
       <div class="quotes">
         <figure class="quote"><blockquote>"2025'te ilk yapay zeka ajanlarının 'iş gücüne katıldığını' ve şirketlerin üretimini somut biçimde değiştirdiğini görebiliriz."</blockquote><figcaption><b>Sam Altman, OpenAI CEO'su</b>"Reflections" yazısı, 6 Ocak 2025 · <a href="https://blog.samaltman.com/reflections" target="_blank" rel="noopener">kaynak</a></figcaption></figure>
@@ -93,7 +93,7 @@ const sources = [
         <figure class="quote"><blockquote>Meta'nın mesajlaşma uygulamalarındaki işletme yapay zekaları şu an çoğu işletme için ücretsiz; şirket bu alandan gelir elde etmeyi daha sonraki bir aşamada planlıyor.</blockquote><figcaption><b>Mark Zuckerberg, Meta CEO'su</b>2026 1. çeyrek sonuç toplantısından aktarım · <a href="https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week" target="_blank" rel="noopener">TechCrunch</a></figcaption></figure>
       </div>
       <p class="note">Alıntılar özgün İngilizce metinlerden çevrilmiştir. Zuckerberg'in açıklaması doğrudan alıntı değil, haberden aktarımdır.</p>
-      <div class="callout"><b>Madalyonun öbür yüzü</b><p>Gartner'ın 2024 araştırmasında müşterilerin yüzde 64'ü şirketlerin müşteri hizmetlerinde yapay zeka kullanmamasını tercih ettiğini söyledi; en büyük endişe bir insana ulaşmanın zorlaşmasıydı. Bu yüzden kurduğumuz her asistanda insana devir yolu baştan tasarlanır.</p></div>
+      <div class="callout"><b>Öte yandan</b><p>Gartner'ın 2024 araştırmasında müşterilerin yüzde 64'ü şirketlerin müşteri hizmetlerinde yapay zeka kullanmamasını tercih ettiğini söyledi; en büyük endişe bir insana ulaşmanın zorlaşmasıydı. Bu yüzden kuracağımız her asistanda insana devir yolu en başta tasarlanır.</p></div>
     </div>
   </section>
 
@@ -122,7 +122,7 @@ const sources = [
     <div class="container">
       <span class="eyebrow">Gerçekçi beklenti</span>
       <h2>Asistan neyi üstlenir, neyi ekibinize bırakır?</h2>
-      <p class="intro">İyi bir asistanın değeri, ne yaptığı kadar neyi yapmadığıyla da ölçülür. 2024'te Kanada'da bir havayolu şirketi, sohbet botunun uydurduğu bir iade politikasından sorumlu tutuldu; mahkeme, botun "ayrı bir tüzel kişi" olduğu savunmasını kabul etmedi. Asistanın söylediği her şey işletmenin sözüdür.</p>
+      <p class="intro">İyi bir asistan, neyi yapmaması gerektiğini de bilir. 2024'te Kanada'da bir havayolu şirketi, sohbet botunun uydurduğu bir iade politikasından sorumlu tutuldu; uyuşmazlığa bakan kurul, botun "ayrı bir tüzel kişi" olduğu savunmasını kabul etmedi. Asistanın söylediği her şey işletmenin sözüdür.</p>
       <div class="cmp">
         <table>
           <thead><tr><th scope="col">Asistanın üstlenebileceği işler</th><th scope="col">Ekibinizde kalması gereken işler</th></tr></thead>
@@ -130,7 +130,7 @@ const sources = [
             <tr><td>Fiyat, müsaitlik, çalışma saatleri gibi sık sorular</td><td>Tanımlı politika dışındaki indirim ve pazarlıklar</td></tr>
             <tr><td>Randevu ve rezervasyon alma, hatırlatma gönderme</td><td>Şikâyetlerin çözümü ve telafi kararları</td></tr>
             <tr><td>Talep bilgilerini toplama ve doğru kişiye iletme</td><td>Sağlık, hukuk ve finans gibi uzmanlık gerektiren tavsiyeler</td></tr>
-            <tr><td>Mesai dışında gelen mesajlara ilk yanıt</td><td>Acil durumlar (asistan bunları anında telefona yönlendirir)</td></tr>
+            <tr><td>Mesai dışında gelen mesajlara ilk yanıt</td><td>Acil durumlar (acil durum ifadeleri tanımlıysa asistan telefon numaranızı paylaşır)</td></tr>
             <tr><td>Konuşma özetleri ve haftalık raporlar</td><td>Onay gerektiren her türlü son karar</td></tr>
           </tbody>
         </table>
@@ -142,7 +142,7 @@ const sources = [
     <div class="container">
       <span class="eyebrow">Uygulama</span>
       <h2>Doğru kurulum için kontrol listesi</h2>
-      <p class="intro">Kendi işletmeniz için bir asistan değerlendirirken, bizimle ya da başka bir ekiple çalışın, bu maddeleri sorun.</p>
+      <p class="intro">İster bizimle ister başka bir ekiple çalışın, bir asistanı değerlendirirken şu soruları sorun.</p>
       <ul class="checklist">
         <li><b>Kapsam yazılı mı?</b> Asistanın hangi konularda konuşacağı ve hangi konularda konuşmayı devredeceği baştan belirlenmeli.</li>
         <li><b>Bilgi bankası onaylı mı?</b> Yanıtlar yalnızca sizin onayladığınız bilgilerden üretilmeli; asistan bilmediği konuda tahmin yürütmemeli.</li>

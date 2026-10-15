@@ -11,12 +11,12 @@ export const guides: Record<string, Guide> = {
       {
         id: 'neden',
         eyebrow: 'Neden danışmanlık?',
-        title: 'Yapay zeka projeleri teknoloji yüzünden değil, yanlış başlangıç yüzünden başarısız olur.',
+        title: 'Yapay zeka projeleri çoğu zaman teknoloji yüzünden değil, yanlış yerden başlandığı için tökezler.',
         intro: `Dönüşüm danışmanlığı, araç seçmeden önce işi anlamaktır. Hangi sürecin otomatikleşeceğine, başarının nasıl ölçüleceğine ve hangi riskin nasıl yönetileceğine baştan karar verilir.`,
         paras: [
           `Gartner, ajan tabanlı yapay zeka projelerinin yüzde 40'tan fazlasının 2027 sonuna kadar iptal edileceğini öngörüyor. Gösterilen nedenler artan maliyetler, belirsiz iş değeri ve yetersiz risk kontrolü.`,
           `MIT'nin 2025 çalışmasında, üretken yapay zekaya yatırım yapan kuruluşların yaklaşık yüzde 95'i yaklaşık altı ay içinde ölçülebilir bir kâr-zarar etkisi göremedi. Çalışma bunu, araçların iş akışına uyum sağlamamasına bağlıyor.`,
-          `Öte yandan McKinsey'in 2025 araştırmasında yapay zekadan en çok değer elde eden şirketler, iş akışlarını temelden yeniden tasarlamaya diğerlerinden yaklaşık üç kat daha yatkın çıktı. Danışmanlığın amacı tam olarak budur: doğru süreci seçmek, onu yeniden kurgulamak ve sonucu ölçmek.`,
+          `Öte yandan McKinsey'in 2025 araştırmasında yapay zekadan en çok değer elde eden şirketler, iş akışlarını temelden yeniden tasarlamaya diğerlerinden yaklaşık üç kat daha yatkın çıktı. Danışmanlıkta yaptığımız da bu: doğru süreci seçmek, onu yeniden düzenlemek ve sonucu ölçmek.`,
         ],
       },
       {
@@ -30,14 +30,14 @@ export const guides: Record<string, Guide> = {
           { title: 'Veri ve sistem değerlendirmesi', text: `Otomasyon için gereken verinin nerede durduğu, ne kadar düzenli olduğu ve sistemlerinizin bağlantıya açık olup olmadığı.` },
           { title: 'Risk ve uyum notları', text: `Kişisel veri işleyen adımlar, insan onayı gereken kararlar ve KVKK açısından alınması gereken önlemler.` },
           { title: 'Ölçüm planı', text: `Her süreç için bugünkü durum (süre, hata oranı, bekleme) ve başarının hangi ölçütle değerlendirileceği.` },
-          { title: 'Yol haritası', text: `Öncelik sırasına konmuş projeler, her birinin kapsamı, gereken kaynaklar ve karar noktaları.` },
+          { title: 'Yol haritası', text: `Öncelik sırasına konmuş projeler, her birinin kapsamı, tahmini maliyeti, gereken kaynaklar ve karar noktaları.` },
         ],
       },
       {
         id: 'secim',
         eyebrow: 'Önceliklendirme',
         title: 'Hangi süreçle başlanmalı?',
-        intro: `İlk süreç, dönüşümün geri kalanının güvenilirliğini belirler. Bir süreci değerlendirirken şu ölçütlere bakarız.`,
+        intro: `İlk süreç iyi gittiğinde sonraki adımlar çok daha kolay ilerler. Bir süreci değerlendirirken şu ölçütlere bakarız.`,
         table: {
           head: ['Ölçüt', 'İyi bir ilk aday', 'Sonraya bırakılmalı'],
           rows: [
@@ -53,7 +53,7 @@ export const guides: Record<string, Guide> = {
         id: 'cerceveler',
         eyebrow: 'Güvenilir çerçeveler',
         title: 'Hangi standartlara ve çerçevelere dayanıyoruz?',
-        intro: `Küçük ve orta ölçekli işletmeler için uluslararası çerçeveleri sade bir kontrol listesine dönüştürerek kullanırız. Sertifikasyon hizmeti vermiyoruz; bu çerçeveleri doğru soruları sormak için kullanırız.`,
+        intro: `Küçük ve orta ölçekli işletmeler için uluslararası çerçeveleri sade bir kontrol listesine dönüştürerek kullanırız. Sertifikasyon hizmeti vermiyoruz; bu çerçevelerden doğru soruları sormak için yararlanıyoruz.`,
         paras: [
           `<b>NIST Yapay Zeka Risk Yönetimi Çerçevesi (AI RMF 1.0, Ocak 2023):</b> Riskleri dört işlevde ele alır: yönetişim (Govern), haritalama (Map), ölçme (Measure) ve yönetme (Manage). NIST, Temmuz 2024'te üretken yapay zekaya özgü riskler için ek bir profil (NIST AI 600-1) yayımladı.`,
           `<b>ISO/IEC 42001:2023 (Aralık 2023):</b> Yapay zeka yönetim sistemleri için yayımlanan ilk uluslararası standart.`,
@@ -162,7 +162,7 @@ export const guides: Record<string, Guide> = {
         id: 'nedir',
         eyebrow: 'Temel kavram',
         title: 'AI ajanı tam olarak nedir?',
-        intro: `Claude modellerinin geliştiricisi Anthropic ajanı şöyle tanımlıyor: büyük dil modellerinin kendi süreçlerini ve araç kullanımlarını dinamik olarak yönettiği, görevi nasıl tamamlayacakları üzerindeki kontrolü elinde tuttuğu sistemler.`,
+        intro: `Claude modellerinin geliştiricisi Anthropic ajanı şöyle tanımlıyor: büyük dil modellerinin kendi süreçlerini ve araç kullanımlarını dinamik olarak yönettiği, görevi nasıl tamamlayacakları üzerindeki kontrolü ellerinde tuttuğu sistemler.`,
         paras: [
           `Bunun karşısında iş akışları vardır: model ve araçlar önceden çizilmiş adımları izler. Anthropic'in tavsiyesi açık: mümkün olan en basit çözümü bulmak ve karmaşıklığı yalnızca gerektiğinde artırmak. Bu da çoğu zaman hiç ajan kurmamak anlamına gelebilir.`,
           `OpenAI'ın 2025'te yayımladığı ajan geliştirme rehberine göre bir ajan üç temel parçadan oluşur: <b>model</b> (akıl yürüten yapay zeka), <b>araçlar</b> (ajanın kullanabildiği sistemler) ve <b>talimatlar</b> (ajanın nasıl davranacağını belirleyen kurallar).`,
@@ -172,12 +172,12 @@ export const guides: Record<string, Guide> = {
         id: 'yapi',
         eyebrow: 'Yapı taşları',
         title: 'Bir ajanın çalışma düzeni',
-        intro: `Ajanı güvenilir kılan, modelin zekası kadar etrafına kurulan sınırlardır.`,
+        intro: `Bir ajana güvenebilmek için model kadar çevresindeki kurallar da önemlidir.`,
         cards: [
           { title: 'Veri araçları', text: `Ajanın bilgi topladığı kaynaklar: CRM kayıtları, tablolar, PDF belgeler, web araması.` },
-          { title: 'Eylem araçları', text: `Ajanın dünyada iz bırakan işlemleri: e-posta taslağı yazmak, kayıt güncellemek, konuşmayı bir insana devretmek.` },
+          { title: 'Eylem araçları', text: `Ajanın gerçekten bir şeyi değiştiren işlemleri: e-posta taslağı yazmak, kayıt güncellemek, konuşmayı bir insana devretmek.` },
           { title: 'Talimatlar', text: `Görevin tanımı, adımları, üslup ve kesin yasaklar. İyi yazılmış talimat, ajan davranışının en önemli belirleyicisidir.` },
-          { title: 'Korkuluklar', text: `Konu dışı talepleri, kişisel veri sızıntısını ve riskli işlemleri engelleyen katmanlı kontroller.` },
+          { title: 'Güvenlik kuralları', text: `Konu dışı talepleri, kişisel veri sızıntısını ve riskli işlemleri engelleyen katmanlı kontroller.` },
           { title: 'İnsana devir', text: `Ajan tekrar tekrar başarısız olduğunda ya da geri alınamaz, yüksek riskli bir işlem öncesinde kontrol insana geçer.` },
           { title: 'Kayıt ve gözden geçirme', text: `Ajanın her adımı kayıt altına alınır, düzenli aralıklarla incelenir ve talimatlar iyileştirilir.` },
         ],
@@ -242,10 +242,10 @@ export const guides: Record<string, Guide> = {
         id: 'mcp',
         eyebrow: 'Yeni standart',
         title: 'Model Context Protocol (MCP) neden önemli?',
-        intro: `Anthropic, 25 Kasım 2024'te MCP'yi yapay zekayı araçlara ve verilere bağlamak için açık bir standart olarak duyurdu. Standart kısa sürede sektörün ortak dili haline geldi.`,
+        intro: `Anthropic, 25 Kasım 2024'te MCP'yi yapay zekayı araçlara ve verilere bağlamak için açık bir standart olarak duyurdu. Standart kısa sürede yaygınlaştı.`,
         paras: [
           `OpenAI, Mart 2025'te MCP desteğini ajan geliştirme araçlarına ekledi; Microsoft, Mayıs 2025'teki Build konferansında Windows için MCP desteğini duyurdu; Google da 2025'te desteğini açıkladı. Anthropic, 9 Aralık 2025'te MCP'yi Linux Foundation bünyesinde kurulan Agentic AI Foundation'a devretti.`,
-          `İşletmeniz için anlamı şu: bir sisteminiz için kurulan MCP bağlantısı, farklı yapay zeka modelleriyle de kullanılabilir. Bu, tek bir sağlayıcıya bağımlılığı azaltır ve yeni bağlantıların kurulmasını hızlandırır.`,
+          `Bu sizin için şu demek: bir sisteminiz için kurulan MCP bağlantısı, farklı yapay zeka modelleriyle de kullanılabilir. Bu, tek bir sağlayıcıya bağımlılığı azaltır ve yeni bağlantıların kurulmasını hızlandırır.`,
         ],
       },
       {
@@ -255,7 +255,7 @@ export const guides: Record<string, Guide> = {
         intro: `Resmi bağlantı noktası (API) veya webhook sunan sistemlerin çoğuyla çalışabiliriz. Sisteminizin bağlantıya açık olup olmadığını keşif aşamasında kontrol ederiz.`,
         cards: [
           { title: 'CRM', text: `Asistanın topladığı talepler müşteri kaydına dönüşür; teklif ve takip adımları CRM'de görünür.` },
-          { title: 'Muhasebe ve e-Fatura', text: `Faturalar ve tahsilatlar muhasebe yazılımına işlenir. e-Fatura ve e-Arşiv kurallarını Gelir İdaresi Başkanlığı'nın güncel düzenlemelerine göre kontrol ederiz; örneğin 1 Ocak 2026'dan itibaren e-Fatura mükellefi olmayanlara düzenlenen faturalar tutardan bağımsız olarak e-Arşiv fatura olmalıdır.` },
+          { title: 'Muhasebe ve e-Fatura', text: `Faturalar ve tahsilatlar muhasebe yazılımına işlenir. e-Fatura ve e-Arşiv kurallarını Gelir İdaresi Başkanlığı'nın güncel düzenlemelerine göre kontrol ederiz; örneğin e-Arşiv kapsamındaki mükellefler için 1 Ocak 2026'dan itibaren e-Fatura mükellefi olmayanlara düzenlenen faturalar tutardan bağımsız olarak e-Arşiv fatura olmalıdır.` },
           { title: 'Rezervasyon ve otel yönetimi', text: `Asistan müsaitliği otel yönetim sisteminden, kanal yöneticisinden veya rezervasyon motorundan okur, rezervasyonu doğrudan oluşturur.` },
           { title: 'Takvim', text: `Google Takvim veya Outlook üzerinden randevu alınır, hatırlatmalar otomatik gönderilir.` },
           { title: 'E-ticaret', text: `Sipariş, stok ve kargo bilgisi asistana ve raporlara aktarılır.` },
@@ -266,7 +266,7 @@ export const guides: Record<string, Guide> = {
         id: 'guvenlik',
         eyebrow: 'Güvenlik',
         title: 'Entegrasyonlarda güvenlik ilkelerimiz',
-        intro: `Bir entegrasyon, iki sistem arasında açılan bir kapıdır. Bu kapının yalnızca gereken kadar açık olması gerekir.`,
+        intro: `Bir entegrasyon, iki sistem arasında açılan bir kapıdır. Bu kapı yalnızca gerektiği kadar açık olmalı.`,
         checklist: [
           `<b>En az yetki.</b> Bağlantı yalnızca görev için gereken verilere erişir; mümkünse salt okunur başlar.`,
           `<b>Gizli anahtarların korunması.</b> API anahtarları kodda veya tablolarda değil, şifreli ortamda saklanır.`,
@@ -292,18 +292,18 @@ export const guides: Record<string, Guide> = {
       {
         id: 'seo-geo',
         eyebrow: 'Temel kavram',
-        title: 'SEO ve GEO: iki ayrı hedef, tek sağlam temel',
+        title: 'SEO ve GEO aynı temele dayanır',
         intro: `SEO, sitenizin Google gibi arama motorlarında üst sıralarda görünmesini; GEO (Generative Engine Optimization) ise ChatGPT, Gemini veya Google'ın yapay zeka yanıtlarında kaynak olarak gösterilmesini hedefler.`,
         paras: [
           `Google'ın site sahipleri için yayımladığı "AI features and your website" belgesine göre, AI Overviews ve AI Mode gibi yapay zeka özelliklerinde görünmek için ek bir teknik gereklilik yok. Sayfanın Google tarafından dizine eklenmiş ve arama sonucunda snippet ile gösterilmeye uygun olması gerekiyor; temel SEO uygulamaları burada da geçerli.`,
-          `Bu yüzden GEO için "sihirli bir yöntem" vaat etmiyoruz. Yaptığımız şey, yapay zekanın kolayca anlayıp alıntılayabileceği içerik kurmaktır: her sayfanın başında soruya net bir kısa cevap, kaynağı belirtilmiş rakamlar, yazar bilgisi ve tutarlı site içi bağlantılar.`,
+          `Bu yüzden GEO için kestirme bir yol vaat etmiyoruz. Yaptığımız şey, yapay zekanın kolayca anlayıp alıntılayabileceği içerik kurmaktır: her sayfanın başında soruya net bir kısa cevap, kaynağı belirtilmiş rakamlar, yazar bilgisi ve tutarlı site içi bağlantılar.`,
         ],
       },
       {
         id: 'hiz',
         eyebrow: 'Teknik temel',
         title: 'Hız ve kullanıcı deneyimi: Core Web Vitals',
-        intro: `Google, sayfa deneyimini üç ölçütle değerlendirir. Bir sitenin "iyi" sayılması için ziyaretlerin en az yüzde 75'inde bu eşiklerin karşılanması gerekir.`,
+        intro: `Google'ın Core Web Vitals ölçütleri üç ölçümden oluşur. Bir sitenin "iyi" sayılması için ziyaretlerin en az yüzde 75'inde bu eşiklerin karşılanması gerekir.`,
         table: {
           head: ['Ölçüt', 'Neyi ölçer?', '"İyi" eşiği'],
           rows: [
@@ -318,7 +318,7 @@ export const guides: Record<string, Guide> = {
         id: 'gercekler',
         eyebrow: 'Güncel durum',
         title: 'Yapısal veri ve yapay zeka dosyaları hakkında gerçekler',
-        intro: `Bu alanda çok sayıda abartılı vaat dolaşıyor. Güncel durumu açıkça paylaşıyoruz.`,
+        intro: `Bu konuda abartılı vaatler çok; bilinen durumu aşağıda özetledik.`,
         paras: [
           `<b>Yapısal veri (schema.org):</b> Sayfanızın neyi anlattığını arama motorlarına ve yapay zeka sistemlerine makine diliyle bildirir. Ancak Google, SSS zengin sonuçlarını 7 Mayıs 2026'dan itibaren tüm siteler için göstermeyi bıraktı; adım adım anlatım (HowTo) zengin sonuçları ise 2023'te kaldırılmıştı. Bu yüzden yapısal veriyi "arama sonucunda yıldız ya da açılır soru gösterme" vaadiyle değil, içeriğin doğru anlaşılması için kullanırız.`,
           `<b>llms.txt:</b> Eylül 2024'te Jeremy Howard tarafından önerilen, sitenin içeriğini yapay zeka sistemlerine özetleyen bir dosya biçimi. Topluluk önerisi olarak kalıyor; Google bu dosyayı Arama'da kullanmadığını belirtiyor. Ekleme maliyeti düşük olduğu için sitelerde yer veriyoruz, ancak bir sıralama avantajı vaat etmiyoruz.`,
@@ -327,8 +327,8 @@ export const guides: Record<string, Guide> = {
       {
         id: 'icerik',
         eyebrow: 'Teslim ettiklerimiz',
-        title: 'Kurduğumuz sitelerde neler standart?',
-        intro: `Bu sitede de kullandığımız altyapının aynısını müşterilerimize kuruyoruz.`,
+        title: 'Kuracağımız sitelerde neler standart?',
+        intro: `Bu sitede kullandığımız altyapıyı kuruyoruz.`,
         checklist: [
           `<b>Hızlı, statik altyapı.</b> Sayfalar önceden hazırlanır, sunucuda bekleme olmadan açılır.`,
           `<b>Mobil öncelikli tasarım.</b> Ziyaretçilerin çoğunun telefondan geldiği varsayımıyla tasarlanır.`,

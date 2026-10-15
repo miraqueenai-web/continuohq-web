@@ -9,18 +9,18 @@ faqs:
   - q: "Yapay zeka resepsiyonist resepsiyon ekibinin yerini alır mı?"
     a: "Hayır. Tekrarlayan soruları, mesai dışı mesajları ve entegre kurulumda rezervasyon ile ödeme adımlarını üstlenir. Misafirle yüz yüze ilgilenmek, acil durumlar ve ekibin onayını gerektiren kararlar ekibinizde kalır."
   - q: "Hangi dillerde yanıt verebilir?"
-    a: "Misafirin yazdığı dilde yanıt verecek şekilde kurulabilir. Türkiye'deki oteller için en sık ihtiyaç duyulan diller Türkçe, İngilizce, Almanca, Rusça ve Arapçadır."
+    a: "Misafirin yazdığı dilde yanıt verecek şekilde kurulabilir; örneğin Türkçe, İngilizce, Almanca, Rusça veya Arapça."
   - q: "Otel yönetim sistemime bağlanabilir mi?"
     a: "Bağlantı noktası (API) sunan otel yönetim sistemlerine, kanal yöneticilerine ve rezervasyon motorlarına bağlanabilir. Bu durumda asistan müsaitliği canlı kontrol eder, rezervasyonu doğrudan oluşturur ve ödemeyi güvenli bağlantıyla alabilir."
   - q: "Asistan ödeme alabilir mi?"
     a: "Entegre kurulumda, otelinizin kullandığı ödeme altyapısı üzerinden misafire güvenli bir ödeme bağlantısı gönderebilir. Kart bilgileri sohbet içinde istenmez ve saklanmaz."
 ---
 
-## Kısa cevap: tekrarlayan soruları üstlenen, misafiri bekletmeyen bir asistan
+## Tekrarlayan soruları üstlenen, misafiri bekletmeyen bir asistan
 
 Bir otelin resepsiyonu gün boyunca aynı soruları tekrar tekrar yanıtlar: Check-in saat kaçta? Otopark var mı? Kahvaltı dahil mi? Havalimanından transfer var mı? Bu sorular telefondan, WhatsApp'tan, Instagram'dan ve web sitesinden gelir; çoğu zaman da resepsiyonun en yoğun olduğu anlarda ya da gece yarısı.
 
-Yapay zeka resepsiyonist bu soruları otelinizin bilgisiyle, saniyeler içinde ve misafirin kendi dilinde yanıtlar. Rezervasyon yapmak isteyen misafiri rezervasyon adımına taşır. Şikâyet, oda değişikliği ya da özel bir istek söz konusu olduğunda konuşmayı resepsiyon ekibinize devreder.
+Yapay zeka resepsiyonist bu soruları otelinizin bilgisiyle, hemen ve misafirin kendi dilinde yanıtlar. Rezervasyon yapmak isteyen misafiri rezervasyon adımına taşır. Şikâyet, oda değişikliği ya da özel bir istek söz konusu olduğunda konuşmayı resepsiyon ekibinize devreder.
 
 ## Bir misafir yazdığında ne oluyor?
 
@@ -36,11 +36,11 @@ Misafir, rakip otelin sabah dönmesini beklemek yerine gece yanıtını almış 
 
 ## Asistan ne kadarını üstlenebilir?
 
-Yapay zeka resepsiyonistin kapsamı, otelinizin kullandığı sistemlere bağlı olarak iki düzeyde kurgulanabilir.
+Yapay zeka resepsiyonistin kapsamı, otelinizin kullandığı sistemlere bağlı olarak iki düzeyde planlanabilir.
 
 **Yanıt düzeyi.** Asistan otelinizin bilgisiyle eğitilir; soruları yanıtlar, misafiri rezervasyon adımına yönlendirir ve talepleri ekibinize iletir. Herhangi bir sisteme bağlanmadan, kısa sürede devreye alınabilir.
 
-**Entegre düzey.** Asistan otel yönetim sisteminize, kanal yöneticinize veya rezervasyon motorunuza bağlanır. Bu durumda müsaitliği ve fiyatı canlı olarak kontrol eder, rezervasyonu doğrudan oluşturur, güvenli ödeme bağlantısı göndererek ödemeyi alır, ekibinize anlık bildirim iletir ve mesaj trafiğini, dönüşümü ve gelen talepleri raporlar. Yani bir sohbet asistanının ötesinde, rezervasyon sürecinin bir parçası olarak çalışır.
+**Entegre düzey.** Asistan otel yönetim sisteminize, kanal yöneticinize veya rezervasyon motorunuza bağlanır. Bu durumda müsaitliği ve fiyatı canlı olarak kontrol eder, rezervasyonu doğrudan oluşturur, güvenli ödeme bağlantısı göndererek ödemeyi alır, ekibinize anlık bildirim iletir ve mesaj trafiğini, dönüşümü ve gelen talepleri raporlar. Böylece yalnızca soru yanıtlamaz, rezervasyonu da yürütür.
 
 Hangi düzeyin uygun olduğu; otelinizin kullandığı sistemlere, mesaj aldığınız kanal sayısına ve hedeflerinize göre belirlenir. Kurulumun kapsamı ve maliyeti de bu tercihe göre şekillenir.
 
@@ -53,7 +53,7 @@ Hangi düzeyin uygun olduğu; otelinizin kullandığı sistemlere, mesaj aldığ
 | Şikâyetler | İlk yanıt, bilgi toplama, ekibe aktarma | Aynısı, talep sisteminize kayıtla birlikte |
 | Raporlama | Konuşma özetleri | Mesaj, dönüşüm ve gelir raporları |
 
-Her iki düzeyde de bazı konular her zaman ekibinizin kontrolünde kalır: acil durumlar anında telefona yönlendirilir, tanımlı fiyat politikasının dışındaki indirimler ve hassas şikâyetlerin çözümü ekibinizin onayıyla ilerler. Asistan bu durumlarda konuşmayı ilgili bilgilerle birlikte ekibinize devreder, böylece misafir bilgisini tekrar anlatmak zorunda kalmaz.
+Her iki düzeyde de bazı konular her zaman ekibinizin kontrolünde kalır: acil durum ifadeleri tanımlıysa asistan telefon numaranızı paylaşır, tanımlı fiyat politikasının dışındaki indirimler ve hassas şikâyetlerin çözümü ekibinizin onayıyla ilerler. Asistan bu durumlarda konuşmayı ilgili bilgilerle birlikte ekibinize devreder, böylece misafir bilgisini tekrar anlatmak zorunda kalmaz.
 
 ## Doğru kurulum için 5 soru
 
@@ -73,11 +73,11 @@ Türkiye'de de işletmelerin yapay zeka kullanımı hızla artıyor. TÜİK veri
 
 ## Sonuç
 
-Yapay zeka resepsiyonist, resepsiyon ekibinizin yerini almaz; onu tekrarlayan sorulardan ve gece mesajlarından kurtarır. Sistemlerinize bağlandığında ise rezervasyondan ödemeye kadar sürecin bir parçası haline gelir. Doğru kurgulandığında misafiriniz beklemez, ekibiniz de zamanını misafirle yüz yüze ilgilenmeye ayırır.
+Yapay zeka resepsiyonist ekibinizin yerini almaz; tekrarlayan soruları ve gece mesajlarını onların üzerinden alır. Sistemlerinize bağlandığında ise rezervasyondan ödemeye kadar sürecin bir parçası haline gelir. Doğru kurgulandığında misafiriniz beklemez, ekibiniz de zamanını misafirle yüz yüze ilgilenmeye ayırır.
 
 Otelinize nasıl kurulacağını [Konaklama & Turizm](/sektorler/konaklama-turizm) sayfamızda anlattık. Mesaj kanalı olarak WhatsApp'ı düşünüyorsanız [WhatsApp Asistanı](/ai-asistanlar/whatsapp-asistani), rezervasyon akışı için [Randevu & Rezervasyon](/ai-asistanlar/randevu-rezervasyon) sayfalarına göz atabilirsiniz.
 
 ## Kaynaklar
 
 - "Conversational AI in hospitality and tourism: a bibliometric–systematic review", Cogent Business & Management, 2026: [tandfonline.com](https://www.tandfonline.com/doi/full/10.1080/23311975.2026.2613599)
-- TÜİK, Girişimlerde Bilişim Teknolojileri Kullanım Araştırması 2026: [veriportali.tuik.gov.tr](https://veriportali.tuik.gov.tr/tr/press/62066)
+- TÜİK, Yapay Zekâ İstatistikleri 2026 (2 Ekim 2026): [veriportali.tuik.gov.tr](https://veriportali.tuik.gov.tr/tr/press/62066)

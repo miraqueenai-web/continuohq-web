@@ -33,7 +33,7 @@ const ld = [
   )}
   <section class="sec">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Tanıdık geliyor mu?</span><h2>{s.slug === 'tum-sektorler' ? 'Her sektörün ortak dertleri' : 'Bu sektörde en çok yorulan yerler'}</h2></div>
+      <div class="sec-head"><span class="eyebrow">En sık duyduklarımız</span><h2>{s.slug === 'tum-sektorler' ? 'Her sektörün ortak dertleri' : 'Bu sektörde en sık yaşanan sorunlar'}</h2></div>
       <div class="grid-3">{s.problems.map((p) => <div class="card"><h3>{p.title}</h3><p>{p.text}</p></div>)}</div>
     </div>
   </section>

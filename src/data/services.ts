@@ -62,7 +62,7 @@ export const groups = {
       'AI asistan nedir, klasik chatbottan farkı ne, WhatsApp ve Instagram kuralları neler? İşletmeler için güncel kaynaklarla kapsamlı rehber ve hizmetlerimiz.',
     answer:
       'AI asistan, işletmenizin bilgisiyle eğitilmiş ve müşterilerinize WhatsApp, Instagram veya web sitenizde 7/24 yanıt veren bir yapay zeka sistemidir. Sık sorulan soruları cevaplar, randevu alır, bilgi toplar; hassas ya da karmaşık bir konu açıldığında konuşmayı ekibinize devreder.',
-    lead: 'Müşterileriniz cevap beklemez. Asistanınız işletmenizin bilgisiyle konuşur, kurallarınızla çalışır ve gerektiğinde konuşmayı ekibinize devreder.',
+    lead: 'Mesajlar mesai saati tanımaz. Asistanınız sizin verdiğiniz bilgilerle konuşur, kurallarınızla çalışır ve gerektiğinde konuşmayı ekibinize devreder.',
   },
   'ai-donusumu': {
     title: 'AI Dönüşümü',
@@ -88,7 +88,7 @@ export const services: Service[] = [
       'İşletmenize özel WhatsApp yapay zeka asistanı: müşteri sorularını 7/24 yanıtlar, randevu ve rezervasyon alır, gerektiğinde konuşmayı ekibinize devreder.',
     answer:
       'WhatsApp asistanı, WhatsApp Business altyapısı üzerinde çalışan ve işletmenizin bilgisiyle eğitilmiş bir yapay zeka asistanıdır. Fiyat, müsaitlik ve sık sorulan soruları anında yanıtlar, randevu veya rezervasyon alır; gerektiğinde konuşmayı ekibinizden birine aktarır.',
-    lead: 'Gece gelen soru sabahı beklemesin. Asistanınız müşterilerinize işletmenizin diliyle, saniyeler içinde yanıt verir.',
+    lead: 'Gece gelen soru sabahı beklemesin. Asistanınız müşterilerinize işletmenizin diliyle, beklemeden yanıt verir.',
     benefits: [
       { title: 'Mesai dışında da açık', text: 'Akşam, hafta sonu ve tatil günlerinde gelen mesajlar cevapsız kalmaz.' },
       { title: 'İşletmenizin bilgisiyle konuşur', text: 'Hizmetleriniz, fiyat politikanız ve kurallarınızla eğitilir; genel bir sohbet botu değildir.' },
@@ -102,9 +102,9 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'WhatsApp yapay zeka asistanlarına izin veriyor mu?', a: 'Evet, işletmenin kendi müşteri hizmeti, randevu ve sipariş süreçleri için kullanılan asistanlara izin veriliyor. Meta, WhatsApp Business platformunda yalnızca genel amaçlı, ChatGPT benzeri sohbet botlarını kısıtladı. Kurduğumuz asistanlar işletmenize özeldir.' },
-      { q: 'Mevcut WhatsApp numaramı kullanabilir miyim?', a: 'Çoğu durumda evet. Numaranın WhatsApp Business platformuna taşınması gerekir; keşif görüşmesinde numaranızın durumuna göre en uygun yolu birlikte belirleriz.' },
+      { q: 'Mevcut WhatsApp numaramı kullanabilir miyim?', a: 'Çoğu durumda evet. Numaranız WhatsApp Business uygulamasındaysa, uygulamayı kullanmaya devam ederken resmi altyapıya bağlanmak mümkün olabilir; değilse numaranın WhatsApp Business Platformu\'na taşınması gerekir. Keşif görüşmesinde numaranızın durumuna göre en uygun yolu birlikte belirleriz.' },
       { q: 'Asistan yanlış bir cevap verirse ne olur?', a: 'Asistan yalnızca sizin onayladığınız bilgilerle yanıt verir ve emin olmadığı durumda konuşmayı ekibinize devreder. Konuşmaları düzenli olarak inceleyip bilgi bankasını güncelleriz.' },
-      { q: 'Kişisel veriler nasıl korunuyor?', a: 'Kurulumu KVKK\'ya uygun kurgularız: aydınlatma metni, gerekli durumlarda açık rıza ve yalnızca gerekli verinin işlenmesi. Sağlık gibi özel nitelikli veriler için ek önlemler alırız.' },
+      { q: 'Kişisel veriler nasıl korunuyor?', a: 'Kurulumu KVKK\'ya uygun yaparız: aydınlatma metni, gerekli durumlarda açık rıza ve yalnızca gerekli verinin işlenmesi. Sağlık gibi özel nitelikli veriler için ek önlemler alırız.' },
     ],
     sectors: ['konaklama-turizm', 'guzellik-estetik', 'saglik-beslenme'],
     related: ['randevu-rezervasyon', 'instagram-dm-asistani'],
@@ -119,9 +119,9 @@ export const services: Service[] = [
       'Instagram DM ve yorumlara yapay zeka ile anında yanıt: fiyat soruları, randevu talepleri ve ürün bilgisi. İşletmenize özel, gerektiğinde ekibinize devir.',
     answer:
       'Instagram DM asistanı, işletme hesabınıza gelen direkt mesajları ve belirlediğiniz yorumları yapay zeka ile yanıtlayan bir sistemdir. "Fiyat nedir?", "Randevu var mı?" gibi soruları saniyeler içinde cevaplar, ilgilenen kişiyi randevuya veya satışa yönlendirir.',
-    lead: '"Fiyat DM\'den" yazan her gönderi bir soru dalgası getirir. Asistanınız hepsine aynı özenle, anında yanıt verir.',
+    lead: '"Fiyat DM\'den" yazan her gönderinin ardından onlarca mesaj gelir. Asistanınız hepsine aynı özenle, hemen yanıt verir.',
     benefits: [
-      { title: 'Hiçbir mesaj kaybolmaz', text: 'Yoğun dönemlerde de her DM yanıtlanır, potansiyel müşteri beklemez.' },
+      { title: 'Mesajlar beklemez', text: 'Yoğun dönemlerde de DM\'ler beklemeden yanıtlanır; cevapsız kalan mesaj azalır.' },
       { title: 'Satışa yönlendirir', text: 'Sohbeti randevu, rezervasyon veya sipariş adımına taşır.' },
       { title: 'Marka dilinizle', text: 'Hesabınızın üslubuyla, emoji ve ton tercihlerinize uygun yazar.' },
     ],
@@ -133,7 +133,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'Instagram\'da otomatik yanıt kurallara uygun mu?', a: 'Evet, Meta\'nın resmi mesajlaşma altyapısı üzerinden kurulan ve işletmenin kendi müşterilerine hizmet veren asistanlar kurallara uygundur.' },
-      { q: 'Yorumlara da yanıt verebilir mi?', a: 'Belirlediğiniz gönderilerdeki yorumlara yanıt verebilir veya yorum yapanı DM\'e yönlendirebilir. Hangi yorumlara dokunulacağını siz belirlersiniz.' },
+      { q: 'Yorumlara da yanıt verebilir mi?', a: 'Belirlediğiniz gönderilerdeki yorumlara yanıt verebilir veya yorum yapanı DM\'ye yönlendirebilir. Hangi yorumlara dokunulacağını siz belirlersiniz.' },
       { q: 'Kişisel hesapla çalışır mı?', a: 'Hayır, bir Instagram işletme veya içerik üreticisi hesabı gerekir. Geçişi birlikte yapabiliriz.' },
     ],
     sectors: ['guzellik-estetik', 'konaklama-turizm'],
@@ -153,7 +153,7 @@ export const services: Service[] = [
     benefits: [
       { title: 'Ziyaretçiyi müşteriye çevirir', text: 'Soru soran ziyaretçiye anında yanıt verir ve iletişim bilgisini alır.' },
       { title: 'Doğru sayfaya yönlendirir', text: 'Ne aradığını anlayıp ilgili hizmet veya ürün sayfasına götürür.' },
-      { title: 'Her dilde', text: 'Yabancı ziyaretçilere kendi dillerinde yanıt verebilir.' },
+      { title: 'Birçok dilde', text: 'Yabancı ziyaretçilere kendi dillerinde yanıt verebilir.' },
     ],
     steps: [
       { title: 'Keşif', text: 'Sitenizin ziyaretçi sorularını ve hedeflerinizi belirleriz.' },
@@ -163,7 +163,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'Hangi sitelerle çalışır?', a: 'WordPress, Wix, Shopify, Squarespace dahil hemen her siteye eklenebilir.' },
-      { q: 'Sitemi yavaşlatır mı?', a: 'Hayır, asistan sayfa yüklendikten sonra devreye girer ve sitenin açılış hızını etkilemeyecek şekilde eklenir.' },
+      { q: 'Sitemi yavaşlatır mı?', a: 'Asistan, sayfa yüklendikten sonra devreye girecek şekilde eklenir. Açılış hızını etkilemediğini kurulumdan sonra hız ölçümüyle kontrol ederiz.' },
       { q: 'Toplanan talepler nereye gider?', a: 'E-postanıza, WhatsApp\'ınıza veya kullandığınız müşteri yönetim sistemine (CRM) iletilebilir.' },
     ],
     sectors: ['konaklama-turizm', 'saglik-beslenme'],
@@ -178,12 +178,12 @@ export const services: Service[] = [
     description:
       'Randevu ve rezervasyonları yapay zeka ile otomatik alın: müsaitlik kontrolü, hatırlatma mesajları, iptal ve boşalan saatlerin yeniden doldurulması.',
     answer:
-      'Randevu ve rezervasyon otomasyonu, müşterilerinizin mesajlaşarak randevu almasını, size takvimden müsaitlik kontrolü yapmadan bunun gerçekleşmesini sağlar. Asistan uygun saatleri önerir, randevuyu takviminize işler, hatırlatma gönderir ve iptal olan saatleri bekleyen müşterilere teklif eder.',
-    lead: 'Telefonla saat ayarlamak, hatırlatma atmak, iptalleri takip etmek. Bunların hepsi kendiliğinden yürüsün.',
+      'Randevu ve rezervasyon otomasyonu, müşterilerinizin mesajla randevu almasını sağlar; sizin takvime bakmanıza gerek kalmaz. Asistan uygun saatleri önerir, randevuyu takviminize işler, hatırlatma gönderir ve iptal olan saatleri bekleyen müşterilere teklif eder.',
+    lead: 'Telefonla saat ayarlamak, hatırlatma göndermek, iptalleri takip etmek. Bunlarla artık siz uğraşmayın.',
     benefits: [
-      { title: 'Takvim kendiliğinden dolar', text: 'Müşteri uygun saati mesajlaşarak seçer, randevu takviminize düşer.' },
-      { title: 'Daha az gelmeyen müşteri', text: 'Otomatik hatırlatmalar randevunun unutulmasını azaltır.' },
-      { title: 'Boş saat kalmaz', text: 'İptal olan saat, bekleme listesindeki müşterilere otomatik teklif edilir.' },
+      { title: 'Randevu mesajla alınır', text: 'Müşteri uygun saati mesajlaşarak seçer, randevu takviminize işlenir.' },
+      { title: 'Daha az gelmeyen müşteri', text: 'Hatırlatmalar randevunun unutulmasını azaltır. WhatsApp\'ta hatırlatmalar müşterinin izniyle, Meta\'nın onaylı ve ücretli şablon mesajlarıyla gönderilir.' },
+      { title: 'İptaller değerlendirilir', text: 'İptal olan saat, bekleme listesindeki müşterilere teklif edilebilir.' },
     ],
     steps: [
       { title: 'Keşif', text: 'Randevu kurallarınızı, sürelerinizi ve kullandığınız takvimi inceleriz.' },
@@ -208,12 +208,12 @@ export const services: Service[] = [
     description:
       'İşletmeniz için yapay zeka yol haritası: hangi süreçlerin otomatikleşeceğini, önceliklerini ve beklenen kazanımları birlikte belirleriz.',
     answer:
-      'Yapay zeka dönüşüm danışmanlığı, işletmenizin süreçlerini inceleyip yapay zekanın en çok değer katacağı noktaları belirlediğimiz bir çalışmadır. Sonunda öncelik sırasına konmuş, maliyeti ve beklenen kazanımı belli bir yol haritası elde edersiniz.',
-    lead: 'Yapay zeka her işe yarar gibi görünür, ama her işe aynı anda başlanmaz. Önce nereden başlayacağınızı netleştiririz.',
+      'Yapay zeka dönüşüm danışmanlığı, işletmenizin süreçlerini inceleyip yapay zekanın en çok işe yarayacağı noktaları belirlediğimiz bir çalışmadır. Sonunda öncelik sırasına konmuş, maliyeti ve beklenen kazanımı belli bir yol haritası elde edersiniz.',
+    lead: 'Yapay zekanın kullanılabileceği çok yer var, ama hepsine aynı anda başlanmaz. Önce nereden başlayacağınızı belirleriz.',
     benefits: [
       { title: 'Net öncelikler', text: 'En hızlı geri dönüş sağlayacak süreçleri ilk sıraya koyarız.' },
       { title: 'Gerçekçi beklenti', text: 'Her adımın maliyetini, süresini ve ölçüm yöntemini baştan belirleriz.' },
-      { title: 'Ekibinizle birlikte', text: 'Değişimi çalışanlarınızla konuşarak kurgularız; kimse dışarıda kalmaz.' },
+      { title: 'Ekibinizle birlikte', text: 'Değişimi çalışanlarınızla konuşarak planlarız; ekibinizin görüşünü en başta alırız.' },
     ],
     steps: [
       { title: 'Görüşmeler', text: 'Yönetim ve ekiple görüşür, iş akışlarını dinleriz.' },
@@ -223,7 +223,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'Danışmanlık sonunda ne teslim alırım?', a: 'Süreç haritanızı, otomatikleşecek adımların öncelik listesini, her adım için tahmini maliyet ve süreyi ve ölçüm yöntemini içeren bir yol haritası.' },
-      { q: 'Teknik bilgi gerekiyor mu?', a: 'Hayır. Siz işinizi anlatırsınız, teknik tarafı biz çeviririz.' },
+      { q: 'Teknik bilgi gerekiyor mu?', a: 'Hayır. Siz işinizi anlatırsınız, teknik kısmı biz hallederiz.' },
       { q: 'Küçük işletmeler için uygun mu?', a: 'Evet. Çalışmanın kapsamını işletmenizin büyüklüğüne göre ayarlarız.' },
     ],
     sectors: ['tum-sektorler'],
@@ -238,8 +238,8 @@ export const services: Service[] = [
     description:
       'Tekrarlayan iş süreçlerini otomatikleştirin: operasyon, insan kaynakları, raporlama, belge yönetimi, tedarik ve stok takibi için işletmenize özel otomasyonlar.',
     answer:
-      'Süreç otomasyonu, ekibinizin her gün elle yaptığı tekrarlayan işleri, örneğin rapor hazırlamayı, form ve belge işlemeyi, stok takibini, yazılımların ve yapay zekanın kendiliğinden yürütmesini sağlar. Böylece ekibiniz zamanını asıl işine ayırır.',
-    lead: 'Her gün aynı tabloyu doldurmak, aynı e-postayı yazmak, aynı belgeyi aramak. Bu işler artık kendiliğinden yürüsün.',
+      'Süreç otomasyonu, ekibinizin her gün elle yaptığı rapor hazırlama, form ve belge işleme, stok takibi gibi tekrarlayan işleri yazılıma ve yapay zekaya devreder. Böylece ekibiniz zamanını asıl işine ayırır.',
+    lead: 'Her gün aynı tabloyu doldurmak, aynı e-postayı yazmak, aynı belgeyi aramak. Bu işler sizi beklemeden yapılsın.',
     benefits: [
       { title: 'Operasyon', text: 'Sipariş, görev ve bildirim akışları birbirine bağlanır, elle aktarım biter.' },
       { title: 'İK ve belgeler', text: 'İşe alım, izin ve personel evrakı tek bir akışta düzenlenir.' },
@@ -269,7 +269,7 @@ export const services: Service[] = [
       'Birden fazla adımı kendi başına planlayıp yürüten yapay zeka ajanları: araştırma, teklif hazırlama, raporlama ve müşteri takibi gibi işler için.',
     answer:
       'AI ajanı, kendisine verilen bir hedefi birden fazla adıma bölerek kendi başına yürüten bir yapay zeka sistemidir. Örneğin gelen bir talebi okuyup teklif taslağı hazırlayabilir, gerekli bilgiyi farklı kaynaklardan toplayabilir ve onayınıza sunabilir.',
-    lead: 'Tek bir soruya cevap vermenin ötesinde: bir işi baştan sona yürüten, sonucu size onaya getiren dijital çalışma arkadaşları.',
+    lead: 'Soruyu yanıtlamakla kalmaz; işi baştan sona yürütür ve sonucu onayınıza getirir.',
     benefits: [
       { title: 'Çok adımlı işler', text: 'Bilgi toplama, karşılaştırma, taslak hazırlama gibi zincirleme işleri üstlenir.' },
       { title: 'Onay sizde', text: 'Önemli kararlar ve dışarıya giden her şey önce sizin onayınızdan geçer.' },
@@ -313,7 +313,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'Hangi sistemlerle entegrasyon yapılabilir?', a: 'API sunan çoğu CRM, muhasebe, e-ticaret, rezervasyon ve otel yönetim sistemiyle. Sisteminizin durumunu keşif görüşmesinde kontrol ederiz.' },
-      { q: 'Verilerim güvende mi?', a: 'Yalnızca gerekli verilere, gerekli yetkiyle erişiriz ve bağlantıları KVKK\'ya uygun kurgularız.' },
+      { q: 'Verilerim güvende mi?', a: 'Yalnızca gerekli verilere, gerekli yetkiyle erişiriz ve bağlantıları KVKK\'ya uygun kurarız.' },
     ],
     sectors: ['konaklama-turizm', 'tum-sektorler'],
     related: ['randevu-rezervasyon', 'surec-otomasyonlari'],
@@ -327,8 +327,8 @@ export const services: Service[] = [
     description:
       'Hızlı, mobil uyumlu, Google ve yapay zeka arama motorları için optimize edilmiş (SEO ve GEO) kurumsal web siteleri ve dijital altyapı.',
     answer:
-      'Hem Google\'da hem de ChatGPT, Gemini gibi yapay zeka arama motorlarında bulunabilen, hızlı ve mobil uyumlu web siteleri kuruyoruz. SEO, sitenizin arama sonuçlarında yükselmesini; GEO ise yapay zeka cevaplarında kaynak olarak gösterilmesini hedefler.',
-    lead: 'Müşterileriniz artık yalnızca Google\'da değil, yapay zekaya sorarak da arıyor. Siteniz iki yerde de bulunmalı.',
+      'Hem Google\'da hem de ChatGPT, Gemini gibi yapay zeka arama motorlarında bulunabilirliği artıracak şekilde tasarlanmış, hızlı ve mobil uyumlu web siteleri kuruyoruz. SEO, sitenizin arama sonuçlarında yükselmesini; GEO ise yapay zeka cevaplarında kaynak olarak gösterilmesini hedefler.',
+    lead: 'Müşterileriniz Google\'ın yanında ChatGPT gibi araçlara da soruyor. Sitenizin iki yerde de bulunması gerekiyor.',
     benefits: [
       { title: 'SEO ve GEO baştan', text: 'Teknik altyapı, içerik yapısı ve yapısal veri ilk günden kurulur.' },
       { title: 'Hızlı ve sade', text: 'Hızlı açılan, mobilde rahat kullanılan, markanıza özel tasarım.' },
@@ -342,7 +342,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'GEO nedir?', a: 'GEO (Generative Engine Optimization), içeriğinizin ChatGPT, Gemini ve Google\'ın yapay zeka özetleri gibi yapay zeka cevaplarında kaynak olarak gösterilmesi için yapılan optimizasyondur.' },
-      { q: 'Mevcut sitemi yenileyebilir misiniz?', a: 'Evet. Mevcut içeriğinizi ve arama sıralamanızı koruyarak siteyi yeni altyapıya taşıyabiliriz.' },
+      { q: 'Mevcut sitemi yenileyebilir misiniz?', a: 'Evet. Mevcut içeriğinizi ve arama sıralamanızı korumaya özen göstererek (yönlendirmeler ve teknik SEO ile) siteyi yeni altyapıya taşıyabiliriz.' },
     ],
     sectors: ['tum-sektorler'],
     related: ['web-sitesi-asistani', 'donusum-danismanligi'],
@@ -357,10 +357,10 @@ export const sectors: Sector[] = [
     menuNote: 'Oteller, butik oteller, acenteler',
     seoTitle: 'Oteller için Yapay Zeka Asistanı | Konaklama ve Turizm',
     description:
-      'Oteller, butik oteller ve turizm acenteleri için yapay zeka asistanları: rezervasyon soruları, oda müsaitliği, transfer ve misafir talepleri 7/24, her dilde.',
+      'Oteller, butik oteller ve turizm acenteleri için yapay zeka asistanları: rezervasyon soruları, oda müsaitliği, transfer ve misafir talepleri 7/24, misafirin yazdığı dilde.',
     answer:
       'Konaklama işletmeleri için yapay zeka asistanı; rezervasyon, oda müsaitliği, fiyat, transfer ve misafir taleplerine WhatsApp, Instagram ve web sitesi üzerinden 7/24 ve misafirin kendi dilinde yanıt verir. Rezervasyonu sisteminize işler, özel talepleri resepsiyona devreder.',
-    lead: 'Misafirleriniz farklı saat dilimlerinden, farklı dillerde yazıyor. Asistanınız gece gündüz, her dilde karşılar.',
+    lead: 'Misafirleriniz farklı saat dilimlerinden, farklı dillerde yazıyor. Asistanınız gece gündüz, misafirin yazdığı dilde karşılar.',
     image: '/images/sektorler/konaklama.webp',
     problems: [
       { title: 'Gece gelen rezervasyon soruları', text: 'Sabaha kadar cevapsız kalan mesaj, rakip otele giden misafir demektir.' },
@@ -370,7 +370,7 @@ export const sectors: Sector[] = [
     services: ['whatsapp-asistani', 'randevu-rezervasyon', 'web-sitesi-asistani', 'entegrasyonlar'],
     faqs: [
       { q: 'Otel yönetim sistemimle (PMS) entegre olabilir mi?', a: 'API sunan otel yönetim ve rezervasyon sistemleriyle entegre edilebilir. Kullandığınız sistemi keşif görüşmesinde kontrol ederiz.' },
-      { q: 'Hangi dillerde yanıt verebilir?', a: 'Türkçe, İngilizce, Almanca, Rusça ve Arapça başta olmak üzere misafirin yazdığı dilde yanıt verebilir.' },
+      { q: 'Hangi dillerde yanıt verebilir?', a: 'Misafirin yazdığı dilde yanıt verebilir; örneğin Türkçe, İngilizce, Almanca, Rusça veya Arapça.' },
       { q: 'Asistan rezervasyon ve ödeme alabilir mi?', a: 'Otel yönetim sisteminize, kanal yöneticinize veya rezervasyon motorunuza bağlandığında evet: müsaitliği canlı kontrol eder, rezervasyonu doğrudan oluşturur, güvenli ödeme bağlantısıyla tahsilat yapar ve ekibinize bildirim gönderir. Kapsam, kullandığınız sistemlere göre belirlenir.' },
       { q: 'Özel talepler ne olur?', a: 'Asistan oda değişikliği ve özel istekleri alır, müsaitliği kontrol eder ve talebi ilgili bilgilerle birlikte ekibinize iletir. Şikâyetlerde ilk yanıtı verip konuşmayı resepsiyona devreder.' },
     ],
@@ -414,26 +414,26 @@ export const sectors: Sector[] = [
     problems: [
       { title: 'Seans arasında gelen mesajlar', text: 'Görüşme sırasında telefona bakamamak, yeni danışanın beklemesi demek.' },
       { title: 'Takip mesajları', text: 'Danışanlara düzenli hatırlatma ve motivasyon mesajı göndermek zaman alıyor.' },
-      { title: 'Veri hassasiyeti', text: 'Sağlık bilgileri özel nitelikli veri; doğru kurgulanmalı.' },
+      { title: 'Veri hassasiyeti', text: 'Sağlık bilgileri özel nitelikli veri; doğru planlanmalı.' },
     ],
     services: ['randevu-rezervasyon', 'whatsapp-asistani', 'web-sitesi-asistani'],
     faqs: [
       { q: 'Asistan danışanlara beslenme tavsiyesi verir mi?', a: 'Hayır. Asistan randevu, ücret, süreç gibi idari konularda yanıt verir; kişisel beslenme ve sağlık tavsiyesi diyetisyenin kendisine aittir. Bu tür sorular size devredilir.' },
-      { q: 'KVKK\'ya uygun mu?', a: 'Kurulumu aydınlatma metni, açık rıza ve veri minimizasyonu ilkeleriyle kurgularız. Sağlık verisinin işlenmesi için hukuk danışmanınızla birlikte çalışmanızı öneririz.' },
-      { q: 'Online görüşme bağlantısı gönderebilir mi?', a: 'Evet, randevu onayıyla birlikte görüşme bağlantısı otomatik gönderilebilir.' },
+      { q: 'KVKK\'ya uygun mu?', a: 'Kurulumu aydınlatma metni, açık rıza ve yalnızca gerekli verinin işlenmesi ilkeleriyle planlarız. Sağlık verisinin işlenmesi için hukuk danışmanınızla birlikte çalışmanızı öneririz.' },
+      { q: 'Çevrim içi görüşme bağlantısı gönderebilir mi?', a: 'Evet, randevu onayıyla birlikte görüşme bağlantısı otomatik gönderilebilir.' },
     ],
   },
   {
     slug: 'tum-sektorler',
     title: 'Tüm Sektörler',
-    short: 'Listede yoksa size özel kurgularız',
-    menuNote: 'Size özel kurgulayalım',
+    short: 'Listede yoksa size özel planlarız',
+    menuNote: 'Size özel planlayalım',
     seoTitle: 'Her Sektör için Yapay Zeka Otomasyonu',
     description:
-      'Sektörünüz listede yok mu? Her işletmenin otomatikleşebilecek bir işi vardır. Süreçlerinizi anlatın, size özel yapay zeka asistanı ve otomasyon kurgulayalım.',
+      'Sektörünüz listede yok mu? Her işletmenin otomatikleşebilecek bir işi vardır. Süreçlerinizi anlatın, size özel yapay zeka asistanı ve otomasyon planlayalım.',
     answer:
       'Yapay zeka asistanları ve otomasyonlar yalnızca belirli sektörlere özel değildir. Müşterisiyle mesajlaşan, randevu alan, rapor hazırlayan veya tekrarlayan işleri olan her işletme fayda sağlayabilir. Keşif görüşmesinde sizin süreçlerinize uygun kurguyu birlikte çıkarırız.',
-    lead: 'Her işletmenin otomatikleşebilecek bir işi vardır. Bize işinizi anlatın, size özel kurgulayalım.',
+    lead: 'Her işletmenin otomatikleşebilecek bir işi vardır. Bize işinizi anlatın, size özel bir çözüm planlayalım.',
     problems: [
       { title: 'Müşteri iletişimi', text: 'Mesajlara yetişememek her sektörün ortak derdi.' },
       { title: 'Tekrarlayan işler', text: 'Raporlar, belgeler, veri aktarımı; ekip zamanının önemli kısmı burada geçiyor.' },

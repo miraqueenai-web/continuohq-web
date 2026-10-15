@@ -10,9 +10,9 @@ const needs = [
   { k: 'Satış & teklif', h: 'Teklifler geç çıkıyor.', p: 'Talep geldiği anda teklif taslağı hazır, takip hatırlatmaları otomatik.', go: 'AI Ajanları', href: '/ai-donusumu/ai-ajanlari' },
   { k: 'Operasyon', h: 'Aynı işi her gün elle yapıyoruz.', p: 'Tekrarlayan adımlar uçtan uca otomatikleşir, ekibiniz asıl işe döner.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari', dark: true },
   { k: 'İK & ekip', h: 'Evrak işi vaktimizi alıyor.', p: 'İşe alım, izin ve personel belgeleri tek bir akışta düzenlenir.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari' },
-  { k: 'Raporlama & veri', h: 'Rakamları toplamak günler sürüyor.', p: 'Dağınık tablolardan haftalık özetler kendiliğinden hazırlanır.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari' },
-  { k: 'Belge & bilgi', h: 'Bilgiler her yere dağılmış.', p: 'Dosyalar, e-postalar ve notlar sorulabilir tek bir bilgi bankasında toplanır.', go: 'AI Ajanları', href: '/ai-donusumu/ai-ajanlari' },
-  { k: 'Tedarik & stok', h: 'Stok takibi elle yürüyor.', p: 'Sipariş, stok ve tedarikçi yazışmaları otomatik izlenir, eksik önceden haber verilir.', go: 'Entegrasyonlar', href: '/ai-donusumu/entegrasyonlar' },
+  { k: 'Raporlama & veri', h: 'Rakamları toplamak günler sürüyor.', p: 'Dağınık tablolardan haftalık özetler otomatik hazırlanır.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari' },
+  { k: 'Belge & bilgi', h: 'Bilgiler her yere dağılmış.', p: 'Dosyalar, e-postalar ve notlar soru sorabileceğiniz tek bir bilgi bankasında toplanır.', go: 'AI Ajanları', href: '/ai-donusumu/ai-ajanlari' },
+  { k: 'Tedarik & stok', h: 'Stok takibi elle yürüyor.', p: 'Sipariş, stok ve tedarikçi yazışmaları otomatik izlenir, eksik önceden haber verilir.', go: 'Süreç Otomasyonları', href: '/ai-donusumu/surec-otomasyonlari' },
 ];
 const tiles = sectors.filter((s) => s.slug !== 'tum-sektorler');
 const tileClass: Record<string, string> = { 'konaklama-turizm': 't1', 'guzellik-estetik': 't2', 'saglik-beslenme': 't3' };
@@ -93,7 +93,7 @@ const faqLd = {
 
   <section class="statement">
     <div class="container">
-      <p id="stmt">Müşterileriniz cevap beklemez. Ekibiniz tekrarlayan işlerde tükenmemeli. Biz her işletmeye kendi diliyle konuşan, kendi kurallarıyla çalışan <span class="gw">yapay zeka sistemleri</span> kuruyoruz.</p>
+      <p id="stmt">Müşteri yanıt bekledikçe başka yere bakar. Ekibiniz tekrarlayan işlerde tükenmemeli. Biz her işletmeye kendi diliyle konuşan, kendi kurallarıyla çalışan <span class="gw">yapay zeka sistemleri</span> kuruyoruz.</p>
     </div>
   </section>
 
@@ -126,8 +126,8 @@ const faqLd = {
     <div class="container">
       <div class="sec-head reveal">
         <span class="eyebrow">Sektörler</span>
-        <h2>Sektörünüzün dilini konuşur.</h2>
-        <p>Her sektörün soruları, kuralları ve yoğun saatleri farklıdır. Asistanınız bunları bilerek kurulur.</p>
+        <h2>Her sektörün kendi dertleri var.</h2>
+        <p>Her sektörün soruları, kuralları ve yoğun saatleri farklıdır. Asistanınızı bunları bilerek kurarız.</p>
       </div>
       <div class="sectors">
         {tiles.map((s) => (
@@ -137,7 +137,7 @@ const faqLd = {
           </a>
         ))}
         <a class="tile t4 reveal" href="/sektorler/tum-sektorler">
-          <div><span class="plus" aria-hidden="true">+</span><h3>Sektörünüz listede yok mu?</h3><p>Süreçlerinizi anlatın, size özel kurgulayalım. Her işletmenin otomatikleşebilecek bir işi vardır.</p></div>
+          <div><span class="plus" aria-hidden="true">+</span><h3>Sektörünüz listede yok mu?</h3><p>Süreçlerinizi anlatın, size özel bir çözüm planlayalım. Her işletmenin otomatikleşebilecek bir işi vardır.</p></div>
           <span class="go">Bize anlatın →</span>
         </a>
       </div>
@@ -154,7 +154,7 @@ const faqLd = {
         <div class="step reveal"><span class="n">1. Keşif</span><h3>Dinliyoruz</h3><p>30 dakikalık ücretsiz görüşmede işinizi ve sizi en çok yoran noktaları konuşuyoruz.</p></div>
         <div class="step reveal"><span class="n">2. Kurgu</span><h3>Tasarlıyoruz</h3><p>Hangi işin otomatikleşeceğini, nerede insana devredileceğini birlikte netleştiriyoruz.</p></div>
         <div class="step reveal"><span class="n">3. Kurulum</span><h3>Kuruyoruz</h3><p>Asistanı işletmenizin bilgisiyle eğitip mevcut kanallarınıza bağlıyoruz.</p></div>
-        <div class="step reveal"><span class="n">4. Ölçüm</span><h3>İyileştiriyoruz</h3><p>Kurulum öncesi ve sonrasını kıyaslıyor, sistemi her ay geliştiriyoruz.</p></div>
+        <div class="step reveal"><span class="n">4. Ölçüm</span><h3>İyileştiriyoruz</h3><p>Kurulum öncesi ve sonrasını kıyaslıyor, aylık bakım kapsamında sistemi geliştiriyoruz.</p></div>
       </div>
       <p style="margin-top:28px"><a class="chip" href="/nasil-calisiriz">Süreci ayrıntılı inceleyin ›</a></p>
     </div>
@@ -164,7 +164,7 @@ const faqLd = {
     <div class="container reveal">
       <span class="eyebrow">İlkemiz</span>
       <p class="big">Her asistanda <span class="grad">insana devir</span> vardır.</p>
-      <p class="sub">Yapay zeka işin hızlı kısmını üstlenir. Hassas, karmaşık ya da duygusal bir konu açıldığında konuşma ekibinize geçer. Müşteriniz hiçbir zaman çıkmaza girmez.</p>
+      <p class="sub">Rutin soruları yapay zeka yanıtlar. Hassas, karmaşık ya da duygusal bir konu açıldığında konuşma bir çalışanınıza geçer. Müşteriniz cevapsız kalmaz.</p>
     </div>
   </section>
 
