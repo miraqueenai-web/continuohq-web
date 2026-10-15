@@ -9,7 +9,7 @@ faqs:
   - q: "Yapay zekaya başlamak için teknik bilgi gerekir mi?"
     a: "Hayır. İşinizi, müşterilerinizin sorularını ve sizi en çok yoran işleri bilmeniz yeterli. Teknik kurulumu bir uzmanla birlikte yapabilirsiniz."
   - q: "İlk projede ne kadar beklemeli?"
-    a: "Tek kanallı bir mesajlaşma asistanı gibi küçük bir pilot genellikle birkaç hafta içinde devreye alınabilir. Kapsam büyüdükçe süre uzar."
+    a: "Süre; seçilen sürecin kapsamına, bağlanacak sistemlere ve verilerin hazırlığına göre değişir. Tek kanallı, tek süreçli küçük bir pilot, çok adımlı ve birden fazla sisteme bağlı bir otomasyona göre çok daha kısa sürede devreye alınır."
   - q: "Yapay zeka ekibimin yerini alır mı?"
     a: "Doğru kurgulandığında tekrarlayan işleri üstlenir, ekibinizin zamanını müşteriyle ilgilenmek gibi daha değerli işlere ayırmasını sağlar. Hassas konular her zaman ekipte kalmalıdır."
 ---

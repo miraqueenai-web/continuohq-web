@@ -369,6 +369,7 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(0
 .paper .steps-g > div { border-color: transparent; }
 .steps-g h3 { font: 700 20px/1.25 var(--head); letter-spacing: -.02em; margin: 0 0 8px; }
 .steps-g h3::before { counter-increment: g; content: counter(g, decimal-leading-zero); display: block; font: 600 13px/1 var(--body); color: var(--label); letter-spacing: .08em; margin-bottom: 12px; }
+.steps-g.plain h3::before { display: none; }
 .steps-g p { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.6; }
 .checklist { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; }
 .checklist li { position: relative; padding-left: 32px; line-height: 1.55; color: var(--ink-2); }

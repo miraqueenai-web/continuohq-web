@@ -33,7 +33,7 @@ const ext = (h: string) => h.startsWith('http');
     <a class="logo" href="/" aria-label="Continuo ana sayfa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
     <ul class="nav-links" id="links">
       <span class="hl" aria-hidden="true"></span>
-      {menus.map((m) => <li><button type="button" class="nav-top" aria-expanded="false" aria-controls={`dd-${m.id}`} data-menu={m.id}>{m.title}</button></li>)}
+      {menus.map((m) => <li><a class="nav-top" href={m.href} aria-haspopup="true" aria-expanded="false" aria-controls={`dd-${m.id}`} data-menu={m.id}>{m.title}</a></li>)}
       {plain.map((p) => <li><a href={p.href}>{p.title}</a></li>)}
     </ul>
     <div class="nav-right">
@@ -75,7 +75,7 @@ const ext = (h: string) => h.startsWith('http');
   const links = document.getElementById('links')!;
   const hl = links.querySelector('.hl') as HTMLElement;
   const dds = () => document.querySelectorAll<HTMLElement>('.dd');
-  const tops = () => document.querySelectorAll<HTMLButtonElement>('.nav-top');
+  const tops = () => document.querySelectorAll<HTMLAnchorElement>('.nav-top');
   let openId: string | null = null;
   let closeT: number | undefined;
   function moveHl(el: HTMLElement | null) {
@@ -102,11 +102,24 @@ const ext = (h: string) => h.startsWith('http');
     openId = id;
   }
   function closeMenu() { hideAll(); moveHl(null); }
-  links.querySelectorAll<HTMLElement>('.nav-top, li > a').forEach((el) => el.addEventListener('mouseenter', () => {
+  links.querySelectorAll<HTMLElement>('li > a').forEach((el) => el.addEventListener('mouseenter', () => {
     moveHl(el);
     if (el.dataset.menu) openMenu(el.dataset.menu, el); else closeT = window.setTimeout(hideAll, 100);
   }));
-  tops().forEach((b) => b.addEventListener('click', () => { if (openId === b.dataset.menu) closeMenu(); else { moveHl(b); openMenu(b.dataset.menu!, b); } }));
+  // Başlığa tıklamak rehber sayfasını açar; fareyle üzerine gelince alt menü açılır.
+  // Dokunmatik ekranda ilk dokunuş alt menüyü açar, ikinci dokunuş sayfaya gider.
+  let touchWasOpen: boolean | null = null;
+  tops().forEach((b) => {
+    b.addEventListener('pointerdown', (e) => { touchWasOpen = e.pointerType === 'mouse' ? null : openId === b.dataset.menu; });
+    b.addEventListener('click', (e) => {
+      if (touchWasOpen === false) { e.preventDefault(); moveHl(b); openMenu(b.dataset.menu!, b); }
+      touchWasOpen = null;
+    });
+    b.addEventListener('focus', () => { if (b.matches(':focus-visible')) { moveHl(b); openMenu(b.dataset.menu!, b); } });
+    b.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); openMenu(b.dataset.menu!, b); document.querySelector<HTMLAnchorElement>(`#dd-${b.dataset.menu} a`)?.focus(); }
+    });
+  });
   nav.addEventListener('mouseleave', () => { closeT = window.setTimeout(closeMenu, 200); });
   nav.addEventListener('mouseenter', () => clearTimeout(closeT));
   document.addEventListener('click', (e) => { if (openId && !nav.contains(e.target as Node)) closeMenu(); });

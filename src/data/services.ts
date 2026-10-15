@@ -17,6 +17,24 @@ export type Service = {
   faqs: Faq[];
   sectors: string[]; // ilgili sektör slug'ları
   related: string[]; // ilgili hizmet slug'ları
+  guide?: Guide; // Ayrıntılı, kaynaklı anlatım (AI Dönüşümü hizmetleri)
+};
+
+export type GuideSection = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  intro: string;
+  paras?: string[]; // basit HTML (<b>, <a>) içerebilir
+  cards?: { title: string; text: string }[];
+  table?: { head: string[]; rows: string[][] };
+  checklist?: string[]; // "<b>Başlık.</b> açıklama" biçiminde
+  note?: string;
+};
+export type Guide = {
+  updated: string; // YYYY-AA-GG
+  sections: GuideSection[];
+  sources: { title: string; url: string }[];
 };
 
 export type Sector = {

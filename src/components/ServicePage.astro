@@ -4,6 +4,7 @@ import Breadcrumbs from './Breadcrumbs.astro';
 import Faq from './Faq.astro';
 import CtaBand from './CtaBand.astro';
 import { site } from '../config/site';
+import { guides } from '../data/guides';
 import { groups, serviceBySlug, sectorBySlug, serviceUrl, sectorUrl, type Service } from '../data/services';
 export interface Props { s: Service }
 const { s } = Astro.props;
@@ -11,6 +12,8 @@ const g = groups[s.group];
 const url = `${site.url}${serviceUrl(s)}`;
 const related = s.related.map(serviceBySlug).filter(Boolean) as Service[];
 const secs = s.sectors.map(sectorBySlug).filter(Boolean);
+const gd = s.guide ?? guides[s.slug];
+const updTr = gd ? new Date(gd.updated).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
 const ld = [
   { '@context': 'https://schema.org', '@type': 'Service', name: s.title, description: s.description, url, serviceType: s.title, areaServed: { '@type': 'Country', name: 'Türkiye' }, provider: { '@id': `${site.url}/#organization` } },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: s.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
@@ -18,9 +21,10 @@ const ld = [
     { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: site.url },
     { '@type': 'ListItem', position: 2, name: g.title, item: `${site.url}/${s.group}` },
     { '@type': 'ListItem', position: 3, name: s.title, item: url } ] },
+  ...(gd ? [{ '@context': 'https://schema.org', '@type': 'Article', headline: s.seoTitle, description: s.description, inLanguage: 'tr-TR', mainEntityOfPage: url, dateModified: new Date(gd.updated).toISOString(), author: { '@type': 'Person', '@id': `${site.url}/yazar/neslisah-gokkaya#person`, name: site.founder, url: `${site.url}/yazar/neslisah-gokkaya` }, publisher: { '@id': `${site.url}/#organization` } }] : []),
 ];
 ---
-<Base title={s.seoTitle} description={s.description} jsonld={ld}>
+<Base title={s.seoTitle} description={s.description} type={s.guide ? 'article' : undefined} jsonld={ld}>
   <section class="page-hero">
     <div class="container">
       <Breadcrumbs items={[{ name: g.title, href: `/${s.group}` }, { name: s.title, href: serviceUrl(s) }]} />
@@ -31,8 +35,24 @@ const ld = [
         <a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Ücretsiz keşif görüşmesi</a>
         <a class="btn btn-line" href="/iletisim">Bize yazın</a>
       </div>
+      {gd && <p class="byline">Hazırlayan: <a href="/yazar/neslisah-gokkaya">{site.founder}</a> · Son güncelleme: <time datetime={gd.updated}>{updTr}</time></p>}
+      {gd && <nav class="toc" aria-label="Bu sayfada"><span class="toc-k">Bu sayfada</span>{gd.sections.map((x) => <a href={`#${x.id}`}>{x.title}</a>)}</nav>}
     </div>
   </section>
+  {gd && gd.sections.map((x, i) => (
+    <section class={`gsec${i % 2 ? ' paper' : ''}`} id={x.id}>
+      <div class="container">
+        <span class="eyebrow">{x.eyebrow}</span>
+        <h2>{x.title}</h2>
+        <p class="intro" set:html={x.intro} />
+        {x.paras && <div class="prose">{x.paras.map((p) => <p set:html={p} />)}</div>}
+        {x.cards && <div class={`steps-g${x.id === 'anatomi' ? '' : ' plain'}`}>{x.cards.map((c) => <div><h3>{c.title}</h3><p set:html={c.text} /></div>)}</div>}
+        {x.table && <div class="cmp"><table><thead><tr>{x.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead><tbody>{x.table.rows.map((r) => <tr>{r.map((c, j) => j === 0 ? <th scope="row" set:html={c} /> : <td set:html={c} />)}</tr>)}</tbody></table></div>}
+        {x.checklist && <ul class="checklist">{x.checklist.map((c) => <li set:html={c} />)}</ul>}
+        {x.note && <p class="note" set:html={x.note} />}
+      </div>
+    </section>
+  ))}
   <section class="sec paper">
     <div class="container">
       <div class="sec-head"><span class="eyebrow">Ne kazandırır?</span><h2>{s.title} ile neler değişir?</h2></div>
@@ -41,7 +61,7 @@ const ld = [
   </section>
   <section class="sec">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Nasıl kuruyoruz?</span><h2>Dört adımda canlıda</h2></div>
+      <div class="sec-head"><span class="eyebrow">Nasıl kuruyoruz?</span><h2>Dört aşamalı kurulum süreci</h2></div>
       <div class="steps">{s.steps.map((st, i) => <div class="step"><span class="n">{i + 1}. adım</span><h3>{st.title}</h3><p>{st.text}</p></div>)}</div>
     </div>
   </section>
@@ -54,5 +74,16 @@ const ld = [
     </div>
   </section>
   <Faq faqs={s.faqs} />
+  {gd && (
+    <section class="sec paper">
+      <div class="container">
+        <div class="sources">
+          <h2>Kaynaklar</h2>
+          <p class="small">Bu sayfadaki bilgiler aşağıdaki kaynaklara dayanır. Tahmin niteliğindeki bilgiler metinde "öngörü" olarak belirtilmiştir.</p>
+          <ol>{gd.sources.map((x) => <li><a href={x.url} target="_blank" rel="noopener">{x.title}</a></li>)}</ol>
+        </div>
+      </div>
+    </section>
+  )}
   <CtaBand />
 </Base>
