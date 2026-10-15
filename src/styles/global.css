@@ -234,7 +234,11 @@ footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
 
 /* Kaydırma girişi: görünür bir başlangıçtan yumuşak yükselme */
 .reveal { transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s ease; }
-.js .reveal.below { transform: translateY(28px); opacity: .35; }
+.js .reveal.below { transform: translateY(28px); opacity: .35; transition: none; }
+/* Adım kutuları: soldan sağa sırayla kayarak gelir */
+.reveal.slide { transition-duration: .8s, .6s; }
+.js .reveal.slide.below { transform: translateX(-48px); opacity: 0; }
+@media (min-width: 861px) { .reveal.slide { transition-delay: calc(var(--i, 0) * 140ms); } }
 
 
 @media (max-width: 860px) {
