@@ -1,7 +1,10 @@
 ---
 import { site, whatsappHref } from '../config/site';
-const href = whatsappHref();
+import { langOf, t } from '../i18n';
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const href = whatsappHref(lang);
 ---
-<a class="wa-float" href={href} {...(site.whatsapp ? { target: '_blank', rel: 'noopener' } : {})} aria-label={site.whatsapp ? 'WhatsApp asistanımızla konuşun' : 'Bize yazın'}>
-  <span class="dot" aria-hidden="true"></span><span class="t">{site.whatsapp ? 'Asistanımızla konuşun' : 'Bize yazın'}</span>
+<a class="wa-float" href={href} {...(site.whatsapp ? { target: '_blank', rel: 'noopener' } : {})} aria-label={site.whatsapp ? L.waTalkAria : L.writeUs}>
+  <span class="dot" aria-hidden="true"></span><span class="t">{site.whatsapp ? L.waTalk : L.writeUs}</span>
 </a>

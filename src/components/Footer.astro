@@ -1,41 +1,45 @@
 ---
 import { site } from '../config/site';
-import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/services';
+import { langOf, link, t } from '../i18n';
+import { data } from '../data';
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const { groups, services, sectors, serviceUrl, sectorUrl, groupUrl, sectorsUrl } = data(lang);
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="container">
     <div class="foot-cols">
       <div>
-        <a class="logo" href="/" aria-label="Continuo ana sayfa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
-        <p style="margin:14px 0 0;max-width:34ch">{site.tagline}. İşletmenize özel yapay zeka asistanları ve otomasyonlar.</p>
+        <a class="logo" href={link('/', lang)} aria-label={L.homeAria}><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
+        <p style="margin:14px 0 0;max-width:34ch">{L.footerTag}</p>
         <p style="margin:10px 0 0"><a href={`mailto:${site.email.info}`}>{site.email.info}</a></p>
       </div>
       <div>
-        <h4><a href="/ai-asistanlar">{groups['ai-asistanlar'].title}</a></h4>
+        <h4><a href={groupUrl('ai-asistanlar')}>{groups['ai-asistanlar'].title}</a></h4>
         <ul>{services.filter((s) => s.group === 'ai-asistanlar').map((s) => <li><a href={serviceUrl(s)}>{s.title}</a></li>)}</ul>
       </div>
       <div>
-        <h4><a href="/ai-donusumu">{groups['ai-donusumu'].title}</a></h4>
+        <h4><a href={groupUrl('ai-donusumu')}>{groups['ai-donusumu'].title}</a></h4>
         <ul>{services.filter((s) => s.group === 'ai-donusumu').map((s) => <li><a href={serviceUrl(s)}>{s.title}</a></li>)}</ul>
       </div>
       <div>
-        <h4><a href="/sektorler">Sektörler</a></h4>
+        <h4><a href={sectorsUrl}>{L.sectors}</a></h4>
         <ul>{sectors.map((s) => <li><a href={sectorUrl(s)}>{s.title}</a></li>)}</ul>
-        <h4 style="margin-top:22px">Kurumsal</h4>
+        <h4 style="margin-top:22px">{L.corporate}</h4>
         <ul>
-          <li><a href="/nasil-calisiriz">Nasıl Çalışırız</a></li>
-          <li><a href="/hakkimizda">Hakkımızda</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/iletisim">İletişim</a></li>
+          <li><a href={link('/nasil-calisiriz', lang)}>{L.howWeWork}</a></li>
+          <li><a href={link('/hakkimizda', lang)}>{L.about}</a></li>
+          {lang === 'tr' && <li><a href="/blog">Blog</a></li>}
+          <li><a href={link('/iletisim', lang)}>{L.contact}</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© {year} Continuo</span>
-      <nav aria-label="Hukuki">
-        <a href="/kvkk-aydinlatma-metni">KVKK Aydınlatma Metni</a>
-        <a href="/cerez-politikasi">Çerez Politikası</a>
+      <nav aria-label={L.legal}>
+        <a href={link('/kvkk-aydinlatma-metni', lang)}>{L.privacy}</a>
+        <a href={link('/cerez-politikasi', lang)}>{L.cookies}</a>
       </nav>
     </div>
   </div>

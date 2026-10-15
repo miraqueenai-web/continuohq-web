@@ -1,0 +1,9 @@
+---
+import ServicePage from '../../../components/ServicePage.astro';
+import { services } from '../../../data/en/services';
+export function getStaticPaths() {
+  return services.filter((s) => s.group === 'ai-donusumu').map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+---
+<ServicePage s={s} />

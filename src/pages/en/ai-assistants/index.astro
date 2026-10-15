@@ -1,0 +1,158 @@
+---
+import GroupPage from '../../../components/GroupPage.astro';
+
+const toc = [
+  { id: 'what-is-it', title: 'What is an AI assistant?' },
+  { id: 'how-it-works', title: 'How does it work?' },
+  { id: 'why-now', title: 'Why now?' },
+  { id: 'channel-rules', title: 'WhatsApp and Instagram rules' },
+  { id: 'limits', title: 'What it does and doesn\'t do' },
+  { id: 'checklist', title: 'Setup checklist' },
+];
+
+const faqs = [
+  { q: 'Is an AI assistant the same as a chatbot?', a: 'No. A traditional chatbot works from pre-written questions and answers, and it gets stuck when a question is phrased differently. An AI assistant understands the question however it is asked, answers using your business information and, when needed, connects to systems such as calendars and reservations to complete a task.' },
+  { q: 'What happens if the assistant gives wrong information?', a: 'The business is responsible. In 2024 an airline in Canada was held liable for incorrect information given by its chatbot. That is why we set up the assistant to work only from your approved knowledge base and to hand the conversation to your team whenever it is unsure.' },
+  { q: 'Is it allowed to use an AI assistant on WhatsApp?', a: 'Yes. Meta\'s rule, in effect from 15 January 2026 for users including those in Türkiye, bans the distribution of general-purpose assistants such as ChatGPT over WhatsApp. Business-specific assistants for customer support, appointments and order tracking are allowed.' },
+  { q: 'Should I tell customers they are talking to an assistant?', a: 'We recommend it. In Salesforce\'s consumer research, 72 percent of respondents said it is important to know whether they are talking to AI. Being open builds trust and also fits your disclosure obligation under KVKK, Türkiye\'s data protection law.' },
+  { q: 'How long does setup take?', a: 'It depends on the number of channels, how ready your knowledge base is, and integrations such as reservations, payments or CRM. After reviewing the systems you use, we send you the setup plan and timeline in writing.' },
+  { q: 'Will it replace my team?', a: 'No, that is not the goal. Gartner predicts that half of the companies that cut customer service staff because of AI will rehire for similar roles by 2027. The assistant handles repetitive questions and after-hours messages, so your team can focus on work that needs a human touch.' },
+];
+
+const sources = [
+  { title: 'Anthropic, "Building effective agents" (December 2024)', url: 'https://www.anthropic.com/research/building-effective-agents' },
+  { title: 'IBM, "Types of chatbots"', url: 'https://www.ibm.com/blog/chatbot-types' },
+  { title: 'Salesforce, "AI Agent vs. Chatbot"', url: 'https://www.salesforce.com/eu/agentforce/ai-agent-vs-chatbot/' },
+  { title: 'Sam Altman, "Reflections" (6 January 2025)', url: 'https://blog.samaltman.com/reflections' },
+  { title: 'TechCrunch, Meta\'s business AI reaches 10 million conversations a week (30 April 2026)', url: 'https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week' },
+  { title: 'Gartner, prediction that agentic AI will resolve 80% of common customer service issues by 2029 (5 March 2025)', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290' },
+  { title: 'Gartner, 64% of customers would prefer companies didn\'t use AI for customer service (9 July 2024)', url: 'https://www.gartner.com/en/newsroom/press-releases/2024-07-09-gartner-survey-finds-64-percent-of-customers-would-prefer-that-companies-didnt-use-ai-for-customer-service' },
+  { title: 'Gartner, prediction that half of companies that cut staff will rehire by 2027 (3 February 2026)', url: 'https://www.gartner.com/en/newsroom/press-releases/2026-02-03-gartner-predicts-half-of-companies-that-cut-customer-service-staff-due-to-ai-will-rehire-by-2027' },
+  { title: 'Salesforce, State of the AI Connected Customer', url: 'https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/' },
+  { title: 'Meta, WhatsApp Business Platform pricing', url: 'https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing' },
+  { title: 'Meta, WhatsApp Business Solution Terms', url: 'https://www.whatsapp.com/legal/business-solution-terms' },
+  { title: 'Meta, Messenger Platform Send API (Instagram messaging and the HUMAN_AGENT tag)', url: 'https://developers.facebook.com/docs/messenger-platform/reference/send-api' },
+  { title: 'CX Today, Air Canada chatbot ruling (Moffatt v. Air Canada, 2024)', url: 'https://www.cxtoday.com/conversational-ai/court-orders-air-canada-to-pay-out-for-chatbots-bad-advice/' },
+  { title: 'KVKK, Guide on Generative AI and the Protection of Personal Data (November 2025), news and summary (in Turkish)', url: 'https://www.alomaliye.com/2025/11/24/sorularla-uretken-yapay-zeka-ve-kisisel-verilerin-korunmasi-rehberi/' },
+];
+---
+<GroupPage group="ai-asistanlar" toc={toc} faqs={faqs} sources={sources} updated="2026-10-15">
+
+  <section class="gsec" id="what-is-it">
+    <div class="container">
+      <span class="eyebrow">The basics</span>
+      <h2>What is an AI assistant, and how is it different from a traditional chatbot?</h2>
+      <p class="intro">An AI assistant is software built on a large language model that works with your business information. It understands your customer's question however it is phrased, answers from your own knowledge base and, when needed, connects to your calendar, reservation or order system to complete a task.</p>
+      <div class="prose">
+        <p>Traditional chatbots run on pre-written scripts. In IBM's definition, a rule-based chatbot "supports only predefined questions and answer options." When a customer phrases a question slightly differently, the bot gets stuck and the customer ends up lost in menus.</p>
+        <p>One step further are <b>AI agents</b>. As Anthropic draws the line, in workflows the model and tools follow steps that were mapped out in advance, while in agents the model decides for itself which step to take and which tool to use. For most business assistants, the right structure is a controlled workflow with narrowly scoped agent capabilities inside it.</p>
+      </div>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Traditional chatbot</th><th scope="col">AI assistant</th><th scope="col">AI agent</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">How does it work?</th><td>A pre-written tree of questions and answers</td><td>A language model and the business's knowledge base</td><td>A language model, tools and a goal</td></tr>
+            <tr><th scope="row">A question phrased differently</th><td>Usually doesn't understand it</td><td>Understands it and asks a clarifying question if needed</td><td>Understands it and plans steps to solve it</td></tr>
+            <tr><th scope="row">Can it take action?</th><td>Limited, through fixed buttons</td><td>Through defined integrations (appointments, reservations)</td><td>Sequential actions across several systems</td></tr>
+            <tr><th scope="row">Best suited for</th><td>Very simple menus</td><td>Customer communication and appointments</td><td>Multi-step operational work</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="how-it-works">
+    <div class="container">
+      <span class="eyebrow">Infrastructure</span>
+      <h2>What parts make up an AI assistant?</h2>
+      <p class="intro">All the customer sees is a chat window. Behind it, six parts work together. How well the assistant performs depends more on how well these parts are set up than on the model itself.</p>
+      <div class="steps-g">
+        <div><h3>Channel</h3><p>Where the customer writes to you: the WhatsApp Business Platform, Instagram messages or the chat window on your website. Each channel has its own official infrastructure and rules.</p></div>
+        <div><h3>Knowledge base</h3><p>Your services, pricing policy, opening hours and frequently asked questions. The assistant builds its answers from here and doesn't guess about anything that isn't in the knowledge base.</p></div>
+        <div><h3>Rules and limits</h3><p>Which topics the assistant covers, the tone it writes in and what it must never do. For example, it gives no medical advice and offers no discounts beyond the set prices.</p></div>
+        <div><h3>Handover to a person</h3><p>For complaints, sensitive topics or anything the assistant is unsure about, the conversation passes to your team along with a summary so far. The customer doesn't have to explain the problem again.</p></div>
+        <div><h3>Integrations</h3><p>Calendar, booking engine, hotel management system or CRM. Once connected, the assistant goes beyond giving information. It checks availability and creates the appointment.</p></div>
+        <div><h3>Measurement</h3><p>Average response time, number of missed messages and the share of conversations that turn into appointments or sales. These are measured before setup and then compared using the same metrics.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec" id="why-now">
+    <div class="container">
+      <span class="eyebrow">Current picture</span>
+      <h2>Why now? What are the big tech companies saying?</h2>
+      <p class="intro">Businesses have moved past experimenting with AI in messaging. The companies that own the messaging platforms are openly aiming for this shift as well.</p>
+      <div class="facts">
+        <div class="fact"><b>10 million</b><p>The number of conversations per week that Meta's AI for businesses was facilitating at the end of March 2026. At the start of 2026, the figure was around 1 million.</p><small>Meta, Q1 2026 results · <a href="https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week" target="_blank" rel="noopener">TechCrunch</a></small></div>
+        <div class="fact"><b>80%</b><p>The share of common customer service issues that Gartner predicts AI agents will resolve without human intervention by 2029.</p><small>Gartner, March 2025 · <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank" rel="noopener">press release</a></small></div>
+        <div class="fact"><b>72%</b><p>The share of consumers who say it is important to know whether they are talking to AI. Being open builds trust.</p><small>Salesforce, State of the AI Connected Customer · <a href="https://www.salesforce.com/uk/resources/research-reports/state-of-the-connected-customer/" target="_blank" rel="noopener">report</a></small></div>
+      </div>
+      <div class="quotes">
+        <figure class="quote"><blockquote>"We believe that, in 2025, we may see the first AI agents 'join the workforce' and materially change the output of companies."</blockquote><figcaption><b>Sam Altman, CEO of OpenAI</b>"Reflections" blog post, 6 January 2025 · <a href="https://blog.samaltman.com/reflections" target="_blank" rel="noopener">source</a></figcaption></figure>
+        <figure class="quote"><blockquote>"In a lot of ways, the IT department of every company is going to be the HR department of AI agents in the future."</blockquote><figcaption><b>Jensen Huang, CEO of NVIDIA</b>CES 2025 keynote · <a href="https://fortune.com/2025/01/09/nvidia-ceo-jensen-huangt-take-over-hr-ai-agents" target="_blank" rel="noopener">Fortune</a></figcaption></figure>
+        <figure class="quote"><blockquote>Business AIs in Meta's messaging apps are currently free for most businesses, and the company plans to earn revenue from this area at a later stage.</blockquote><figcaption><b>Mark Zuckerberg, CEO of Meta</b>As reported from the Q1 2026 earnings call · <a href="https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week" target="_blank" rel="noopener">TechCrunch</a></figcaption></figure>
+      </div>
+      <div class="callout"><b>On the other hand</b><p>In Gartner's 2024 survey, 64 percent of customers said they would prefer companies not to use AI in customer service, and the biggest concern was that reaching a person would become harder. That is why every assistant we build has a path to a human designed in from the start.</p></div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="channel-rules">
+    <div class="container">
+      <span class="eyebrow">Platform rules</span>
+      <h2>Rules you need to know on WhatsApp and Instagram</h2>
+      <p class="intro">The assistant must run on Meta's official infrastructure and follow platform rules. Running a personal WhatsApp account through automation software breaks the rules and can get the number banned.</p>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col">Rule</th><th scope="col">What does it mean?</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">WhatsApp 24-hour window</th><td>When a customer writes to you, a 24-hour customer service window opens and resets with each new message. Inside this window you can reply in free-form text. Outside it, you can only send approved template messages.</td></tr>
+            <tr><th scope="row">WhatsApp per-message pricing</th><td>Since 1 July 2025, charges apply per delivered template message rather than per conversation. Free-form replies inside an open window are free. Rates vary by country and message category.</td></tr>
+            <tr><th scope="row">Ban on general-purpose AI</th><td>From 15 January 2026, general-purpose assistants such as ChatGPT can no longer be distributed on the WhatsApp Business Platform. Business-specific assistants for customer support, appointments and orders are allowed.</td></tr>
+            <tr><th scope="row">Instagram 24-hour window</th><td>On Instagram, too, you must reply within 24 hours of the customer's last message.</td></tr>
+            <tr><th scope="row">Instagram human agent tag</th><td>The HUMAN_AGENT tag extends the reply window to 7 days, but it applies only to replies written by hand by a person. Automated messages cannot be sent with this tag.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec" id="limits">
+    <div class="container">
+      <span class="eyebrow">Realistic expectations</span>
+      <h2>What does the assistant handle, and what does it leave to your team?</h2>
+      <p class="intro">A good assistant also knows what it shouldn't do. In 2024 an airline in Canada was held liable for a refund policy its chatbot made up. The tribunal that heard the dispute rejected the argument that the bot was "a separate legal entity." Everything the assistant says is the business's word.</p>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col">Work the assistant can take on</th><th scope="col">Work that should stay with your team</th></tr></thead>
+          <tbody>
+            <tr><td>Frequent questions about prices, availability and opening hours</td><td>Discounts and negotiations outside the set policy</td></tr>
+            <tr><td>Taking appointments and reservations, sending reminders</td><td>Resolving complaints and deciding on compensation</td></tr>
+            <tr><td>Collecting request details and passing them to the right person</td><td>Expert advice in areas such as health, law and finance</td></tr>
+            <tr><td>First response to messages that arrive after hours</td><td>Emergencies (if emergency phrases are defined, the assistant shares your phone number)</td></tr>
+            <tr><td>Conversation summaries and weekly reports</td><td>Any final decision that needs approval</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="checklist">
+    <div class="container">
+      <span class="eyebrow">In practice</span>
+      <h2>A checklist for getting the setup right</h2>
+      <p class="intro">Whether you work with us or with another team, ask these questions when you evaluate an assistant.</p>
+      <ul class="checklist">
+        <li><b>Is the scope in writing?</b> Decide up front which topics the assistant will cover and when it will hand the conversation over.</li>
+        <li><b>Is the knowledge base approved?</b> Answers should come only from information you have approved, and the assistant shouldn't guess about things it doesn't know.</li>
+        <li><b>Are handover triggers defined?</b> Complaints, sensitive topics, repeated misunderstandings, and any action that can't be undone should trigger a handover first.</li>
+        <li><b>Are customers informed?</b> Customers who want to know they are talking to an assistant should be told clearly.</li>
+        <li><b>Is the official infrastructure in use?</b> The WhatsApp Business Platform and Instagram's official API, with no automation of personal accounts.</li>
+        <li><b>Is it KVKK compliant?</b> A privacy notice, data retention periods and extra safeguards for special categories of personal data. Türkiye's Personal Data Protection Authority published a guide on generative AI and personal data in November 2025.</li>
+        <li><b>Is there a measure of success?</b> Record response time, missed messages and conversion rate before setup.</li>
+        <li><b>Is there ongoing improvement?</b> Review conversations regularly and keep the knowledge base and rules up to date.</li>
+      </ul>
+      <div class="callout"><b>Where to start?</b><p>Look at your messages from the last few months and list the 20 questions you get most often. That is where the assistant's knowledge base begins. For examples from your industry, see our <a href="/en/industries" style="text-decoration:underline">Industries</a> page, and for the step-by-step setup, see <a href="/en/how-we-work" style="text-decoration:underline">How We Work</a>.</p></div>
+    </div>
+  </section>
+
+</GroupPage>

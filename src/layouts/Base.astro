@@ -17,6 +17,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import { site } from '../config/site';
+import { langOf, altPath, t } from '../i18n';
 
 export interface Props {
   title: string;
@@ -28,6 +29,11 @@ export interface Props {
 }
 const { title, description, type = 'website', image = '/og.png', noindex = false, jsonld = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/', site.url).href;
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const alt = altPath(Astro.url.pathname);
+const trHref = alt ? new URL(lang === 'tr' ? canonical : alt.path, site.url).href : null;
+const enHref = alt ? new URL(lang === 'en' ? canonical : alt.path, site.url).href : null;
 const fullTitle = title.includes('Continuo') ? title : `${title} | Continuo`;
 const org = {
   '@context': 'https://schema.org',
@@ -42,11 +48,11 @@ const org = {
   founder: { '@type': 'Person', name: site.founder },
   ...(site.social.length ? { sameAs: site.social } : {}),
 };
-const web = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, url: site.url, name: site.name, inLanguage: 'tr-TR', publisher: { '@id': `${site.url}/#organization` } };
+const web = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, url: site.url, name: site.name, inLanguage: L.inLanguage, publisher: { '@id': `${site.url}/#organization` } };
 const graphs = [org, web, ...jsonld];
 ---
 <!doctype html>
-<html lang="tr">
+<html lang={L.htmlLang}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -54,9 +60,13 @@ const graphs = [org, web, ...jsonld];
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   {noindex && <meta name="robots" content="noindex, follow" />}
+  {alt && !noindex && <link rel="alternate" hreflang="tr" href={trHref} />}
+  {alt && !noindex && <link rel="alternate" hreflang="en" href={enHref} />}
+  {alt && !noindex && <link rel="alternate" hreflang="x-default" href={trHref} />}
   <meta property="og:type" content={type} />
   <meta property="og:site_name" content="Continuo" />
-  <meta property="og:locale" content={site.locale} />
+  <meta property="og:locale" content={L.locale} />
+  {alt && <meta property="og:locale:alternate" content={lang === 'tr' ? 'en_US' : 'tr_TR'} />}
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
@@ -72,7 +82,7 @@ const graphs = [org, web, ...jsonld];
 </head>
 <body>
   <LogoSymbol />
-  <a class="skip" href="#icerik">İçeriğe geç</a>
+  <a class="skip" href="#icerik">{L.skip}</a>
   <Header />
   <main id="icerik">
     <slot />

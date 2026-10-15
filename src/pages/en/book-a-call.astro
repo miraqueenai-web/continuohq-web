@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../config/site';
+const ld = [
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/en` },
+    { '@type': 'ListItem', position: 2, name: 'Book a Call', item: `${site.url}/en/book-a-call` } ] },
+];
+const embed = site.bookingEmbed.replace('hl=tr', 'hl=en');
+---
+<Base title="Book a Free Discovery Call | Continuo" description="Book a free 30-minute discovery call with Continuo. Choose a day and time that suits you, and your invitation will arrive by email." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Book a Call', href: '/en/book-a-call' }]} />
+      <h1>Book a free discovery call.</h1>
+      <p class="lead">In a 30-minute online call, we listen to how your business works and identify together where AI could save you the most time. Choose a day and time that suits you, and your invitation will arrive by email.</p>
+    </div>
+  </section>
+
+  <section class="sec paper booking">
+    <div class="container booking-grid">
+      <div class="booking-info">
+        <h2>What happens on the call?</h2>
+        <ol class="booking-steps">
+          <li><b>We listen to your business.</b> We talk about the channels you receive messages on and the tasks that take up most of your time.</li>
+          <li><b>We identify opportunities.</b> Together, we find the points where an assistant or automation would be most useful.</li>
+          <li><b>We agree the next step.</b> If there is a solution that suits you, we send you its scope and a roadmap in writing.</li>
+        </ol>
+        <div class="booking-facts">
+          <div><span>Length</span><b>30 minutes</b></div>
+          <div><span>Fee</span><b>Free</b></div>
+          <div><span>Where</span><b>Online</b></div>
+        </div>
+        <p class="small">If you would like to write to us before the call, you can use the <a href="/en/contact">contact form</a>.</p>
+      </div>
+      <div class="booking-panel">
+        {embed ? (
+          <iframe src={embed} title="Continuo booking calendar" loading="lazy" class="booking-frame"></iframe>
+        ) : (
+          <div class="booking-fallback">
+            <span class="form-done-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+            <h2>Choose a time that suits you</h2>
+            <p>Our calendar runs on Google Calendar. On the page that opens, choose a suitable day and time; the meeting link and invitation will be sent to your email.</p>
+            <a class="btn btn-dark" href={site.bookingUrl} target="_blank" rel="noopener">Open the calendar</a>
+          </div>
+        )}
+        <p class="booking-note">Your appointment is created through Google Calendar. The information you share is processed as described in our <a href="/en/privacy-notice">Privacy Notice</a>.</p>
+      </div>
+    </div>
+  </section>
+</Base>

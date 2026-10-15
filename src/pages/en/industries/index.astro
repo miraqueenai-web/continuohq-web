@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { site } from '../../../config/site';
+import { sectors } from '../../../data/en/services';
+const tiles = sectors.filter((s) => s.slug !== 'all-industries');
+const tileClass: Record<string, string> = { 'hospitality-tourism': 't1', 'beauty-aesthetics': 't2', 'health-nutrition': 't3' };
+const ld = [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/en` },
+  { '@type': 'ListItem', position: 2, name: 'Industries', item: `${site.url}/en/industries` } ] }];
+---
+<Base title="Industries: AI Assistants for Hotels, Beauty and Health" description="AI assistants and automations for hotels, beauty clinics, dietitians and businesses in any industry, built around the way your sector talks and works." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Industries', href: '/en/industries' }]} />
+      <h1>Every industry has its own headaches.</h1>
+      <p class="lead">Each industry has different questions, rules and busy hours. We build your assistant with those in mind.</p>
+      <div class="answer"><strong>In short</strong>We currently focus on hospitality and tourism, beauty and aesthetics, and health and nutrition. If your industry is not on this list, we can still plan a solution around your own processes.</div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:0">
+    <div class="container">
+      <div class="sectors">
+        {tiles.map((s) => (
+          <a class={`tile ${tileClass[s.slug]}`} href={`/en/industries/${s.slug}`} style={s.image ? `background-image:url(${s.image})` : undefined}>
+            <div><h3>{s.title}</h3><p>{s.lead}</p></div>
+            <span class="go">Explore ›</span>
+          </a>
+        ))}
+        <a class="tile t4" href="/en/industries/all-industries">
+          <div><span class="plus" aria-hidden="true">+</span><h3>Don't see your industry?</h3><p>Tell us about your processes and we'll plan a solution for you.</p></div>
+          <span class="go">Tell us →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

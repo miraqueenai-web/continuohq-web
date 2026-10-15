@@ -1,0 +1,22 @@
+---
+import Doc from '../../layouts/Doc.astro';
+import { site } from '../../config/site';
+---
+<Doc title="Cookie Policy" description="Information about the use of cookies on the Continuo website and the choices available to you." updated="13 October 2026" path="/en/cookie-policy">
+  <h2>What is a cookie?</h2>
+  <p>Cookies are small text files saved to your browser when you visit a website. They help the site work, remember your preferences and keep visit statistics.</p>
+  <h2>Which cookies does our site use?</h2>
+  <p>Our site currently <strong>does not use cookies</strong>. There are no analytics or marketing tracking tools, and fonts are loaded from our own server.</p>
+  <h2>If we use cookies in future</h2>
+  <table>
+    <thead><tr><th>Type</th><th>Purpose</th><th>Is consent required?</th></tr></thead>
+    <tbody>
+      <tr><td>Strictly necessary cookies</td><td>Running the site, security, remembering your preferences</td><td>No</td></tr>
+      <tr><td>Analytics cookies</td><td>Measuring which pages are visited</td><td>Yes</td></tr>
+      <tr><td>Marketing cookies</td><td>Advertising measurement</td><td>Yes</td></tr>
+    </tbody>
+  </table>
+  <p>Non-essential cookies will not run without your consent, and the "Reject" option will be as easy to reach as "Accept". This policy will be updated at that time.</p>
+  <h2>Contact</h2>
+  <p>For any questions: <a href={`mailto:${site.email.info}`}>{site.email.info}</a>. For details about your personal data, please see our <a href="/en/privacy-notice">Privacy Notice</a>.</p>
+</Doc>

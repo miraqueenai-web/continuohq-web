@@ -4,7 +4,9 @@ import Breadcrumbs from './Breadcrumbs.astro';
 import CtaBand from './CtaBand.astro';
 import Faq from './Faq.astro';
 import { site } from '../config/site';
-import { groups, services, serviceUrl, sectors, sectorUrl, type Faq as FaqItem } from '../data/services';
+import type { Faq as FaqItem } from '../data/services';
+import { data } from '../data';
+import { langOf, link, t } from '../i18n';
 export interface Props {
   group: 'ai-asistanlar' | 'ai-donusumu';
   toc: { id: string; title: string }[];
@@ -13,19 +15,27 @@ export interface Props {
   updated: string; // YYYY-AA-GG
 }
 const { group, toc, faqs, sources, updated } = Astro.props;
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const en = lang === 'en';
+const { groups, services, serviceUrl, sectors, sectorUrl, groupUrl } = data(lang);
+const authorPath = link('/yazar/neslisah-gokkaya', lang);
+const W = en
+  ? { svc: 'Our services', asst: 'Our assistants', what: 'What we do', which: 'Which assistant fits you?', bySec: 'Start with your industry' }
+  : { svc: 'Hizmetlerimiz', asst: 'Asistanlarımız', what: 'Neler yapıyoruz?', which: 'Hangi asistan size uygun?', bySec: 'Sektörünüze göre başlayın' };
 const g = groups[group];
 const list = services.filter((s) => s.group === group);
 const other = group === 'ai-asistanlar' ? 'ai-donusumu' : 'ai-asistanlar';
 const isAi = group === 'ai-donusumu';
-const url = `${site.url}/${group}`;
+const url = `${site.url}${groupUrl(group)}`;
 const upd = new Date(updated);
-const updTr = upd.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-const author = { '@type': 'Person', '@id': `${site.url}/yazar/neslisah-gokkaya#person`, name: site.founder, url: `${site.url}/yazar/neslisah-gokkaya` };
+const updTr = upd.toLocaleDateString(en ? 'en-GB' : 'tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const author = { '@type': 'Person', '@id': `${site.url}/yazar/neslisah-gokkaya#person`, name: site.founder, url: `${site.url}${authorPath}` };
 const ld = [
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: site.url },
+    { '@type': 'ListItem', position: 1, name: L.home, item: en ? `${site.url}/en` : site.url },
     { '@type': 'ListItem', position: 2, name: g.title, item: url } ] },
-  { '@context': 'https://schema.org', '@type': 'Article', headline: g.guideTitle, description: g.description, inLanguage: 'tr-TR', mainEntityOfPage: url, dateModified: upd.toISOString(), author, publisher: { '@id': `${site.url}/#organization` } },
+  { '@context': 'https://schema.org', '@type': 'Article', headline: g.guideTitle, description: g.description, inLanguage: L.inLanguage, mainEntityOfPage: url, dateModified: upd.toISOString(), author, publisher: { '@id': `${site.url}/#organization` } },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   { '@context': 'https://schema.org', '@type': 'ItemList', name: g.title, itemListElement: list.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.title, url: `${site.url}${serviceUrl(s)}` })) },
 ];
@@ -34,15 +44,17 @@ const ld = [
   <section class={`page-hero${isAi ? ' ai-glow' : ''}`}>
     {isAi && <div class="glow" aria-hidden="true"></div>}
     <div class="container">
-      <Breadcrumbs items={[{ name: g.title, href: `/${group}` }]} />
-      <h1>{isAi ? <>İşinizi <span class="grad-ai">yapay zekayla</span> yeniden düzenleyin.</> : <>Müşterinize her an yanıt veren <span class="grad">AI asistanlar</span>.</>}</h1>
+      <Breadcrumbs items={[{ name: g.title, href: groupUrl(group) }]} />
+      <h1>{en
+        ? (isAi ? <>Rebuild how your business works <span class="grad-ai">with AI</span>.</> : <><span class="grad">AI assistants</span> that answer your customers around the clock.</>)
+        : (isAi ? <>İşinizi <span class="grad-ai">yapay zekayla</span> yeniden düzenleyin.</> : <>Müşterinize her an yanıt veren <span class="grad">AI asistanlar</span>.</>)}</h1>
       <p class="lead">{g.lead}</p>
-      <div class="answer"><strong>Kısaca</strong>{g.answer}</div>
-      <p class="byline">Hazırlayan: <a href="/yazar/neslisah-gokkaya">{site.founder}</a> · Son güncelleme: <time datetime={updated}>{updTr}</time></p>
-      <nav class="toc" aria-label="Bu sayfada">
-        <span class="toc-k">Bu sayfada</span>
+      <div class="answer"><strong>{L.inShort}</strong>{g.answer}</div>
+      <p class="byline">{L.preparedBy}: <a href={authorPath}>{site.founder}</a> · {L.updated}: <time datetime={updated}>{updTr}</time></p>
+      <nav class="toc" aria-label={L.onThisPage}>
+        <span class="toc-k">{L.onThisPage}</span>
         {toc.map((t) => <a href={`#${t.id}`}>{t.title}</a>)}
-        <a href="#hizmetler">{isAi ? 'Hizmetlerimiz' : 'Asistanlarımız'}</a>
+        <a href="#hizmetler">{isAi ? W.svc : W.asst}</a>
       </nav>
     </div>
   </section>
@@ -53,14 +65,14 @@ const ld = [
 
   <section class="sec paper" id="hizmetler">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">{g.menuNote}</span><h2>{isAi ? 'Neler yapıyoruz?' : 'Hangi asistan size uygun?'}</h2></div>
+      <div class="sec-head"><span class="eyebrow">{g.menuNote}</span><h2>{isAi ? W.what : W.which}</h2></div>
       <div class="grid-3">
         {list.map((s) => (
           <a class="card" href={serviceUrl(s)}>
             <span class="k">{s.short}</span>
             <h3>{s.title}</h3>
             <p>{s.lead}</p>
-            <span class="go">İnceleyin ›</span>
+            <span class="go">{L.explore}</span>
           </a>
         ))}
       </div>
@@ -71,11 +83,11 @@ const ld = [
 
   <section class="sec paper">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Sektörler</span><h2>Sektörünüze göre başlayın</h2></div>
+      <div class="sec-head"><span class="eyebrow">{L.sectors}</span><h2>{W.bySec}</h2></div>
       <div class="links-list">
         {sectors.map((s) => <a class="chip" href={sectorUrl(s)}>{s.title} ›</a>)}
-        <a class="chip" href={`/${other}`}>{groups[other].title} ›</a>
-        <a class="chip" href="/blog">Blog ›</a>
+        <a class="chip" href={groupUrl(other)}>{groups[other].title} ›</a>
+        {!en && <a class="chip" href="/blog">Blog ›</a>}
       </div>
     </div>
   </section>
@@ -83,7 +95,7 @@ const ld = [
   <section class="sec">
     <div class="container">
       <div class="sources">
-        <h2>Kaynaklar</h2>
+        <h2>{L.sources}</h2>
         <ol>
           {sources.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.title}</a></li>)}
         </ol>

@@ -1,0 +1,139 @@
+---
+import GroupPage from '../../../components/GroupPage.astro';
+
+const toc = [
+  { id: 'what-is-it', title: 'What is AI transformation?' },
+  { id: 'the-numbers', title: 'What do the numbers say?' },
+  { id: 'workflow-or-agent', title: 'Workflow or agent?' },
+  { id: 'layers', title: 'Four layers' },
+  { id: 'roadmap', title: 'Roadmap' },
+  { id: 'risks', title: 'Risks and safeguards' },
+];
+
+const faqs = [
+  { q: 'Does AI transformation need a big budget?', a: 'No. The healthiest start is a small pilot in a single process. In McKinsey\'s research, what the companies getting the most value from AI have in common is that they redesign their workflows, rather than spend heavily.' },
+  { q: 'Why do AI projects fail?', a: 'Gartner predicts that more than 40 percent of agentic AI projects will be canceled by the end of 2027 due to high costs, unclear business value or weak risk controls. The most common causes are starting without a measurable goal and bolting a tool onto an existing workflow.' },
+  { q: 'Do I need to replace my current software?', a: 'Usually not. Automations connect to the email, spreadsheets, CRM, accounting or booking systems you already use. Open standards such as the Model Context Protocol (MCP) make these connections easier.' },
+  { q: 'Will my data be safe?', a: 'During setup we document which data goes to which system, we don\'t transfer personal data that isn\'t needed, and we grant access on the principle of least privilege. The generative AI guide published in November 2025 by Türkiye\'s Personal Data Protection Authority (KVKK) is one of the references we use in this work.' },
+  { q: 'How will we measure results?', a: 'Before we start, we record baseline measurements for the process: how long the work takes, the error rate, waiting time or monthly workload. At the end of the pilot we compare against the same metrics and base the decision to expand on the numbers.' },
+];
+
+const sources = [
+  { title: 'TÜİK (Turkish Statistical Institute), Artificial Intelligence Statistics 2026 (2 October 2026)', url: 'https://veriportali.tuik.gov.tr/tr/press/62066' },
+  { title: 'Bloomberg HT, AI use in Türkiye nearly doubled (in Turkish)', url: 'https://bloomberght.com/turkiye-de-yapay-zeka-kullanimi-yaklasik-iki-kat-artti-3790100' },
+  { title: 'McKinsey, The State of AI 2025', url: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-state-of-ai-2025' },
+  { title: 'Gartner, over 40% of agentic AI projects will be canceled by the end of 2027 (25 June 2025)', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027' },
+  { title: 'MIT Project NANDA, The GenAI Divide: State of AI in Business 2025 (news coverage)', url: 'https://rcpmag.com/Articles/2025/08/25/Only-1-in-20-AI-Investments-Deliver-ROI.aspx' },
+  { title: 'Anthropic, "Building effective agents" (December 2024)', url: 'https://www.anthropic.com/research/building-effective-agents' },
+  { title: 'OpenAI, "A practical guide to building agents" (April 2025), summary', url: 'https://www.maginative.com/article/how-to-build-ai-agents-a-detailed-practical-guide-from-openai/' },
+  { title: 'Sam Altman, "Reflections" (6 January 2025)', url: 'https://blog.samaltman.com/reflections' },
+  { title: 'Fortune, Jensen Huang: IT will be the HR department of AI agents (9 January 2025)', url: 'https://fortune.com/2025/01/09/nvidia-ceo-jensen-huangt-take-over-hr-ai-agents' },
+  { title: 'CX Today, Satya Nadella: business applications will change in the agent era (December 2024)', url: 'https://www.cxtoday.com/data-analytics/microsoft-ceo-ai-agents-will-transform-saas-as-we-know-it/' },
+  { title: 'Model Context Protocol (MCP), overview', url: 'https://en.wikipedia.org/wiki/Model_Context_Protocol' },
+  { title: 'GovInfoSecurity, OpenAI, Google and Microsoft adopt the MCP standard (2025)', url: 'https://www.govinfosecurity.com/ai-giants-adopt-anthropics-standard-to-connect-apps-agents-a-28052' },
+  { title: 'KVKK, Guide on Generative AI and the Protection of Personal Data (November 2025), news and summary (in Turkish)', url: 'https://www.alomaliye.com/2025/11/24/sorularla-uretken-yapay-zeka-ve-kisisel-verilerin-korunmasi-rehberi/' },
+];
+---
+<GroupPage group="ai-donusumu" toc={toc} faqs={faqs} sources={sources} updated="2026-10-15">
+
+  <section class="gsec" id="what-is-it">
+    <div class="container">
+      <span class="eyebrow">The basics</span>
+      <h2>AI transformation means rebuilding how the work gets done. Buying a tool is the easy part.</h2>
+      <p class="intro">AI transformation is the redesign of a business's repetitive, time-consuming and error-prone processes with AI and automation. Work such as preparing quotes, reporting, document processing, stock tracking or HR processes moves forward on its own through systems connected to your existing software. People step in only where a decision or approval is needed.</p>
+      <div class="prose">
+        <p>In McKinsey's 2025 global survey, the companies getting the most value from AI were about three times as likely as others to have fundamentally redesigned their workflows. In other words, the way the work is organized matters more to the result than the model being used.</p>
+        <p>That is why our transformation work starts with understanding how a week runs in your business, before any list of software.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="the-numbers">
+    <div class="container">
+      <span class="eyebrow">Türkiye and the world</span>
+      <h2>What do the numbers say?</h2>
+      <p class="intro">In Türkiye, AI use among enterprises with 10 or more employees almost doubled in a year. The gap between large and small businesses is clear, though, and for companies that are considering AI but not yet using it, the biggest barrier is a lack of expertise.</p>
+      <div class="facts">
+        <div class="fact"><b>14.0%</b><p>The AI usage rate among enterprises with 10 or more employees (2026). The rate was 7.5% in 2025 and 2.7% in 2021.</p><small>TÜİK, 2 October 2026 · <a href="https://veriportali.tuik.gov.tr/tr/press/62066" target="_blank" rel="noopener">bulletin</a></small></div>
+        <div class="fact"><b>12.8% / 37.1%</b><p>The AI usage rate among enterprises with 10–49 employees and those with 250+ employees. For enterprises with 50–249 employees, the rate is 17.0%.</p><small>TÜİK, 2 October 2026 · <a href="https://veriportali.tuik.gov.tr/tr/press/62066" target="_blank" rel="noopener">bulletin</a></small></div>
+        <div class="fact"><b>72.3%</b><p>The share of enterprises considering AI but not using it that name a lack of expertise as a barrier. Legal uncertainty stands at 66.4% and data privacy at 65.4%.</p><small>TÜİK, 2 October 2026 · <a href="https://bloomberght.com/turkiye-de-yapay-zeka-kullanimi-yaklasik-iki-kat-artti-3790100" target="_blank" rel="noopener">Bloomberg HT</a></small></div>
+        <div class="fact"><b>88%</b><p>The share of organizations that regularly use AI in at least one business function. Most organizations, however, are still in the experimentation and pilot stage.</p><small>McKinsey, The State of AI 2025 · <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-state-of-ai-2025" target="_blank" rel="noopener">report</a></small></div>
+        <div class="fact"><b>40%+</b><p>The share of agentic AI projects Gartner predicts will be canceled by the end of 2027. The reasons are high costs, unclear business value and weak risk controls.</p><small>Gartner, June 2025 · <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener">press release</a></small></div>
+        <div class="fact"><b>95%</b><p>In MIT's 2025 study, the share of organizations that saw no measurable profit and loss impact within about 6 months of investing in generative AI. The study links this to tools that don't fit into the workflow.</p><small>MIT Project NANDA, 2025 · <a href="https://rcpmag.com/Articles/2025/08/25/Only-1-in-20-AI-Investments-Deliver-ROI.aspx" target="_blank" rel="noopener">news</a></small></div>
+      </div>
+      <div class="callout"><b>What this means for SMEs</b><p>Trying AI is easy. The hard part is tying it to work you can measure. In Türkiye, about three quarters of enterprises that are considering AI but not yet using it name a lack of expertise as the barrier. Consulting exists to close that gap by choosing the right process, starting small and measuring the result.</p></div>
+    </div>
+  </section>
+
+  <section class="gsec" id="workflow-or-agent">
+    <div class="container">
+      <span class="eyebrow">The right tool</span>
+      <h2>Workflow or AI agent?</h2>
+      <p class="intro">Not every job needs an "agent." Anthropic, the developer of the Claude models, gives businesses this principle: "find the simplest solution possible, and only increase complexity when needed." For most processes, a predefined, predictable workflow is both cheaper and more reliable.</p>
+      <div class="cmp">
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Automation workflow</th><th scope="col">AI agent</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Definition</th><td>AI and tools follow pre-mapped steps in order.</td><td>AI decides for itself which step to take and which tool to use to reach the goal.</td></tr>
+            <tr><th scope="row">Best suited for</th><td>Repetitive work with clear rules, such as reading invoices, preparing reports and classifying requests.</td><td>Work that unfolds differently each time, such as research, multi-step customer requests and preparing quotes.</td></tr>
+            <tr><th scope="row">Predictability</th><td>High. It follows the same path on every run.</td><td>Lower, which is why limits and approval steps are essential.</td></tr>
+            <tr><th scope="row">Cost and speed</th><td>Lower cost, faster.</td><td>More model calls, higher cost.</td></tr>
+            <tr><th scope="row">Human approval</th><td>At specific steps.</td><td>Always, before any action that can't be undone.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">OpenAI's agent-building guide, published in 2025, recommends a similar path. Start with a single agent, move to a multi-agent setup only when necessary, and hand over to a person before high-risk actions.</p>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="layers">
+    <div class="container">
+      <span class="eyebrow">Service layers</span>
+      <h2>The four layers of AI transformation</h2>
+      <p class="intro">We approach a business's AI transformation in four layers. Not every business needs all four, and which one to start with is decided in the discovery meeting. We also build the <a href="/en/ai-transformation/website-digital-infrastructure" style="text-decoration:underline">website and digital infrastructure</a> these systems run on.</p>
+      <div class="steps-g">
+        <div><h3><a href="/en/ai-transformation/ai-consulting">Consulting and roadmap</a></h3><p>We map your processes, prioritize the points where AI will be most useful and draw up a roadmap with measurable goals.</p></div>
+        <div><h3><a href="/en/ai-transformation/process-automation">Process automation</a></h3><p>Workflows that automate repetitive work end to end, including reading documents, transferring data, producing reports and sending notifications.</p></div>
+        <div><h3><a href="/en/ai-transformation/ai-agents">AI agents</a></h3><p>Narrowly scoped agents with defined limits and approval steps for work that needs flexibility, such as preparing quotes, research and multi-step requests.</p></div>
+        <div><h3><a href="/en/ai-transformation/integrations">Integrations</a></h3><p>We connect AI to your CRM, accounting, e-commerce and booking systems. The Model Context Protocol (MCP), which Anthropic released as an open standard in November 2024, was adopted by OpenAI, Google and Microsoft in 2025, so connections like these can now be built much faster.</p></div>
+      </div>
+      <div class="quotes">
+        <figure class="quote"><blockquote>"We believe that, in 2025, we may see the first AI agents 'join the workforce' and materially change the output of companies."</blockquote><figcaption><b>Sam Altman, CEO of OpenAI</b>"Reflections", 6 January 2025 · <a href="https://blog.samaltman.com/reflections" target="_blank" rel="noopener">source</a></figcaption></figure>
+        <figure class="quote"><blockquote>"In a lot of ways, the IT department of every company is going to be the HR department of AI agents in the future."</blockquote><figcaption><b>Jensen Huang, CEO of NVIDIA</b>CES 2025 · <a href="https://fortune.com/2025/01/09/nvidia-ceo-jensen-huangt-take-over-hr-ai-agents" target="_blank" rel="noopener">Fortune</a></figcaption></figure>
+        <figure class="quote"><blockquote>Business applications are largely databases with business rules built in, and in the agent era this business logic will move to the AI layer.</blockquote><figcaption><b>Satya Nadella, CEO of Microsoft</b>BG2 podcast, December 2024, as reported · <a href="https://www.cxtoday.com/data-analytics/microsoft-ceo-ai-agents-will-transform-saas-as-we-know-it/" target="_blank" rel="noopener">CX Today</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="gsec" id="roadmap">
+    <div class="container">
+      <span class="eyebrow">In practice</span>
+      <h2>What stages does a transformation project go through?</h2>
+      <p class="intro">A project that starts with a single process moves through four stages. How long each stage takes depends on the scope of the chosen process, the systems to be connected and how ready the data is. We send you the plan and timeline in writing after the discovery meeting.</p>
+      <div class="steps-g">
+        <div><h3>Discovery and measurement</h3><p>We list the tasks your team repeats every week and the time spent on them. We pick one process and measure where it stands today in terms of time, error rate and waiting.</p></div>
+        <div><h3>Process design</h3><p>We redesign the chosen process. We decide which steps will be automated, where human approval is needed and which systems to connect.</p></div>
+        <div><h3>Pilot</h3><p>We build the system and first open it up in a limited scope. We run it together with your team and log errors and exceptions.</p></div>
+        <div><h3>Review and rollout</h3><p>We compare the results with the initial measurement. If the goal is met, we roll the system out and pick the next process. If it isn't, we report the reason openly.</p></div>
+      </div>
+      <div class="callout"><b>Which process should you start with?</b><p>Choose work that is both frequent and governed by clear rules. "Preparing the weekly sales report" is a good place to start. "Making strategic decisions" is not.</p></div>
+    </div>
+  </section>
+
+  <section class="gsec paper" id="risks">
+    <div class="container">
+      <span class="eyebrow">Responsible AI</span>
+      <h2>Risks and the safeguards we take</h2>
+      <p class="intro">The biggest risks in AI transformation are rarely technical. They are unmeasured goals, unchecked permissions and careless handling of personal data. We apply these principles in every setup.</p>
+      <ul class="checklist">
+        <li><b>Measurable goals.</b> We don't start a project without a goal. The measure of success is written down before the pilot.</li>
+        <li><b>Human approval.</b> Actions that can't be undone, such as payments, contracts and formal correspondence sent to customers, never happen without human approval.</li>
+        <li><b>Least privilege.</b> Systems access only the data and tools they need for their job.</li>
+        <li><b>KVKK compliance.</b> We document which personal data is processed and for what purpose, following the generative AI guide published in November 2025 by Türkiye's Personal Data Protection Authority.</li>
+        <li><b>Logging and traceability.</b> Every action the automation takes is logged and can be traced back when needed.</li>
+        <li><b>The right tool.</b> Gartner notes that of the thousands of vendors presenting themselves as agentic, only about 130 actually are. We don't recommend an agent for work that a simple automation can handle.</li>
+      </ul>
+    </div>
+  </section>
+
+</GroupPage>

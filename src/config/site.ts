@@ -28,5 +28,6 @@ export const site = {
   social: [] as string[], // LinkedIn, Instagram profilleri açılınca eklenir
 };
 
-export const whatsappHref = (text = 'Merhaba, Continuo hakkında bilgi almak istiyorum.') =>
-  site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}` : '/iletisim';
+const waText = { tr: 'Merhaba, Continuo hakkında bilgi almak istiyorum.', en: "Hello, I'd like to learn more about Continuo." };
+export const whatsappHref = (lang: 'tr' | 'en' = 'tr') =>
+  site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(waText[lang])}` : lang === 'en' ? '/en/contact' : '/iletisim';

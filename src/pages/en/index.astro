@@ -1,0 +1,263 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { site, whatsappHref } from '../../config/site';
+import { data } from '../../data';
+const { groups, services, sectors, serviceUrl, sectorUrl, groupUrl, sectorsUrl } = data('en');
+
+const needs = [
+  { k: 'Customer messages', h: 'We can\'t keep up with messages.', p: 'WhatsApp and Instagram messages are answered around the clock, using your business information.', go: 'WhatsApp Assistant', href: '/en/ai-assistants/whatsapp-assistant' },
+  { k: 'Appointments & reservations', h: 'The calendar is a mess.', p: 'Appointments are booked and reminded automatically, and cancelled slots are filled again.', go: 'Appointments & Reservations', href: '/en/ai-assistants/appointments-reservations' },
+  { k: 'Sales & quotes', h: 'Quotes go out late.', p: 'A draft quote is ready as soon as a request comes in, and follow-up reminders are automatic.', go: 'AI Agents', href: '/en/ai-transformation/ai-agents' },
+  { k: 'Operations', h: 'We do the same tasks by hand every day.', p: 'Repetitive steps are automated end to end, so your team can get back to the real work.', go: 'Process Automation', href: '/en/ai-transformation/process-automation', dark: true },
+  { k: 'HR & team', h: 'Paperwork eats up our time.', p: 'Recruitment, leave and staff documents are organised in a single workflow.', go: 'Process Automation', href: '/en/ai-transformation/process-automation' },
+  { k: 'Reporting & data', h: 'Gathering the numbers takes days.', p: 'Weekly summaries are prepared automatically from scattered spreadsheets.', go: 'Process Automation', href: '/en/ai-transformation/process-automation' },
+  { k: 'Documents & knowledge', h: 'Our information is scattered everywhere.', p: 'Files, emails and notes are gathered into a single knowledge base you can ask questions.', go: 'AI Agents', href: '/en/ai-transformation/ai-agents' },
+  { k: 'Supply & stock', h: 'Stock is tracked by hand.', p: 'Orders, stock levels and supplier correspondence are monitored automatically, with advance warning of shortages.', go: 'Process Automation', href: '/en/ai-transformation/process-automation' },
+];
+const tiles = sectors.filter((s) => s.slug !== 'all-industries');
+const tileClass: Record<string, string> = { 'hospitality-tourism': 't1', 'beauty-aesthetics': 't2', 'health-nutrition': 't3' };
+const wa = whatsappHref('en');
+// Phone demo: sample conversations that play in turn while on screen
+const scenes = [
+  { name: 'Sample Hotel', cap: 'Sample scenario · Hotel. A question sent at 02:14 is answered without waiting for the morning.', msgs: [
+    { k: 'in', x: 'Hello, do you have a double room for 14–16 November?', t: '02:14' },
+    { k: 'out', x: 'Hello! Our sea-view double room is available for 14–16 November. Shall I send you the nightly rate with breakfast included?', t: '02:14' },
+    { k: 'in', x: 'Yes please. Is there parking as well?', t: '02:15' },
+    { k: 'out', x: 'We have free parking. I\'m sending you the price and the booking link now.', t: '02:15' },
+    { k: 'handoff', x: 'The reception team can take over the conversation at 09:00' } ] },
+  { name: 'Sample Beauty Salon', cap: 'Sample scenario · Beauty salon. An appointment request sent after hours goes straight into the calendar.', msgs: [
+    { k: 'in', x: 'Hi, do you have a slot for a facial on Saturday?', t: '23:42' },
+    { k: 'out', x: 'Hi! Saturday at 11:00 and 15:30 are free. Which one shall I book for you?', t: '23:42' },
+    { k: 'in', x: '15:30, please.', t: '23:43' },
+    { k: 'out', x: 'Your appointment is booked for Saturday at 15:30. I\'ll send you a reminder the day before.', t: '23:43' },
+    { k: 'handoff', x: 'Appointment added to the calendar · team notified' } ] },
+  { name: 'Sample Nutrition Practice', cap: 'Sample scenario · Dietitian. Health questions are always passed to the specialist.', msgs: [
+    { k: 'in', x: 'Hello, do you offer online consultations?', t: '21:08' },
+    { k: 'out', x: 'Hello! Yes, we offer online consultations. I\'ll send you the available times and fees.', t: '21:08' },
+    { k: 'in', x: 'I need to eat gluten-free. Can you prepare a meal plan for that?', t: '21:09' },
+    { k: 'out', x: 'Our dietitian will go through this with you during the consultation. Would you like to schedule your first session?', t: '21:09' },
+    { k: 'handoff', x: 'Health question passed to the dietitian' } ] },
+];
+const first = scenes[0];
+const description = 'Continuo is an AI agency in Türkiye that builds custom AI assistants and automations for businesses: WhatsApp and Instagram assistants, booking and process automation.';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Continuo',
+  url: new URL('/en', site.url).href,
+  description,
+  inLanguage: 'en',
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  serviceType: ['AI assistant', 'WhatsApp assistant', 'Process automation', 'AI consulting'],
+  email: site.email.info,
+};
+---
+<Base
+  title="Continuo | AI Agency in Türkiye: Custom AI Assistants and Automation"
+  description={description}
+  jsonld={[faqLd]}
+>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">AI Agency</span>
+      <h1>Make AI <span class="grad">part of your business.</span></h1>
+      <p class="lead"><span class="grad gold-word">AI</span> assistants and automations built for your business. They answer messages, manage appointments and take on repetitive work.</p>
+      <div class="ctas">
+        {site.whatsapp ? (
+          <>
+            <a class="btn btn-dark" href={wa} target="_blank" rel="noopener">Talk to our assistant</a>
+            <a class="btn btn-line" href="/en/book-a-call">Free discovery call</a>
+          </>
+        ) : (
+          <>
+            <a class="btn btn-dark" href="/en/book-a-call">Free discovery call</a>
+            <a class="btn btn-line" href="/en/contact">Write to us</a>
+          </>
+        )}
+      </div>
+      <div class="demo-wrap">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="phone" role="img" aria-label="A sample business's conversation with its WhatsApp assistant">
+          <div class="screen">
+            <div class="chat-head">
+              <span class="av" style="--mk-ink:#111"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg></span>
+              <span><b id="demo-name">{first.name}</b><small>Assistant · online</small></span>
+            </div>
+            <div class="msgs anim" id="demo" data-scenes={JSON.stringify(scenes)}>
+              {first.msgs.map((m) => <div class={`m ${m.k}`}>{m.x}{m.t && <span class="t">{m.t}</span>}</div>)}
+            </div>
+          </div>
+        </div>
+        <p class="demo-cap" id="demo-cap">{first.cap}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="container">
+      <p id="stmt">When customers wait for a reply, they look elsewhere. Your team shouldn't burn out on repetitive work. We build <span class="gw">AI systems</span> that speak in each business's own voice and work by its own rules.</p>
+    </div>
+  </section>
+
+  <section class="sec paper" id="needs">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Start with what you need</span>
+        <h2>What wears you out the most?</h2>
+        <p>From messaging to reporting, from recruitment to stock. We talk about the problem first, then build the system that fits it.</p>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="track" id="track">
+        {needs.map((n) => (
+          <a class={`need${n.dark ? ' dark' : ''}`} href={n.href}>
+            <div><span class="k">{n.k}</span><h3>{n.h}</h3></div>
+            <p>{n.p}</p>
+            <span class="go">{n.go} ›</span>
+          </a>
+        ))}
+      </div>
+      <div class="slider-ctrl">
+        <button class="slider-btn" type="button" data-dir="-1" aria-label="Previous cards">‹</button>
+        <button class="slider-btn" type="button" data-dir="1" aria-label="Next cards">›</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="industries">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Industries</span>
+        <h2>Every industry has its own challenges.</h2>
+        <p>Each industry has different questions, rules and busy hours. We build your assistant with these in mind.</p>
+      </div>
+      <div class="sectors">
+        {tiles.map((s) => (
+          <a class={`tile ${tileClass[s.slug]} reveal`} href={sectorUrl(s)} style={s.image ? `background-image:url(${s.image})` : undefined}>
+            <div><h3>{s.title}</h3><p>{s.lead}</p></div>
+            <span class="go">Explore ›</span>
+          </a>
+        ))}
+        <a class="tile t4 reveal" href="/en/industries/all-industries">
+          <div><span class="plus" aria-hidden="true">+</span><h3>Is your industry not listed?</h3><p>Tell us about your processes and we will plan a solution for you. Every business has some work that can be automated.</p></div>
+          <span class="go">Tell us →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec paper" id="process">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="eyebrow">How we work</span>
+        <h2>Our four-stage way of working.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="n">1. Discovery</span><h3>We listen</h3><p>In a free 30-minute call, we talk about your business and the things that wear you out the most.</p></div>
+        <div class="step reveal"><span class="n">2. Design</span><h3>We plan</h3><p>Together we decide which tasks to automate and where the conversation hands over to a person.</p></div>
+        <div class="step reveal"><span class="n">3. Setup</span><h3>We build</h3><p>We train the assistant on your business information and connect it to your existing channels.</p></div>
+        <div class="step reveal"><span class="n">4. Measurement</span><h3>We improve</h3><p>We compare results before and after setup, and keep developing the system as part of monthly maintenance.</p></div>
+      </div>
+      <p style="margin-top:28px"><a class="chip" href="/en/how-we-work">See the process in detail ›</a></p>
+    </div>
+  </section>
+
+  <section class="sec principle">
+    <div class="container reveal">
+      <span class="eyebrow">Our principle</span>
+      <p class="big">Every assistant includes a <span class="grad">human handover</span>.</p>
+      <p class="sub">AI answers the routine questions. When a sensitive, complex or emotional matter comes up, the conversation passes to a member of your team. Your customer is never left without an answer.</p>
+    </div>
+  </section>
+
+  {site.whatsapp
+    ? <CtaBand title="Try our product by talking to it." text="Our WhatsApp assistant is also a system we built. Ask it your questions or book a free 30-minute discovery call." />
+    : <CtaBand />}
+</Base>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stmt = document.getElementById('stmt');
+  if (stmt) {
+    const walk = (node: Node) => {
+      [...node.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          (n.textContent || '').split(/(\s+)/).forEach((part) => {
+            if (!part || /^\s+$/.test(part)) { frag.append(part); return; }
+            const s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.append(s);
+          });
+          n.replaceWith(frag);
+        } else walk(n);
+      });
+    };
+    walk(stmt);
+    const words = [...stmt.querySelectorAll<HTMLElement>('.w')];
+    const paint = () => {
+      if (reduce) return;
+      const r = stmt.getBoundingClientRect();
+      const start = innerHeight * 0.85, end = innerHeight * 0.3;
+      const p = Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height * 0.6)));
+      const lit = p * words.length;
+      words.forEach((w, i) => { w.style.opacity = i < lit ? '1' : '0.22'; });
+    };
+    addEventListener('scroll', paint, { passive: true });
+    addEventListener('resize', paint);
+    paint();
+  }
+  // Phone demo: while the section is visible, conversations play in turn and repeat
+  const demo = document.getElementById('demo');
+  const demoName = document.getElementById('demo-name');
+  const demoCap = document.getElementById('demo-cap');
+  if (demo && demoName && demoCap && !reduce && 'IntersectionObserver' in window) {
+    type Msg = { k: string; x: string; t?: string };
+    const scenes: { name: string; cap: string; msgs: Msg[] }[] = JSON.parse(demo.dataset.scenes || '[]');
+    let idx = 0, run = 0, visible = false, timer = 0;
+    const wait = (ms: number) => new Promise<void>((r) => { timer = window.setTimeout(r, ms); });
+    const bubble = (m: Msg) => {
+      const el = document.createElement('div');
+      el.className = `m ${m.k}`;
+      el.textContent = m.x;
+      if (m.t) { const t = document.createElement('span'); t.className = 't'; t.textContent = m.t; el.append(t); }
+      return el;
+    };
+    const play = async () => {
+      const my = ++run;
+      const alive = () => visible && my === run;
+      while (alive()) {
+        const sc = scenes[idx];
+        demo.classList.add('fading');
+        await wait(400); if (!alive()) return;
+        demo.replaceChildren();
+        demoName.textContent = sc.name;
+        demoCap.textContent = sc.cap;
+        demo.classList.remove('fading');
+        await wait(500);
+        for (const m of sc.msgs) {
+          if (!alive()) return;
+          if (m.k === 'out') {
+            const typing = document.createElement('div');
+            typing.className = 'm out typing';
+            typing.innerHTML = '<i></i><i></i><i></i>';
+            demo.append(typing);
+            await wait(1100); typing.remove(); if (!alive()) return;
+          }
+          demo.append(bubble(m));
+          await wait(m.k === 'in' ? 1300 : 1500);
+        }
+        await wait(3200);
+        idx = (idx + 1) % scenes.length;
+      }
+    };
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible) play(); else { run++; clearTimeout(timer); }
+    }, { threshold: 0.4 }).observe(demo);
+  }
+  const track = document.getElementById('track');
+  document.querySelectorAll<HTMLButtonElement>('.slider-btn').forEach((b) => b.addEventListener('click', () => {
+    if (!track) return;
+    track.scrollBy({ left: Number(b.dataset.dir) * Math.min(track.clientWidth * 0.8, 720), behavior: reduce ? 'auto' : 'smooth' });
+  }));
+</script>

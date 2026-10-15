@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { site } from '../../../config/site';
+const ld = [{ '@context': 'https://schema.org', '@type': 'Person', '@id': `${site.url}/yazar/neslisah-gokkaya#person`, name: site.founder, jobTitle: 'Founder', worksFor: { '@id': `${site.url}/#organization` }, url: `${site.url}/en/author/neslisah-gokkaya`, knowsAbout: ['AI assistants', 'Business process automation', 'WhatsApp Business', 'Digital marketing'], ...(site.social.length ? { sameAs: site.social } : {}) }];
+---
+<Base title={`${site.founder} | Founder of Continuo`} description={`${site.founder} is the founder of Continuo, writing about AI assistants, automation and digital transformation for businesses.`} jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: site.founder, href: '/en/author/neslisah-gokkaya' }]} />
+      <h1>{site.founder}</h1>
+      <p class="lead">Founder of Continuo. Works and writes on AI assistants, automation and digital transformation for businesses.</p>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container prose">
+      <p>In our articles, we link to the source of every figure we use. Where possible we cite the primary source; otherwise we cite a reliable news source. Our source policy covers reports from research organisations, official and regulatory sources, data on Türkiye and industry sources.</p>
+      <p>Our articles are published in Turkish and you can read them on <a href="/blog">our blog</a>.</p>
+    </div>
+  </section>
+</Base>

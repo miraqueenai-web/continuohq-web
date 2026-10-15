@@ -16,7 +16,7 @@ for (const f of files) {
   const h1 = (h.match(/<h1[\s>]/g) || []).length; if (h1 !== 1) problems.push(`${page}: ${h1} adet H1`);
   for (const [img] of h.matchAll(/<img [^>]*>/g)) if (!/alt="[^"]+"/.test(img)) problems.push(`${page}: alt metni olmayan görsel`);
   for (const [, j] of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { JSON.parse(j); } catch { problems.push(`${page}: bozuk yapısal veri`); } }
-  if (!/<html lang="tr"/.test(h)) problems.push(`${page}: dil etiketi yok`);
+  if (!/<html lang="(tr|en)"/.test(h)) problems.push(`${page}: dil etiketi yok`);
 }
 for (const [t, p] of titles) if (p.length > 1) problems.push(`Aynı başlık: "${t}" → ${p.join(', ')}`);
 for (const [d, p] of descs) if (p.length > 1) problems.push(`Aynı açıklama → ${p.join(', ')}`);

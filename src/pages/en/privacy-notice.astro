@@ -1,0 +1,82 @@
+---
+import Doc from '../../layouts/Doc.astro';
+import { site } from '../../config/site';
+const addr = site.address || 'Our address for official notices will be added soon.';
+---
+<Doc noindex title="Privacy Notice (KVKK)" description="How Continuo processes personal data, who it is shared with, and your rights under Türkiye's Law No. 6698 on the Protection of Personal Data (KVKK)." updated="13 October 2026" path="/en/privacy-notice">
+  <p>This is an English translation of our <a href="/kvkk-aydinlatma-metni">Turkish information notice</a>. In case of any discrepancy, the Turkish version prevails.</p>
+
+  <h2>1. Data controller</h2>
+  <p>This notice has been prepared by <strong>{site.legalOwner}</strong> (Neslişah Gökkaya), operating under the name Continuo ("Continuo"), in the capacity of data controller under Law No. 6698 on the Protection of Personal Data ("KVKK").</p>
+  <ul>
+    <li>Address: {addr}</li>
+    <li>Email: <a href={`mailto:${site.email.info}`}>{site.email.info}</a></li>
+    <li>Website: <a href="/en">continuohq.com</a></li>
+  </ul>
+
+  <h2>2. Which personal data do we process?</h2>
+  <table>
+    <thead><tr><th>Data category</th><th>Examples</th><th>Where does it come from?</th></tr></thead>
+    <tbody>
+      <tr><td>Identity</td><td>First name, surname</td><td>Contact form, WhatsApp, email, call requests</td></tr>
+      <tr><td>Contact</td><td>Phone number, email address</td><td>Contact form, WhatsApp, email, call requests</td></tr>
+      <tr><td>Customer transaction</td><td>Business name, industry, the content of requests and messages, call notes, proposal details</td><td>Form, WhatsApp and Instagram messages, calls</td></tr>
+      <tr><td>Transaction security</td><td>IP address, browser and device information, access logs</td><td>Use of the website (automatic)</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Special categories of personal data:</strong> We ask that you do not share special categories of personal data, such as health data, with us. Our website and (once launched) our introductory assistant are not designed to collect this type of data. If such data is shared by mistake, the relevant record is deleted within a reasonable time.</p>
+
+  <h2>3. For what purposes do we process it?</h2>
+  <ul>
+    <li>To respond to your request, question or call request</li>
+    <li>To schedule and hold discovery calls</li>
+    <li>To prepare proposals, enter into contracts and provide our services</li>
+    <li>To record conversations held with our AI assistant (once launched) and, where necessary, pass them on to an authorised person</li>
+    <li>To keep the website secure and resolve technical issues</li>
+    <li>To fulfil our legal obligations</li>
+    <li>With your explicit consent: to send you information or promotional messages</li>
+  </ul>
+
+  <h2>4. Legal grounds (KVKK Art. 5)</h2>
+  <ul>
+    <li><strong>Establishment or performance of a contract</strong> (Art. 5(2)(c)): proposals, calls and service processes</li>
+    <li><strong>Legal obligation</strong> (Art. 5(2)(ç)): record-keeping obligations arising from legislation</li>
+    <li><strong>Establishment, exercise or protection of a right</strong> (Art. 5(2)(e)): potential disputes</li>
+    <li><strong>Legitimate interest</strong> (Art. 5(2)(f)): responding to your request, site security, improving service quality</li>
+    <li><strong>Explicit consent</strong> (Art. 5(1)): commercial electronic messages and any non-essential cookies that may be used in future</li>
+  </ul>
+
+  <h2>5. Who do we share personal data with?</h2>
+  <p>Your data may be shared with the following parties only for the purposes above and only to the extent necessary:</p>
+  <ul>
+    <li><strong>Our service providers:</strong> email and calendar services, web hosting, form and messaging infrastructure, AI service providers</li>
+    <li><strong>Messaging platforms:</strong> Meta Platforms, when you message us on WhatsApp or Instagram</li>
+    <li><strong>Our accountant and legal adviser:</strong> for legal obligations</li>
+    <li><strong>Authorised public institutions and organisations:</strong> upon a legal request</li>
+  </ul>
+  <h3>Transfers abroad (KVKK Art. 9)</h3>
+  <p>Some of the service providers we use (e.g. Google, Meta, web hosting and AI service providers) have servers outside Türkiye. These transfers are based on the appropriate safeguards set out in KVKK Art. 9, in particular the standard contracts published by the Personal Data Protection Board.</p>
+
+  <h2>6. How is data collected?</h2>
+  <p>Your personal data is collected electronically, by partly or fully automated means, through the forms on our website, WhatsApp and Instagram messages, email, the online booking system and calls.</p>
+
+  <h2>7. Retention period</h2>
+  <p>Data is kept for as long as the purpose of processing requires and for the mandatory retention periods set out in the relevant legislation; it is then deleted, destroyed or anonymised. Requests and correspondence that do not lead to a service are kept for a maximum of 2 years.</p>
+
+  <h2>8. Your rights (KVKK Art. 11)</h2>
+  <ul>
+    <li>To find out whether your personal data is processed</li>
+    <li>If it has been processed, to request information about this</li>
+    <li>To find out the purpose of processing and whether the data is used in line with that purpose</li>
+    <li>To know the third parties in Türkiye or abroad to whom it has been transferred</li>
+    <li>To request correction if it is incomplete or inaccurate</li>
+    <li>To request its deletion or destruction within the framework of KVKK Art. 7</li>
+    <li>To request that corrections and deletions be notified to the third parties to whom the data has been transferred</li>
+    <li>To object to an outcome against you that results from analysis carried out exclusively by automated systems</li>
+    <li>To claim compensation if you suffer damage as a result of unlawful processing</li>
+  </ul>
+
+  <h2>9. How to apply</h2>
+  <p>In accordance with the Communiqué on the Procedures and Principles for Applications to the Data Controller, you can send your application to <a href={`mailto:${site.email.info}`}>{site.email.info}</a> from the email address registered in our system; once our address for official notices has been added, you can also send your application to that address in writing. Your application will be concluded free of charge within 30 days at the latest; if the process requires an additional cost, a fee may be charged according to the tariff set by the Personal Data Protection Board.</p>
+  <p>For information about cookies, please see our <a href="/en/cookie-policy">Cookie Policy</a>.</p>
+</Doc>

@@ -1,0 +1,95 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site, whatsappHref } from '../../config/site';
+import { data } from '../../data';
+const D = data('en');
+const ld = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact', url: `${site.url}/en/contact` }];
+---
+<Base title="Contact Us | Book a Free Discovery Call" description="Get in touch with Continuo: book a free discovery call, fill in the contact form or send us an email." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Contact', href: '/en/contact' }]} />
+      <h1>Let's talk about your business.</h1>
+      <p class="lead">The quickest way is a free 30-minute discovery call. If you prefer, fill in the form and we usually reply within one working day.</p>
+      <div class="ctas"><a class="btn btn-dark" href="/en/book-a-call">Book a discovery call</a>{site.whatsapp && <a class="btn btn-line" href={whatsappHref('en')} target="_blank" rel="noopener">Message us on WhatsApp</a>}</div>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container contact-grid">
+      <form class="form" id="form" name="iletisim" method="post" data-netlify="true" netlify-honeypot="web">
+        <input type="hidden" name="form-name" value="iletisim" />
+        <input type="hidden" name="subject" data-remove-prefix value="New enquiry from the English site" />
+        <p hidden><label>Leave this field empty<input name="web" /></label></p>
+        <label>Your name<input id="ad" name="ad" autocomplete="name" required /></label>
+        <label>Email<input id="eposta" name="email" type="email" autocomplete="email" required /></label>
+        <label>Business name<input id="isletme" name="isletme" autocomplete="organization" /></label>
+        <label>Industry
+          <select id="sektor" name="sektor">
+            {D.sectors.map((s) => <option>{s.title === 'All Industries' ? 'Other' : s.title}</option>)}
+          </select>
+        </label>
+        <label>What would you like to solve?<textarea id="mesaj" name="mesaj" rows="5" required></textarea></label>
+        <p class="small">Please do not share special categories of personal data, such as health information. Your information is processed as described in our <a href="/en/privacy-notice" style="text-decoration:underline">Privacy Notice</a>.</p>
+        <button class="btn btn-dark" id="form-btn" type="submit" style="justify-self:start;border:0;cursor:pointer">Send</button>
+        <p class="form-err" id="form-err" role="alert" hidden></p>
+      </form>
+      <div class="form-done" id="form-done" tabindex="-1" hidden>
+        <span class="form-done-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <h2>We have received your message.</h2>
+        <p>Thank you<span id="form-name"></span>. We usually reply to <b id="form-mail"></b> within one working day.</p>
+        <p class="small">If you would rather not wait, you can also book a discovery call straight away.</p>
+        <div class="ctas"><a class="btn btn-dark" href="/en/book-a-call">Book a call</a><button class="btn btn-line" id="form-again" type="button" style="cursor:pointer">Send another message</button></div>
+      </div>
+      <div class="prose">
+        <h2 style="margin-top:0">Contact us directly</h2>
+        <p>General questions: <a href={`mailto:${site.email.info}`}>{site.email.info}</a></p>
+        <p>Proposal requests: <a href={`mailto:${site.email.teklif}`}>{site.email.teklif}</a></p>
+        <p>Support requests: <a href={`mailto:${site.email.destek}`}>{site.email.destek}</a></p>
+        <h2>Service area</h2>
+        <p>We work fully remotely across Türkiye.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+<script define:vars={{ endpoint: site.formEndpoint, mail: site.email.teklif }}>
+  const form = document.getElementById('form');
+  const btn = document.getElementById('form-btn');
+  const err = document.getElementById('form-err');
+  const done = document.getElementById('form-done');
+  const showError = (text) => { err.textContent = text; err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    const data = new FormData(form);
+    if (!endpoint) {
+      const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+      location.href = `mailto:${mail}?subject=${encodeURIComponent('Website enquiry')}&body=${encodeURIComponent(body)}`;
+      showError(`If your email app did not open, you can write to us at ${mail}.`);
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
+      if (!r.ok) throw new Error();
+      { const first = String(data.get('ad') || '').trim().split(' ')[0]; document.getElementById('form-name').textContent = first ? ', ' + first : ''; }
+      document.getElementById('form-mail').textContent = String(data.get('email') || '');
+      form.reset();
+      form.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      done.focus({ preventScroll: true });
+    } catch {
+      showError(`Your message could not be sent. Please try again or write to us directly at ${mail}.`);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send';
+    }
+  });
+  document.getElementById('form-again').addEventListener('click', () => {
+    done.hidden = true;
+    form.hidden = false;
+    document.getElementById('ad').focus();
+  });
+</script>

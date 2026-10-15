@@ -1,50 +1,75 @@
 ---
 import { site } from '../config/site';
-import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/services';
+import { langOf, altPath, link, t } from '../i18n';
+import { data } from '../data';
+
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const { groups, services, sectors, serviceUrl, sectorUrl, groupUrl, sectorsUrl } = data(lang);
+const book = link(site.bookingPage, lang);
+const en = lang === 'en';
+const alt = altPath(Astro.url.pathname);
+const switchHref = alt ? alt.path : en ? '/' : '/en';
+const M = en
+  ? {
+      asGuide: 'What is an AI assistant?', asNote: 'Full guide and all assistants',
+      asFeatLive: { ey: 'Try it live', title: 'Chat with our assistant now', text: 'Get to know the product by talking to it. Replies arrive in seconds.', btn: 'Start chatting' },
+      asFeat: { ey: '30 minutes, free', title: "Let's find the right assistant", text: "Tell us about your message volume and we'll work out which assistant fits your business.", btn: 'Book a call' },
+      tfGuide: 'What is AI transformation?', tfNote: 'Full guide and all services',
+      tfFeat: { ey: '30 minutes, free', title: 'Discovery call', text: "We listen to how you work and map out the steps that can be automated.", btn: 'Book a call' },
+      scFeat: { ey: "Don't see your industry?", title: 'Tell us about your processes', text: 'Every business has work that can be automated.', btn: 'Tell us' },
+    }
+  : {
+      asGuide: 'AI asistan nedir?', asNote: 'Kapsamlı rehber ve tüm asistanlar',
+      asFeatLive: { ey: 'Canlı deneyin', title: 'Asistanımızla şimdi konuşun', text: 'Ürünümüzü sohbet ederek tanıyın. Yanıtlar saniyeler içinde.', btn: 'Konuşmayı başlat' },
+      asFeat: { ey: '30 dakika, ücretsiz', title: 'Size uygun asistanı bulalım', text: 'Mesaj trafiğinizi konuşalım, hangi asistanın işinize yarayacağını birlikte belirleyelim.', btn: 'Görüşme planla' },
+      tfGuide: 'AI dönüşümü nedir?', tfNote: 'Kapsamlı rehber ve tüm hizmetler',
+      tfFeat: { ey: '30 dakika, ücretsiz', title: 'Keşif görüşmesi', text: 'İşinizi dinleyelim, otomatikleşebilecek adımları birlikte çıkaralım.', btn: 'Görüşme planla' },
+      scFeat: { ey: 'Sektörünüz yok mu?', title: 'Süreçlerinizi anlatın', text: 'Her işletmenin otomatikleşebilecek bir işi vardır.', btn: 'Bize anlatın' },
+    };
 
 const menus = [
   {
-    id: 'asistan', title: groups['ai-asistanlar'].title, href: '/ai-asistanlar', guide: 'AI asistan nedir?', guideNote: 'Kapsamlı rehber ve tüm asistanlar',
+    id: 'asistan', title: groups['ai-asistanlar'].title, href: groupUrl('ai-asistanlar'), guide: M.asGuide, guideNote: M.asNote,
     items: services.filter((s) => s.group === 'ai-asistanlar').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
-    feat: site.whatsapp
-      ? { ey: 'Canlı deneyin', title: 'Asistanımızla şimdi konuşun', text: 'Ürünümüzü sohbet ederek tanıyın. Yanıtlar saniyeler içinde.', btn: 'Konuşmayı başlat', href: `https://wa.me/${site.whatsapp}` }
-      : { ey: '30 dakika, ücretsiz', title: 'Size uygun asistanı bulalım', text: 'Mesaj trafiğinizi konuşalım, hangi asistanın işinize yarayacağını birlikte belirleyelim.', btn: 'Görüşme planla', href: site.bookingPage },
+    feat: site.whatsapp ? { ...M.asFeatLive, href: `https://wa.me/${site.whatsapp}` } : { ...M.asFeat, href: book },
   },
   {
-    id: 'donusum', title: groups['ai-donusumu'].title, href: '/ai-donusumu', guide: 'AI dönüşümü nedir?', guideNote: 'Kapsamlı rehber ve tüm hizmetler',
+    id: 'donusum', title: groups['ai-donusumu'].title, href: groupUrl('ai-donusumu'), guide: M.tfGuide, guideNote: M.tfNote,
     items: services.filter((s) => s.group === 'ai-donusumu').map((s) => ({ title: s.title, note: s.short, href: serviceUrl(s) })),
-    feat: { ey: '30 dakika, ücretsiz', title: 'Keşif görüşmesi', text: 'İşinizi dinleyelim, otomatikleşebilecek adımları birlikte çıkaralım.', btn: 'Görüşme planla', href: site.bookingPage },
+    feat: { ...M.tfFeat, href: book },
   },
   {
-    id: 'sektor', title: 'Sektörler', href: '/sektorler',
+    id: 'sektor', title: L.sectors, href: sectorsUrl, guide: undefined as string | undefined, guideNote: undefined as string | undefined,
     items: sectors.map((s) => ({ title: s.title, note: s.menuNote, href: sectorUrl(s) })),
-    feat: { ey: 'Sektörünüz yok mu?', title: 'Süreçlerinizi anlatın', text: 'Her işletmenin otomatikleşebilecek bir işi vardır.', btn: 'Bize anlatın', href: site.bookingPage },
+    feat: { ...M.scFeat, href: book },
   },
 ];
 const plain = [
-  { title: 'Nasıl Çalışırız', href: '/nasil-calisiriz' },
-  { title: 'Blog', href: '/blog' },
-  { title: 'Hakkımızda', href: '/hakkimizda' },
+  { title: L.howWeWork, href: link('/nasil-calisiriz', lang) },
+  ...(en ? [] : [{ title: 'Blog', href: '/blog' }]),
+  { title: L.about, href: link('/hakkimizda', lang) },
 ];
 const ext = (h: string) => h.startsWith('http');
 ---
 <header class="nav" id="nav">
   <div class="bar">
-    <a class="logo" href="/" aria-label="Continuo ana sayfa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
+    <a class="logo" href={link('/', lang)} aria-label={L.homeAria}><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mk"/></svg>continuo</a>
     <ul class="nav-links" id="links">
       <span class="hl" aria-hidden="true"></span>
       {menus.map((m) => <li><a class="nav-top" href={m.href} aria-haspopup="true" aria-expanded="false" aria-controls={`dd-${m.id}`} data-menu={m.id}>{m.title}</a></li>)}
       {plain.map((p) => <li><a href={p.href}>{p.title}</a></li>)}
     </ul>
     <div class="nav-right">
-      <a class="btn btn-dark btn-sm" href={site.bookingPage}>Keşif Görüşmesi</a>
-      <button type="button" class="burger" aria-expanded="false" aria-controls="sheet" aria-label="Menüyü aç"><span></span><span></span></button>
+      <a class="lang-sw" href={switchHref} hreflang={en ? 'tr' : 'en'} lang={en ? 'tr' : 'en'} aria-label={L.langSwitchAria}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>{en ? 'TR' : 'EN'}</span></a>
+      <a class="btn btn-dark btn-sm" href={book}>{L.bookShort}</a>
+      <button type="button" class="burger" aria-expanded="false" aria-controls="sheet" aria-label={L.menuOpen} data-open={L.menuOpen} data-close={L.menuClose}><span></span><span></span></button>
     </div>
     {menus.map((m) => (
       <div class="dd" id={`dd-${m.id}`} role="region" aria-label={m.title} hidden>
         <ul class="dd-list">
           {m.items.map((i) => <li><a href={i.href} class="dd-item"><span class="dd-txt"><b>{i.title}</b><small>{i.note}</small></span></a></li>)}
-          <li><a href={m.href} class="dd-item"><span class="dd-txt"><b>{m.guide ?? 'Tümünü görün'}</b><small>{m.guideNote ?? `${m.title} ana sayfası`}</small></span></a></li>
+          <li><a href={m.href} class="dd-item"><span class="dd-txt"><b>{m.guide ?? L.seeAll}</b><small>{m.guideNote ?? `${m.title} ${L.homeOf}`}</small></span></a></li>
         </ul>
         <div class="dd-feat"><span class="dd-ey">{m.feat.ey}</span><b>{m.feat.title}</b><p>{m.feat.text}</p><a class="dd-btn" href={m.feat.href} {...(ext(m.feat.href) ? { target: '_blank', rel: 'noopener' } : {})}>{m.feat.btn} →</a></div>
       </div>
@@ -60,13 +85,14 @@ const ext = (h: string) => h.startsWith('http');
         <button type="button" class="sh-top" aria-expanded="false">{m.title}<span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <ul class="sh-sub" hidden>
           {m.items.map((i) => <li><a href={i.href}>{i.title}</a></li>)}
-          <li><a href={m.href}>{m.guide ?? 'Tümünü görün'}</a></li>
+          <li><a href={m.href}>{m.guide ?? L.seeAll}</a></li>
         </ul>
       </li>
     ))}
     {plain.map((p) => <li><a class="sh-plain" href={p.href}>{p.title}</a></li>)}
   </ul>
-  <a class="btn btn-dark sh-cta" href={site.bookingPage}>Ücretsiz keşif görüşmesi</a>
+  <a class="sh-lang" href={switchHref} hreflang={en ? 'tr' : 'en'} lang={en ? 'tr' : 'en'}>{L.langSwitch}</a>
+  <a class="btn btn-dark sh-cta" href={book}>{L.bookLong}</a>
 </div>
 
 <script>
@@ -129,7 +155,7 @@ const ext = (h: string) => h.startsWith('http');
   const shback = document.getElementById('shback')!;
   function setSheet(on: boolean) {
     sheet.hidden = !on; shback.hidden = !on; sheet.classList.toggle('open', on);
-    burger.setAttribute('aria-expanded', String(on)); burger.setAttribute('aria-label', on ? 'Menüyü kapat' : 'Menüyü aç');
+    burger.setAttribute('aria-expanded', String(on)); burger.setAttribute('aria-label', (on ? burger.dataset.close : burger.dataset.open)!);
     document.body.style.overflow = on ? 'hidden' : '';
   }
   burger.addEventListener('click', () => setSheet(sheet.hidden));

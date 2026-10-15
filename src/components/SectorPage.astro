@@ -4,49 +4,59 @@ import Breadcrumbs from './Breadcrumbs.astro';
 import Faq from './Faq.astro';
 import CtaBand from './CtaBand.astro';
 import { site } from '../config/site';
-import { serviceBySlug, serviceUrl, sectorUrl, sectors, type Sector, type Service } from '../data/services';
+import type { Sector, Service } from '../data/services';
+import { data } from '../data';
+import { langOf, link, t } from '../i18n';
 export interface Props { s: Sector }
 const { s } = Astro.props;
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const en = lang === 'en';
+const { serviceBySlug, serviceUrl, sectorUrl, sectors, sectorsUrl } = data(lang);
+const all = s.slug === 'tum-sektorler' || s.slug === 'all-industries';
+const W = en
+  ? { heard: 'What we hear most', common: 'Problems every business shares', probs: 'The most common problems in this industry', sol: 'Solution', rec: `What we recommend for ${s.title.toLowerCase()}`, other: 'Other industries', otherT: 'Working in a different field?', alt: `Example venue for ${s.title.toLowerCase()}` }
+  : { heard: 'En sık duyduklarımız', common: 'Her sektörün ortak dertleri', probs: 'Bu sektörde en sık yaşanan sorunlar', sol: 'Çözüm', rec: `${s.title} için önerdiklerimiz`, other: 'Diğer sektörler', otherT: 'Başka bir alanda mısınız?', alt: `${s.title} için örnek mekân görseli` };
 const url = `${site.url}${sectorUrl(s)}`;
 const svc = s.services.map(serviceBySlug).filter(Boolean) as Service[];
 const others = sectors.filter((x) => x.slug !== s.slug);
 const ld = [
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: s.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: site.url },
-    { '@type': 'ListItem', position: 2, name: 'Sektörler', item: `${site.url}/sektorler` },
+    { '@type': 'ListItem', position: 1, name: L.home, item: en ? `${site.url}/en` : site.url },
+    { '@type': 'ListItem', position: 2, name: L.sectors, item: `${site.url}${sectorsUrl}` },
     { '@type': 'ListItem', position: 3, name: s.title, item: url } ] },
 ];
 ---
 <Base title={s.seoTitle} description={s.description} image={s.image ? s.image.replace('.webp', '.jpg') : undefined} jsonld={ld}>
   <section class="page-hero">
     <div class="container">
-      <Breadcrumbs items={[{ name: 'Sektörler', href: '/sektorler' }, { name: s.title, href: sectorUrl(s) }]} />
+      <Breadcrumbs items={[{ name: L.sectors, href: sectorsUrl }, { name: s.title, href: sectorUrl(s) }]} />
       <h1>{s.title}</h1>
       <p class="lead">{s.lead}</p>
-      <div class="answer"><strong>Kısaca</strong>{s.answer}</div>
-      <div class="ctas"><a class="btn btn-dark" href={site.bookingPage}>Ücretsiz keşif görüşmesi</a></div>
+      <div class="answer"><strong>{L.inShort}</strong>{s.answer}</div>
+      <div class="ctas"><a class="btn btn-dark" href={link(site.bookingPage, lang)}>{L.bookLong}</a></div>
     </div>
   </section>
   {s.image && (
-    <div class="container"><img src={s.image} alt={`${s.title} için örnek mekân görseli`} width="1200" height="896" loading="eager" style="width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:28px" /></div>
+    <div class="container"><img src={s.image} alt={W.alt} width="1200" height="896" loading="eager" style="width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:28px" /></div>
   )}
   <section class="sec">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">En sık duyduklarımız</span><h2>{s.slug === 'tum-sektorler' ? 'Her sektörün ortak dertleri' : 'Bu sektörde en sık yaşanan sorunlar'}</h2></div>
+      <div class="sec-head"><span class="eyebrow">{W.heard}</span><h2>{all ? W.common : W.probs}</h2></div>
       <div class="grid-3">{s.problems.map((p) => <div class="card"><h3>{p.title}</h3><p>{p.text}</p></div>)}</div>
     </div>
   </section>
   <section class="sec paper">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Çözüm</span><h2>{s.title} için önerdiklerimiz</h2></div>
-      <div class="grid-2">{svc.map((r) => <a class="card" href={serviceUrl(r)}><span class="k">{r.short}</span><h3>{r.title}</h3><p>{r.lead}</p><span class="go">İnceleyin ›</span></a>)}</div>
+      <div class="sec-head"><span class="eyebrow">{W.sol}</span><h2>{W.rec}</h2></div>
+      <div class="grid-2">{svc.map((r) => <a class="card" href={serviceUrl(r)}><span class="k">{r.short}</span><h3>{r.title}</h3><p>{r.lead}</p><span class="go">{L.explore}</span></a>)}</div>
     </div>
   </section>
   <Faq faqs={s.faqs} />
   <section class="sec">
     <div class="container">
-      <div class="sec-head"><span class="eyebrow">Diğer sektörler</span><h2>Başka bir alanda mısınız?</h2></div>
+      <div class="sec-head"><span class="eyebrow">{W.other}</span><h2>{W.otherT}</h2></div>
       <div class="links-list">{others.map((x) => <a class="chip" href={sectorUrl(x)}>{x.title} ›</a>)}</div>
     </div>
   </section>

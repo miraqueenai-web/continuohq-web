@@ -1,9 +1,12 @@
 ---
+import { langOf, t } from '../i18n';
 export interface Props { items: { name: string; href: string }[] }
 const { items } = Astro.props;
-const all = [{ name: 'Ana sayfa', href: '/' }, ...items];
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const all = [{ name: L.home, href: lang === 'en' ? '/en' : '/' }, ...items];
 ---
-<nav class="crumbs" aria-label="Sayfa yolu">
+<nav class="crumbs" aria-label={L.crumbs}>
   <ol>
     {all.map((c, i) => <li>{i === all.length - 1 ? <span aria-current="page">{c.name}</span> : <a href={c.href}>{c.name}</a>}</li>)}
   </ol>

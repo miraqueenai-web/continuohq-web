@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { site } from '../../config/site';
+const steps = [
+  { n: '1. Discovery', h: 'We listen', p: "In a free 30-minute call, we talk about your business, the questions your customers ask most often and the work that takes up most of your team's energy. We share our first impression of which tasks are suited to automation openly during the call." },
+  { n: '2. Planning', h: 'We design', p: 'Together, we set out what the assistant will answer, when it will hand the conversation over to your team and which systems it will connect to. After the discovery call, we send a written proposal covering scope, timeline and fees; the details are finalised at this stage.' },
+  { n: '3. Setup', h: 'We build', p: "We train the assistant on your business information and connect it to WhatsApp, Instagram, your website or the software you use. Before it goes live, we test it with you using real scenarios." },
+  { n: '4. Measurement', h: 'We improve', p: 'We measure your situation before setup and compare it with the results afterwards: response time, conversion to appointments and time saved. As part of monthly maintenance, we review conversations regularly and develop the system further.' },
+];
+const faqs = [
+  { q: 'How long does setup take?', a: 'It depends on the scope; a single-channel assistant takes less time to set up than multi-step automations. We give you a firm timeline at the planning stage.' },
+  { q: 'How does pricing work?', a: 'We usually work with a one-off setup fee and a monthly service fee that covers maintenance, improvements and infrastructure costs. We prepare a proposal based on your scope after the discovery call.' },
+  { q: 'How do you measure results?', a: 'Before setup, we record your current situation, such as response time and the share of messages that turn into appointments, and after setup we compare against the same measures. We measure with your own data instead of promising figures.' },
+  { q: 'What happens if the assistant cannot help?', a: 'Every assistant includes handover to a person. Anything the assistant cannot answer, or anything sensitive, goes to your team, and we learn from these conversations to improve the system.' },
+];
+const ld = [{ '@context': 'https://schema.org', '@type': 'HowTo', name: 'The AI assistant setup process with Continuo', step: steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.h, text: s.p })) },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
+---
+<Base title="How We Work: Our AI Assistant Setup Process" description="Discovery, planning, setup and measurement: how Continuo sets up AI assistants and automations, step by step, plus our pricing model and common questions." jsonld={ld}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'How We Work', href: '/en/how-we-work' }]} />
+      <h1>Our four-stage way of working.</h1>
+      <p class="lead">We listen first, then we build. At every step, you know from the start what will happen.</p>
+      <div class="answer"><strong>In short</strong>Working with Continuo involves four steps: a free discovery call, joint planning, setup and testing, followed by regular measurement and improvement. We measure results by comparing them with your situation before setup.</div>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container">
+      <div class="grid-2">{steps.map((s) => <div class="card"><span class="k">{s.n}</span><h3>{s.h}</h3><p>{s.p}</p></div>)}</div>
+      <p style="margin-top:28px" class="links-list"><a class="chip" href="/en/ai-assistants">AI Assistants ›</a><a class="chip" href="/en/ai-transformation">AI Transformation ›</a><a class="chip" href="/en/book-a-call">Book a discovery call ›</a></p>
+    </div>
+  </section>
+  <Faq faqs={faqs} />
+  <CtaBand />
+</Base>

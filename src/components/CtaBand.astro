@@ -1,11 +1,11 @@
 ---
 import { site, whatsappHref } from '../config/site';
+import { langOf, link, t } from '../i18n';
 export interface Props { title?: string; text?: string }
-const {
-  title = 'İşinizi dinleyelim, birlikte planlayalım.',
-  text = '30 dakikalık ücretsiz keşif görüşmesinde süreçlerinizi konuşur, yapay zekanın işinizde en çok nerede zaman kazandıracağını birlikte belirleriz.',
-} = Astro.props;
-const wa = whatsappHref();
+const lang = langOf(Astro.url.pathname);
+const L = t(lang);
+const { title = L.ctaTitle, text = L.ctaText } = Astro.props;
+const wa = whatsappHref(lang);
 ---
 <section class="sec">
   <div class="container">
@@ -14,8 +14,8 @@ const wa = whatsappHref();
       <h2>{title}</h2>
       <p>{text}</p>
       <div class="ctas">
-        <a class="btn btn-gold" href={site.bookingPage}>Keşif görüşmesi planlayın</a>
-        <a class="btn btn-line" href={wa} {...(wa.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{site.whatsapp ? 'WhatsApp\'tan yazın' : 'Bize yazın'}</a>
+        <a class="btn btn-gold" href={link(site.bookingPage, lang)}>{L.bookPlan}</a>
+        <a class="btn btn-line" href={wa} {...(wa.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{site.whatsapp ? L.waWrite : L.writeUs}</a>
       </div>
     </div>
   </div>
