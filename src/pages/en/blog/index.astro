@@ -1,0 +1,31 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blogEn', ({ data }) => import.meta.env.SHOW_DRAFTS === '1' || !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Blog | AI Assistants and Automation for Businesses" description="Sourced, up-to-date articles on AI assistants, WhatsApp and Instagram automation and process automation for businesses in Türkiye." noindex={posts.length === 0}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Blog', href: '/en/blog' }]} />
+      <h1>Blog</h1>
+      <p class="lead">Sourced, up-to-date articles on AI assistants and automation for businesses.</p>
+    </div>
+  </section>
+  <section class="sec paper">
+    <div class="container">
+      <div class="grid-3">
+        {posts.map((p) => (
+          <a class="card" href={`/en/blog/${p.id}`}>
+            <span class="k">{p.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+            <h3>{p.data.title}</h3>
+            <p>{p.data.description}</p>
+            <span class="go">Read ›</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

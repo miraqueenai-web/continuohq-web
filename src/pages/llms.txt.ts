@@ -6,6 +6,7 @@ import { groups, services, sectors, serviceUrl, sectorUrl } from '../data/servic
 import { data } from '../data';
 
 export const GET: APIRoute = async () => {
+  const postsEn = (await getCollection('blogEn', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   const E = data('en');
   const line = (title: string, path: string, note: string) => `- [${title}](${site.url}${path}): ${note}`;
@@ -48,6 +49,7 @@ export const GET: APIRoute = async () => {
     line('How We Work', '/en/how-we-work', 'Our four-stage working method and pricing model.'),
     line('Book a Call', '/en/book-a-call', 'Book a free 30-minute online discovery call.'),
     line('Contact', '/en/contact', 'Contact form and email addresses.'),
+    ...postsEn.map((p) => line(p.data.title, `/en/blog/${p.id}`, p.data.answer)),
     ``,
   ].join('\n');
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

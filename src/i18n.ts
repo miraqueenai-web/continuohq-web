@@ -31,7 +31,19 @@ export const routePairs: [string, string][] = [
   ['/kvkk-aydinlatma-metni', '/en/privacy-notice'],
   ['/cerez-politikasi', '/en/cookie-policy'],
   ['/yazar/neslisah-gokkaya', '/en/author/neslisah-gokkaya'],
+  ['/blog', '/en/blog'],
+  ...blogPairs(),
 ];
+
+// Blog yazıları: İngilizce yazının `tr:` alanından Türkçe karşılığı okunur.
+function blogPairs(): [string, string][] {
+  const files = import.meta.glob('./content/blog-en/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+  return Object.entries(files).flatMap(([file, raw]) => {
+    const tr = raw.match(/^tr:\s*"?([^"\n]+)"?\s*$/m)?.[1];
+    const en = file.split('/').pop()!.replace(/\.md$/, '');
+    return tr ? [[`/blog/${tr}`, `/en/blog/${en}`] as [string, string]] : [];
+  });
+}
 
 const norm = (p: string) => (p.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/');
 

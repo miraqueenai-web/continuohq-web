@@ -1,0 +1,50 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { getCollection, render } from 'astro:content';
+import { site } from '../../../config/site';
+export async function getStaticPaths() {
+  const posts = await getCollection('blogEn', ({ data }) => import.meta.env.SHOW_DRAFTS === '1' || !data.draft);
+  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p, all: posts } }));
+}
+const { post, all } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const url = `${site.url}/en/blog/${post.id}`;
+const fmt = (x: Date) => x.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const related = all.filter((p) => p.id !== post.id).slice(0, 3);
+const ld = [
+  { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: d.title, description: d.description, datePublished: d.date.toISOString(), dateModified: (d.updated ?? d.date).toISOString(), inLanguage: 'en', mainEntityOfPage: url, author: { '@type': 'Person', '@id': `${site.url}/yazar/neslisah-gokkaya#person`, name: site.founder, url: `${site.url}/en/author/neslisah-gokkaya` }, publisher: { '@id': `${site.url}/#organization` } },
+  ...(d.faqs?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/en` },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.url}/en/blog` },
+    { '@type': 'ListItem', position: 3, name: d.title, item: url } ] },
+];
+---
+<Base title={d.seoTitle ?? d.title} description={d.description} type="article" jsonld={ld}>
+  <section class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Blog', href: '/en/blog' }, { name: d.title, href: `/en/blog/${post.id}` }]} />
+      <h1 style="max-width:22ch">{d.title}</h1>
+      <p class="lead" style="font-size:15px"><a href="/en/author/neslisah-gokkaya">{site.founder}</a> · {fmt(d.date)}{d.updated && ` · Updated: ${fmt(d.updated)}`}</p>
+      <div class="answer"><strong>In short</strong>{d.answer}</div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:20px">
+    <div class="container">
+      <article class="prose"><Content /></article>
+      {d.faqs?.length ? (
+        <div style="margin-top:48px"><h2 style="font:700 clamp(24px,3vw,32px)/1.2 var(--head);letter-spacing:-.025em;margin:0 0 8px">Frequently asked questions</h2>
+          <div class="faq">{d.faqs.map((f, i) => <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div>
+      ) : null}
+      <div class="author" style="margin-top:40px"><span class="av" aria-hidden="true">NG</span><div><b><a href="/en/author/neslisah-gokkaya">{site.founder}</a></b><span>Founder of Continuo. Writes about AI assistants and automation for businesses.</span></div></div>
+      {related.length > 0 && (
+        <div style="margin-top:56px"><h2 style="font:700 28px/1.2 var(--head);letter-spacing:-.02em">Related articles</h2>
+          <div class="grid-3" style="margin-top:20px">{related.map((p) => <a class="card" href={`/en/blog/${p.id}`}><h3>{p.data.title}</h3><p>{p.data.description}</p></a>)}</div></div>
+      )}
+    </div>
+  </section>
+  <CtaBand />
+</Base>

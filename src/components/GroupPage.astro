@@ -87,7 +87,7 @@ const ld = [
       <div class="links-list">
         {sectors.map((s) => <a class="chip" href={sectorUrl(s)}>{s.title} ›</a>)}
         <a class="chip" href={groupUrl(other)}>{groups[other].title} ›</a>
-        {!en && <a class="chip" href="/blog">Blog ›</a>}
+        <a class="chip" href={en ? '/en/blog' : '/blog'}>Blog ›</a>
       </div>
     </div>
   </section>

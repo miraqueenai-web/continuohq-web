@@ -47,7 +47,7 @@ const menus = [
 ];
 const plain = [
   { title: L.howWeWork, href: link('/nasil-calisiriz', lang) },
-  ...(en ? [] : [{ title: 'Blog', href: '/blog' }]),
+  { title: 'Blog', href: en ? '/en/blog' : '/blog' },
   { title: L.about, href: link('/hakkimizda', lang) },
 ];
 const ext = (h: string) => h.startsWith('http');

@@ -30,7 +30,7 @@ const year = new Date().getFullYear();
         <ul>
           <li><a href={link('/nasil-calisiriz', lang)}>{L.howWeWork}</a></li>
           <li><a href={link('/hakkimizda', lang)}>{L.about}</a></li>
-          {lang === 'tr' && <li><a href="/blog">Blog</a></li>}
+          <li><a href={lang === 'en' ? '/en/blog' : '/blog'}>Blog</a></li>
           <li><a href={link('/iletisim', lang)}>{L.contact}</a></li>
         </ul>
       </div>
