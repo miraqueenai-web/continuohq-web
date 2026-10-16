@@ -4,7 +4,7 @@ seoTitle: "GEO Nedir? Yapay Zeka Aramalarında Görünmek"
 description: "ChatGPT, Gemini, Perplexity ve Google AI Overviews bilgiyi nereden alıyor? Küçük işletmeler için GEO'nun ne olduğunu, neyin işe yaradığını ve neyin abartıldığını anlattık."
 answer: "Yapay zeka aramalarında görünmenin yolu sağlam bir SEO temelinden geçer. Google, AI Overviews ve AI Mode için ek bir teknik şart olmadığını, dizine eklenmiş ve snippet ile gösterilebilen sayfaların uygun olduğunu söylüyor. ChatGPT ve Perplexity'nin arama botlarına izin verin, Bing'e kaydolun, İşletme Profilinizi güncel tutun ve özgün içerik yazın."
 date: 2026-10-16
-draft: true
+draft: false
 faqs:
   - q: "GEO ile SEO arasındaki fark nedir?"
     a: "SEO, sitenizin klasik arama sonuçlarında bulunmasını hedefler. GEO ise ChatGPT veya Google'ın yapay zeka yanıtları gibi sistemlerde kaynak olarak kullanılmayı hedefler. Google'ın 2026'da yayımladığı rehbere göre kendi yapay zeka özellikleri temel arama sistemlerinin üzerine kurulu olduğu için ikisinin temeli aynıdır."
@@ -40,21 +40,21 @@ Her yapay zeka aracı web'e kendi yolundan ulaşıyor. Küçük bir işletme iç
 
 15 Mayıs 2026'da yayımlanan ayrı bir rehberde Google bir adım daha ileri gitti: kendi yapay zeka özellikleri temel sıralama ve kalite sistemlerinin üzerine kurulu olduğu için SEO geçerliliğini koruyor. Rehber, başka yerde bulunmayan özgün içeriği en önemli öneri olarak öne çıkarıyor ([Google Search Central Blog](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing), [rehber](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)).
 
-**ChatGPT** tarafında OpenAI, arama sonuçları için OAI-SearchBot adlı tarayıcıyı kullanıyor. OpenAI'nin dokümanına göre bu bota robots.txt üzerinden kapalı olan siteler ChatGPT'nin arama yanıtlarında gösterilmiyor. Model eğitimi için kullanılan GPTBot ayrı bir bot. Yani içeriğinizin eğitimde kullanılmasını istemiyorsanız GPTBot'u engelleyip OAI-SearchBot'a izin verebilirsiniz. robots.txt değişikliklerinin sisteme yansıması 24 saat kadar sürebiliyor ([OpenAI, Overview of OpenAI Crawlers](https://developers.openai.com/docs/bots)).
+**ChatGPT** tarafında OpenAI, arama sonuçları için OAI-SearchBot adlı tarayıcıyı kullanıyor. OpenAI'nin dokümanına göre bu bota robots.txt üzerinden kapalı olan siteler ChatGPT'nin arama yanıtlarında gösterilmiyor. Model eğitimi için kullanılan GPTBot ayrı bir bot. Yani içeriğinizin eğitimde kullanılmasını istemiyorsanız GPTBot'u engelleyip OAI-SearchBot'a izin verebilirsiniz.([OpenAI, Overview of OpenAI Crawlers](https://developers.openai.com/api/docs/bots)).
 
-**Perplexity** de benzer bir ayrım yapıyor. PerplexityBot, siteleri Perplexity'nin arama sonuçlarında göstermek ve bağlantı vermek için tarıyor ve şirkete göre temel model eğitimi için kullanılmıyor ([Perplexity Docs](https://docs.perplexity.ai/guides/bots)).
+**Perplexity** de benzer bir ayrım yapıyor. PerplexityBot, siteleri Perplexity'nin arama sonuçlarında göstermek ve bağlantı vermek için tarıyor ve şirkete göre temel model eğitimi için kullanılmıyor ([Perplexity Docs](https://docs.perplexity.ai/docs/resources/perplexity-crawlers)).
 
-**Bing** ise Copilot'un ve Bing'deki yapay zeka özetlerinin temelini oluşturuyor. Microsoft, 10 Şubat 2026'da Bing Webmaster Tools'a "AI Performance" adlı bir rapor ekledi. Bu rapor sitenizin Copilot'ta, Bing'in yapay zeka özetlerinde ve bazı iş ortağı entegrasyonlarında hangi sayfalarıyla kaynak gösterildiğini listeliyor. Microsoft aynı yazıda IndexNow ile içerik eklendiğinde veya güncellendiğinde arama motorlarını haberdar etmenin, yapay zeka yanıtlarının sayfanın güncel halini kullanmasına yardımcı olduğunu belirtiyor ([Bing Webmaster Blog](https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview)).
+**Bing** ise Copilot'un ve Bing'deki yapay zeka özetlerinin temelini oluşturuyor. Microsoft, 10 Şubat 2026'da Bing Webmaster Tools'a "AI Performance" adlı bir rapor ekledi. Bu rapor sitenizin Copilot'ta, Bing'in yapay zeka özetlerinde ve bazı iş ortağı entegrasyonlarında hangi sayfalarıyla kaynak gösterildiğini listeliyor. Microsoft aynı yazıda IndexNow ile içerik eklendiğinde veya güncellendiğinde arama motorlarını haberdar etmenin, yapay zeka yanıtlarının sayfanın güncel halini kullanmasına yardımcı olduğunu belirtiyor ([Bing Webmaster Blog](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/)).
 
 ## Yerel işletmeler için Google İşletme Profili
 
-"Yakınımda", "Kadıköy'de" ya da "Safranbolu'da" diye başlayan aramalarda İşletme Profili belirleyici. Google, yerel sonuçların temelde üç etkene dayandığını söylüyor: aramayla ne kadar ilgili olduğunuz, aranan konuma uzaklığınız ve işletmenizin ne kadar bilindiği. Bilinirlik kısmına yorumlar, puanlar ve web'deki diğer kaynaklarda hakkınızda yazılanlar da giriyor ([Google İşletme Profili Yardım](https://support.google.com/business/answer/7091?hl=tr)). Çalışma saatleri, adres ve telefonun profilde, sitenizde ve dizinlerde aynı olması bu yüzden önemli.
+"Yakınımda", "Kadıköy'de" ya da "Safranbolu'da" diye başlayan aramalarda İşletme Profili belirleyici. Google, yerel sonuçların çoğunlukla üç etkene göre belirlendiğini söylüyor: alaka düzeyi, mesafe ve belirginlik. Belirginlik, işletmenizin ne kadar bilindiğini anlatıyor ve işletmenize bağlantı veren web sitelerinin sayısı, aldığınız yorumlar ve puanlar gibi bilgilere dayanıyor ([Google İşletme Profili Yardım](https://support.google.com/business/answer/7091?hl=tr)). Çalışma saatleri, adres ve telefonun profilde, sitenizde ve dizinlerde aynı olması bu yüzden önemli.
 
 ## Abartılan konular: llms.txt ve yapısal veri
 
 **llms.txt** için Google'ın tutumu açık. Mayıs 2026 rehberinde llms.txt dosyası oluşturmanın Google Arama'daki görünürlüğe ne katkı ne de zarar sağladığı yazıyor. Aynı rehber içeriği yapay zeka için küçük parçalara bölmenin veya ayrıca "yapay zeka dostu" metin yazmanın gereksiz olduğunu da söylüyor ([Google Search Central](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)).
 
-**Yapısal veri** (schema.org) sayfanızın neyi anlattığını makinelerin anlayacağı dilde söyler ve kullanmaya değer. Ancak Google 7 Mayıs 2026'dan itibaren SSS zengin sonuçlarını göstermeyi tamamen bıraktı ([Search Engine Journal](https://www.searchenginejournal.com/google-drops-faq-rich-results/574429/)). Yapısal veriyi arama sonucunda görsel bir ek kazanmak için kullanmanın alanı daralıyor; asıl faydası içeriğin doğru anlaşılması.
+**Yapısal veri** (schema.org) sayfanızın neyi anlattığını makinelerin anlayacağı dilde söyler ve kullanmaya değer. Ancak Google 7 Mayıs 2026'dan itibaren SSS zengin sonuçlarını göstermeyi tamamen bıraktı ([Search Engine Journal](https://www.searchenginejournal.com/google-drops-faq-rich-results-from-search/574429/)). Yapısal veriyi arama sonucunda görsel bir ek kazanmak için kullanmanın alanı daralıyor; asıl faydası içeriğin doğru anlaşılması.
 
 ## Tıklamalar azalıyor mu?
 
@@ -81,10 +81,10 @@ Bu adımların teknik kısmını [Web Sitesi & Dijital Altyapı](/ai-donusumu/we
 - "AI features and your website", Google Search Central: [developers.google.com](https://developers.google.com/search/docs/appearance/ai-features)
 - "A new resource for optimizing for generative AI in Google Search", Google Search Central Blog, 15 Mayıs 2026: [developers.google.com](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing)
 - "Optimizing your website for generative AI features on Google Search", Google Search Central, 2026: [developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
-- "Overview of OpenAI Crawlers", OpenAI: [developers.openai.com](https://developers.openai.com/docs/bots)
-- "Perplexity Crawlers", Perplexity: [docs.perplexity.ai](https://docs.perplexity.ai/guides/bots)
-- "Introducing AI Performance in Bing Webmaster Tools Public Preview", Bing Webmaster Blog, 10 Şubat 2026: [blogs.bing.com](https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview)
-- "Google Drops FAQ Rich Results", Search Engine Journal, 2026: [searchenginejournal.com](https://www.searchenginejournal.com/google-drops-faq-rich-results/574429/)
+- "Overview of OpenAI Crawlers", OpenAI: [developers.openai.com](https://developers.openai.com/api/docs/bots)
+- "Perplexity Crawlers", Perplexity: [docs.perplexity.ai](https://docs.perplexity.ai/docs/resources/perplexity-crawlers)
+- "Introducing AI Performance in Bing Webmaster Tools Public Preview", Bing Webmaster Blog, 10 Şubat 2026: [blogs.bing.com](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/)
+- "Google Drops FAQ Rich Results", Search Engine Journal, 2026: [searchenginejournal.com](https://www.searchenginejournal.com/google-drops-faq-rich-results-from-search/574429/)
 - "Google'da yerel sıralamanızı iyileştirme", Google İşletme Profili Yardım: [support.google.com](https://support.google.com/business/answer/7091?hl=tr)
 - "Google users are less likely to click on links when an AI summary appears in the results", Pew Research Center, 22 Temmuz 2025: [pewresearch.org](https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/)
 - Aggarwal ve ark., "GEO: Generative Engine Optimization", KDD 2024: [arxiv.org](https://arxiv.org/abs/2311.09735)

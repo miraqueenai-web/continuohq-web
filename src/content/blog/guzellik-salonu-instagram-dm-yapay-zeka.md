@@ -2,7 +2,7 @@
 title: "Güzellik salonu Instagram DM'lerine nasıl yetişir? Yapay zeka asistanı neyi üstlenebilir?"
 seoTitle: "Güzellik Salonu için Instagram DM Otomatik Yanıt"
 description: "Fiyat soruları, randevu talepleri ve gelmeyen müşteriler. Güzellik merkezleri için Instagram DM otomatik yanıt, Meta'nın kuralları ve ekibe devir."
-answer: "Güzellik salonu, tekrarlayan DM'leri işletmeye özel bir yapay zeka asistanına devrederek yetişebilir. Asistan fiyat aralığı, uygun saat, adres ve hazırlık sorularını yanıtlar, randevuyu oluşturur. Instagram'da müşteri yazdıktan sonra 24 saatlik bir yanıt penceresi vardır. Cilt reaksiyonu, tıbbi estetik ve şikâyet konuları her zaman ekibe devredilmelidir."
+answer: "Güzellik salonu, tekrarlayan DM'leri işletmeye özel bir yapay zeka asistanına devrederek yetişebilir. Asistan fiyat aralığı, uygun saat, adres ve hazırlık sorularını yanıtlar, randevuyu oluşturur. Instagram'da müşteri yazdıktan sonra çoğu durumda 24 saatlik bir yanıt penceresi vardır. Cilt reaksiyonu, tıbbi estetik ve şikâyet konuları her zaman ekibe devredilmelidir."
 date: 2026-10-11
 draft: true
 faqs:
@@ -11,7 +11,7 @@ faqs:
   - q: "Instagram hesabımın kişisel hesap olması sorun olur mu?"
     a: "Evet. Instagram'ın mesajlaşma altyapısı profesyonel hesaplarla (işletme veya içerik üreticisi hesabı) çalışır. Kişisel hesabınızı Instagram ayarlarından profesyonel hesaba geçirebilirsiniz."
   - q: "Hatırlatma mesajlarını neden Instagram yerine WhatsApp'tan göndermek gerekiyor?"
-    a: "Instagram'da işletme, müşterinin son mesajından sonraki 24 saat içinde yazabilir ve bu pencerenin dışında otomatik mesaj göndermeye yarayan bir araç sunulmuyor. WhatsApp'ta ise önceden onaylanmış şablon mesajlarla, mesaj almayı kabul etmiş müşterilere pencere dışında da hatırlatma gönderilebilir."
+    a: "Instagram'da işletme çoğu durumda müşterinin mesajından sonraki 24 saat içinde yazabilir. Bu pencerenin dışına yalnızca Meta'nın tanımladığı sınırlı durumlarda çıkılabiliyor; Messenger'daki tek seferlik bildirim özelliği de Instagram'da yok. WhatsApp'ta ise önceden onaylanmış şablon mesajlarla, mesaj almayı kabul etmiş müşterilere pencere dışında da hatırlatma gönderilebilir."
 ---
 
 ## Asistan DM'de neyi üstlenebilir?
@@ -50,11 +50,11 @@ Instagram'da otomatik yanıt, Meta'nın Instagram mesajlaşma altyapısı üzeri
 |---|---|
 | Profesyonel hesap şartı | Altyapı, Instagram işletme veya içerik üreticisi hesaplarıyla çalışır. |
 | İlk mesaj müşteriden gelir | İşletme, ancak müşteri hesabınıza yazdıktan sonra ona mesaj gönderebilir. |
-| 24 saatlik pencere | Müşterinin mesajına yanıt vermek için 24 saat vardır. |
-| Human agent etiketi | Ekipten bir kişinin elle yazdığı yanıtlar için süre 7 güne uzar. Bu etiket otomatik mesajlarda kullanılamaz ve ayrıca Meta onayı gerektirir. |
+| Yanıt penceresi | Çoğu durumda müşterinin mesajına yanıt vermek için 24 saat vardır. Müşteri bir Instagram reklamına tıklayıp ilk kez yazdıysa bu süre 7 güne kadar uzayabilir. |
+| Human agent etiketi | Konuşmaya ekipten bir kişi yanıt veriyorsa ve daha fazla zamana ihtiyaç varsa, ayrı bir 7 günlük pencere kullanılabilir. |
 | Otomasyonu belirtmek | Yasanın zorunlu kıldığı yerlerde, müşteriye otomatik bir sistemle konuştuğu söylenmelidir. Meta, zorunlu olmayan durumlarda da bunu öneriyor. |
 
-Bu bilgiler Meta'nın geliştirici belgelerinden ([Instagram mesaj gönderme](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/messaging-api/), [Messenger Platformu ve Instagram mesajlaşma politikası](https://developers.facebook.com/documentation/business-messaging/messenger-platform/policy), [Send API](https://developers.facebook.com/docs/messenger-platform/reference/send-api/)) alındı. Meta, mesaj etiketlerinin izin verilen durumlar dışında kullanılmasının hesabın mesaj gönderme yetkisinin kısıtlanmasına yol açabileceğini de belirtiyor.
+Bu bilgiler Meta'nın geliştirici belgelerinden ([Instagram mesaj gönderme](https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-instagram-login/messaging-api), [Messenger Platformu ve Instagram mesajlaşma politikası](https://developers.facebook.com/documentation/business-messaging/messenger-platform/policy)) alındı. Meta, mesaj etiketlerinin onaylı kullanım alanları dışında kullanılmasının hesabın mesaj gönderme yetkisinin kısıtlanmasına yol açabileceğini de belirtiyor.
 
 İnsana devir için Meta iki yol tarif ediyor: ekibin yanıt verdiği bir gelen kutusu ya da konuşmayı bir uygulamadan diğerine aktaran devir protokolü (Handover Protocol). Pratikte bu, asistan devrettiğinde ekibinizin konuşmayı kaldığı yerden görmesi demek.
 
@@ -64,7 +64,7 @@ WhatsApp tarafındaki kuralları ayrıca [WhatsApp'ta yapay zeka asistanı kural
 
 Gelmeyen müşteri, boş kalan bir koltuk ve kaybedilen bir saat demek. Hatırlatma mesajı bu sorunun en bilinen çözümü. İngiltere'de bir NHS hastanesinde yapılan iki randomize çalışmada, hatırlatma SMS'ine kaçırılan randevunun maliyetini eklemek gelmeme oranını yüzde 11,1'den yüzde 8,4'e indirdi ([PLOS ONE](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0137306)). Çalışma bir hastanede yapıldı ve sonuç salonlara birebir taşınamaz. Yine de mesajın nasıl yazıldığının fark yarattığını gösteriyor.
 
-Instagram'ın kuralları burada bir sınır çiziyor. Müşteri randevuyu üç gün önce aldıysa 24 saatlik pencere kapanmış olur ve Instagram, pencere dışında otomatik mesaj göndermek için bir araç sunmuyor. WhatsApp'ta ise mesaj almayı kabul etmiş müşterilere, Meta'nın önceden onayladığı şablon mesajlarla pencere dışında da yazılabiliyor ([WhatsApp şablon mesajları](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview)). Bu yüzden pratik kurgu şu: randevu Instagram'da alınır, müşteriden telefon numarası ve hatırlatma izni istenir, hatırlatma ve iptal ya da erteleme seçeneği WhatsApp'tan gider. Bu akışı [Randevu & Rezervasyon](/ai-asistanlar/randevu-rezervasyon) ve [WhatsApp Asistanı](/ai-asistanlar/whatsapp-asistani) sayfalarımızda anlattık.
+Instagram'ın kuralları burada bir sınır çiziyor. Müşteri randevuyu üç gün önce aldıysa mesajlaşma penceresi çoğu zaman kapanmış olur. Instagram'da pencere dışına yalnızca Meta'nın tanımladığı sınırlı durumlarda çıkılabiliyor ve Messenger'daki tek seferlik bildirim özelliği Instagram'da bulunmuyor. WhatsApp'ta ise mesaj almayı kabul etmiş müşterilere, Meta'nın önceden onayladığı şablon mesajlarla pencere dışında da yazılabiliyor ([WhatsApp şablon mesajları](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview), [WhatsApp Business mesajlaşma politikası](https://whatsappbusiness.com/policy/)). Bu yüzden pratik kurgu şu: randevu Instagram'da alınır, müşteriden telefon numarası ve hatırlatma izni istenir, hatırlatma ve iptal ya da erteleme seçeneği WhatsApp'tan gider. Bu akışı [Randevu & Rezervasyon](/ai-asistanlar/randevu-rezervasyon) ve [WhatsApp Asistanı](/ai-asistanlar/whatsapp-asistani) sayfalarımızda anlattık.
 
 ## Hangi konuşmalar mutlaka ekibe gitmeli?
 
@@ -90,9 +90,9 @@ Son madde, kurulumdan sonra neyin değiştiğini görmenin tek yolu. Ölçmeden 
 
 ## Kaynaklar
 
-- Meta for Developers, "Send Messages", Instagram API with Instagram Login: [developers.facebook.com](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/messaging-api/)
+- Meta for Developers, "Send Messages", Instagram API with Instagram Login: [developers.facebook.com](https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-instagram-login/messaging-api)
 - Meta for Developers, "Messenger Platform and IG Messaging API policy": [developers.facebook.com](https://developers.facebook.com/documentation/business-messaging/messenger-platform/policy)
-- Meta for Developers, "Send API", Messenger Platform: [developers.facebook.com](https://developers.facebook.com/docs/messenger-platform/reference/send-api/)
 - Meta for Developers, "Template fundamentals", WhatsApp Business Platform: [developers.facebook.com](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview)
+- WhatsApp Business Messaging Policy, WhatsApp: [whatsappbusiness.com](https://whatsappbusiness.com/policy/)
 - Hallsworth ve ark., "Stating Appointment Costs in SMS Reminders Reduces Missed Hospital Appointments: Findings from Two Randomised Controlled Trials", PLOS ONE, 2015: [journals.plos.org](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0137306)
 - Kişisel Verileri Koruma Kurulu, 23/12/2022 tarihli ve 2022/1357 sayılı Karar Özeti: [kvkk.gov.tr](https://www.kvkk.gov.tr/Icerik/7594/2022-1357)
