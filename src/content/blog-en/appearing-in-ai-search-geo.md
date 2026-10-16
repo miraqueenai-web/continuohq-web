@@ -5,7 +5,7 @@ description: "Where do ChatGPT, Gemini, Perplexity and Google AI Overviews get t
 answer: "Appearing in AI search starts with a solid SEO foundation. Google says AI Overviews and AI Mode have no extra technical requirements: pages that are indexed and eligible to be shown with a snippet qualify. Allow ChatGPT and Perplexity's search bots, register with Bing, keep your Business Profile up to date and write original content."
 date: 2026-10-16
 tr: "yapay-zeka-aramalarinda-gorunmek-geo"
-draft: false
+draft: true
 faqs:
   - q: "What is the difference between GEO and SEO?"
     a: "SEO aims to get your site found in traditional search results. GEO aims to get it used as a source by systems such as ChatGPT or Google's AI answers. According to guidance Google published in 2026, the two share the same foundation, because Google's own AI features are built on its core search systems."

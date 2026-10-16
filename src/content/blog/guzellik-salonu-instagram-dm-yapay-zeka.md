@@ -4,7 +4,7 @@ seoTitle: "Güzellik Salonu için Instagram DM Otomatik Yanıt"
 description: "Fiyat soruları, randevu talepleri ve gelmeyen müşteriler. Güzellik merkezleri için Instagram DM otomatik yanıt, Meta'nın kuralları ve ekibe devir."
 answer: "Güzellik salonu, tekrarlayan DM'leri işletmeye özel bir yapay zeka asistanına devrederek yetişebilir. Asistan fiyat aralığı, uygun saat, adres ve hazırlık sorularını yanıtlar, randevuyu oluşturur. Instagram'da müşteri yazdıktan sonra çoğu durumda 24 saatlik bir yanıt penceresi vardır. Cilt reaksiyonu, tıbbi estetik ve şikâyet konuları her zaman ekibe devredilmelidir."
 date: 2026-10-11
-draft: false
+draft: true
 faqs:
   - q: "Müşteriye bir asistanla yazıştığını söylemek gerekir mi?"
     a: "Asistan salonunuzun Instagram hesabından yazar. Meta, yasanın zorunlu kıldığı yerlerde otomatik bir sistemle konuşulduğunun söylenmesini şart koşuyor, diğer durumlarda da bunu öneriyor. Konuşmanın başında kısa bir bilgilendirme cümlesi yeterlidir."

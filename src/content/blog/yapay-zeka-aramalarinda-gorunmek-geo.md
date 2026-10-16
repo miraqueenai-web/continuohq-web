@@ -4,7 +4,7 @@ seoTitle: "GEO Nedir? Yapay Zeka Aramalarında Görünmek"
 description: "ChatGPT, Gemini, Perplexity ve Google AI Overviews bilgiyi nereden alıyor? Küçük işletmeler için GEO'nun ne olduğunu, neyin işe yaradığını ve neyin abartıldığını anlattık."
 answer: "Yapay zeka aramalarında görünmenin yolu sağlam bir SEO temelinden geçer. Google, AI Overviews ve AI Mode için ek bir teknik şart olmadığını, dizine eklenmiş ve snippet ile gösterilebilen sayfaların uygun olduğunu söylüyor. ChatGPT ve Perplexity'nin arama botlarına izin verin, Bing'e kaydolun, İşletme Profilinizi güncel tutun ve özgün içerik yazın."
 date: 2026-10-16
-draft: false
+draft: true
 faqs:
   - q: "GEO ile SEO arasındaki fark nedir?"
     a: "SEO, sitenizin klasik arama sonuçlarında bulunmasını hedefler. GEO ise ChatGPT veya Google'ın yapay zeka yanıtları gibi sistemlerde kaynak olarak kullanılmayı hedefler. Google'ın 2026'da yayımladığı rehbere göre kendi yapay zeka özellikleri temel arama sistemlerinin üzerine kurulu olduğu için ikisinin temeli aynıdır."

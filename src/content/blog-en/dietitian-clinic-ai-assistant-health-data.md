@@ -5,7 +5,7 @@ description: "AI assistants for dietitians and small clinics: booking and inform
 answer: "An AI assistant for dietitians can take on admin tasks such as bookings, reminders, package and fee information, and briefing clients before the first consultation. Diagnosis, personalised diet plans, and medication and supplement questions should go to the dietitian. Health data is special category data under KVKK; the assistant should collect no more than necessary and meet the processing conditions."
 date: 2026-10-13
 tr: "diyetisyen-klinik-yapay-zeka-asistani-kvkk"
-draft: false
+draft: true
 faqs:
   - q: "Can the assistant prepare a diet plan for my client?"
     a: "It should not. A personalised nutrition plan is the job of the dietitian who assesses the client's health. The assistant should take such requests, pass them to the dietitian and direct the client to book an appointment."

@@ -4,7 +4,7 @@ seoTitle: "Diyetisyen Yapay Zeka Asistanı ve Sağlık Verisi KVKK"
 description: "Diyetisyen ve küçük klinikler için yapay zeka asistanı: randevu ve bilgi işleri, uzmana devredilmesi gereken konular ve sağlık verisinde KVKK kuralları."
 answer: "Diyetisyen yapay zeka asistanı randevu, hatırlatma, paket ve ücret bilgisi, ilk görüşme öncesi bilgilendirme gibi idari işleri üstlenebilir. Tanı, kişiye özel diyet planı, ilaç ve takviye soruları diyetisyene devredilmelidir. Sağlık verisi KVKK'da özel nitelikli kişisel veridir; asistan bu veriyi gereğinden fazla toplamamalı ve işleme şartlarına uygun kurulmalıdır."
 date: 2026-10-13
-draft: false
+draft: true
 faqs:
   - q: "Asistan danışanıma diyet listesi hazırlayabilir mi?"
     a: "Hazırlamamalı. Kişiye özel beslenme planı, danışanın sağlık durumunu değerlendiren diyetisyenin işidir. Asistan bu tür talepleri alıp diyetisyene iletmeli ve danışanı randevuya yönlendirmelidir."

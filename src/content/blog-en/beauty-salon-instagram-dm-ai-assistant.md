@@ -5,7 +5,7 @@ description: "Price questions, booking requests and no-shows. Instagram DM auto-
 answer: "A beauty salon can keep up by handing repetitive DMs to an AI assistant built for the business. The assistant answers questions on price ranges, available times, the address and preparation, and creates the booking. On Instagram there is usually a 24-hour reply window after the customer writes. Skin reactions, medical aesthetics and complaints should always go to the team."
 date: 2026-10-11
 tr: "guzellik-salonu-instagram-dm-yapay-zeka"
-draft: false
+draft: true
 faqs:
   - q: "Do I need to tell customers they are messaging an assistant?"
     a: "The assistant writes from your salon's Instagram account. Meta requires you to disclose that the customer is talking to an automated system where the law requires it, and recommends doing so in other cases too. A short line at the start of the conversation is enough."
